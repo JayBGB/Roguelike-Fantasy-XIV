@@ -4,13 +4,14 @@
 
 package com.project.game;
 
-import com.project.characters.Hero;
+import com.project.characters.CharData;
 
 import javax.swing.*;
 
-public class CharacterCreation extends Hero{
+public class CharacterCreation extends CharData {
 
     public void createCharacter(){
+
        String inputName=JOptionPane.showInputDialog(null, "Welcome to the character creation.\nWhat is your hero's name:\n", "Name", JOptionPane.PLAIN_MESSAGE);
        setName(inputName);
 

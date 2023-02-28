@@ -4,7 +4,7 @@ package com.project.characters;
  * @author Jay & Billy
  */
 
-public class Hero {
+public class CharData {
 
     // VARIABLES
     private String name;
@@ -20,7 +20,7 @@ public class Hero {
 
 
 
-    public Hero (){}
+    public CharData(){}
 
     /**
      *
@@ -35,7 +35,7 @@ public class Hero {
      * @param AttIntelligence Hero's base INT attribute.
      * @param AttCharisma Hero's base CHA attribute.
      */
-    public Hero (String name, String surname, int gender, String race, int AttStrength, int AttDexterity, int AttConstitution, int AttWisdom, int AttIntelligence, int AttCharisma){
+    public CharData(String name, String surname, int gender, String race, int AttStrength, int AttDexterity, int AttConstitution, int AttWisdom, int AttIntelligence, int AttCharisma){
 
         this.name=name;
         this.surname=surname;
@@ -135,16 +135,8 @@ public class Hero {
      *
      * @return Returns the hero's surname.
      */
-    public String getSurname(){
+    public String getSurname() {
         return surname;
-    }
-
-    /**
-     *
-     * @return Return's the hero's gender.
-     */
-    public int getGender(){
-        return gender;
     }
 
     /**

@@ -3,7 +3,7 @@
  */
 package com.project.characters;
 
-public class Race extends Hero {
+public class Race extends CharData {
 
     private int str;
     private int dex;
