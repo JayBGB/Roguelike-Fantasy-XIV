@@ -1,3 +1,7 @@
+/**
+ * @author Jay & Billy
+ */
+
 package com.project.game;
 
 import com.project.characters.Hero;

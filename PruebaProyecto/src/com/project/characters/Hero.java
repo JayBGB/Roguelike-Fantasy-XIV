@@ -1,7 +1,7 @@
 package com.project.characters;
 
 /**
- * @author JayBGB
+ * @author Jay & Billy
  */
 
 public class Hero {

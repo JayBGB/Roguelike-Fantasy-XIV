@@ -1,3 +1,6 @@
+/**
+ * @author Jay & Billy
+ */
 package com.project.characters;
 
 public class Race extends Hero {
@@ -8,9 +11,6 @@ public class Race extends Hero {
     private int wis;
     private int itl;
     private int cha;
-
-
-    }
 
     public void hyur (){
         str=1;

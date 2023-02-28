@@ -1,7 +1,7 @@
 package com.project.game;
 
 /**
- * @author JayBGB
+ * @author Jay & Billy
  */
 
 public class Main {
