@@ -4,7 +4,7 @@ package com.project.characters;
  * @author JayBGB
  */
 
-public abstract class Hero {
+public class Hero {
 
     // VARIABLES
     private String name;
@@ -24,17 +24,30 @@ public abstract class Hero {
     public Hero (){}
 
     /**
-     * @param name Constructor in abstract class.
-     * @param surname Constructor in abstract class.
-     * @param gender Constructor in abstract class.
-     * @param race Constructor in abstract class.
+     *
+     * @param name Hero's name.
+     * @param surname Hero's surname.
+     * @param gender Hero's gender.
+     * @param race Hero's race.
+     * @param AttStrength Hero's base STR attribute.
+     * @param AttDexterity Hero's base DEX attribute.
+     * @param AttConstitution Hero's base CON attribute.
+     * @param AttWisdom Hero's base WIS attribute.
+     * @param AttIntelligence Hero's base INT attribute.
+     * @param AttCharisma Hero's base CHA attribute.
      */
-    public Hero (String name, String surname, int gender, String race){
+    public Hero (String name, String surname, int gender, String race, int AttStrength, int AttDexterity, int AttConstitution, int AttWisdom, int AttIntelligence, int AttCharisma){
 
         this.name=name;
         this.surname=surname;
         this.gender=gender;
         this.race=race;
+        this.AttStrength=AttStrength;
+        this.AttDexterity=AttDexterity;
+        this.AttConsitution=AttConstitution;
+        this.AttWisdom=AttWisdom;
+        this.AttIntelligence=AttIntelligence;
+        this.AttCharisma=AttCharisma;
     }
 
     // GETTERS & SETTERS
@@ -58,7 +71,7 @@ public abstract class Hero {
      *
      * @return Return's the hero's gender.
      */
-    public int isGender(){
+    public int getGender(){
         return gender;
     }
 
@@ -72,8 +85,57 @@ public abstract class Hero {
 
     /**
      *
+     * @return Return STR attribute.
+     */
+    public int getAttStrength(){
+        return AttStrength;
+    }
+
+    /**
+     *
+     * @return Return DEX attribute.
+     */
+    public int getAttDexterity(){
+        return AttDexterity;
+    }
+
+    /**
+     *
+     * @return Return CON attribute.
+     */
+    public int getAttConsitution(){
+        return AttConsitution;
+    }
+
+    /**
+     *
+     * @return Return WIS attribute.
+     */
+    public int getAttWisdom(){
+        return AttWisdom;
+    }
+
+    /**
+     *
+     * @return Return INT attribute.
+     */
+    public int getAttIntelligence(){
+        return AttIntelligence;
+    }
+
+    /**
+     *
+     * @return Return CHA attribute.
+     */
+    public int getAttCharisma(){
+        return AttCharisma;
+    }
+
+    /**
+     *
      * @param name Hero's name setter.
      */
+
     public void setName(String name) {
         this.name = name;
     }
