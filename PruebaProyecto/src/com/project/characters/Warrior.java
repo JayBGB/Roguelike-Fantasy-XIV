@@ -5,8 +5,6 @@ package com.project.characters;
  */
 public interface Warrior {
 
-    public final String WARRIORWEAPONCAPS = "Axe";
-
     public void warriorRage();
     public void warriorAttack();
     public void warriorDefense();
