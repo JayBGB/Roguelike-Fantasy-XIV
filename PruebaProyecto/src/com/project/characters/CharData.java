@@ -14,7 +14,7 @@ public class CharData {
     private int AttStrength = 10;
     private int AttDexterity = 10;
     private int AttConsitution = 10;
-    private  int AttWisdom = 10;
+    private int AttWisdom = 10;
     private int AttIntelligence = 10;
     private int AttCharisma = 10;
 
