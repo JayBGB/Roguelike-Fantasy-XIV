@@ -1,7 +1,6 @@
-package com.project.game.jay;
+package com.project.game;
 
-import com.project.characters.jay.Hero;
-import com.project.characters.jay.Warrior;
+import com.project.characters.Hero;
 
 import javax.swing.*;
 

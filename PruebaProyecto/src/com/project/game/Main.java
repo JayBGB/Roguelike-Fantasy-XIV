@@ -1,4 +1,4 @@
-package com.project.game.jay;
+package com.project.game;
 
 /**
  * @author JayBGB
