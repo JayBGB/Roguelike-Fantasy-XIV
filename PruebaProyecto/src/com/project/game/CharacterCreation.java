@@ -1,7 +1,6 @@
-package com.project.game.jay;
+package com.project.game;
 
-import com.project.characters.jay.Hero;
-import com.project.characters.jay.Warrior;
+import com.project.characters.Hero;
 
 import javax.swing.*;
 
@@ -18,6 +17,5 @@ public class CharacterCreation extends Hero{
        int inputGender = JOptionPane.showOptionDialog(null, "What is your hero's gender?", "Choose your hero's gender", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
                null, gender, gender[0]);
        setGender(inputGender);
-
     }
 }
