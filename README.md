@@ -11,3 +11,7 @@ Para hacer el programa que nos saque de la mugre cuando lo vendamos a la NASA.
 - Au Ra -> Done.
 - Hrothgar -> Done.
 - Viera -> Done.
+
+## Items
+## Damage and Combat System
+## HP & Mana
