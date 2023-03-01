@@ -10,7 +10,7 @@ public class Character extends CharData{
     int hp, mana;
     Race races = new Race();
 
-    public void setCharacter(){
+    /**public void setCharacter(){
         switch (getRace()){
             case 0:
                 races.hyur();
@@ -25,6 +25,8 @@ public class Character extends CharData{
     public void calculateHP(){
         hp = getAttConstitution() * 5;
         System.out.println(hp);
+     */
+
     }
-}
+
 

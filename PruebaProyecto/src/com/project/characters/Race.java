@@ -3,7 +3,11 @@
  */
 package com.project.characters;
 
-public class Race extends CharData {
+import com.project.game.Main;
+
+public class Race  {
+
+
 
     private int str;
     private int dex;
@@ -20,28 +24,30 @@ public class Race extends CharData {
         itl=1;
         cha=1;
 
-        super.setAttStrength(getAttStrength() + str);
-        super.setAttDexterity(getAttDexterity() + dex);
-        super.setAttConstitution(getAttConstitution() + con);
-        super.setAttWisdom(getAttWisdom() + wis);
-        super.setAttIntelligence(getAttIntelligence() + itl);
-        super.setAttCharisma(getAttCharisma() + cha);
+
+        Main.obj.setAttStrength(Main.obj.getAttStrength() + str);
+        Main.obj.setAttDexterity(Main.obj.getAttDexterity() + dex);
+        Main.obj.setAttConstitution(Main.obj.getAttConstitution() + con);
+        Main.obj.setAttWisdom(Main.obj.getAttWisdom() + wis);
+        Main.obj.setAttIntelligence(Main.obj.getAttIntelligence() + itl);
+        Main.obj.setAttCharisma(Main.obj.getAttCharisma() + cha);
     }
 
     public void elezen (){
         cha=2;
         dex=2;
         itl=2;
-        super.setAttCharisma(getAttCharisma() + cha);
-        super.setAttDexterity(getAttDexterity() + dex);
-        super.setAttIntelligence(getAttIntelligence() + itl);
+
+        Main.obj.setAttCharisma(Main.obj.getAttCharisma() + cha);
+        Main.obj.setAttDexterity(Main.obj.getAttDexterity() + dex);
+        Main.obj.setAttIntelligence(Main.obj.getAttIntelligence() + itl);
     }
 
     public void lalafell (){
         cha=3;
         dex=3;
-        super.setAttCharisma(getAttCharisma() + cha);
-        super.setAttDexterity(getAttDexterity() + dex);
+        Main.obj.setAttCharisma(Main.obj.getAttCharisma() + cha);
+        Main.obj.setAttDexterity(Main.obj.getAttDexterity() + dex);
     }
 
     public void miqote(){
@@ -49,43 +55,44 @@ public class Race extends CharData {
         dex=2;
         cha=1;
         str=1;
-        super.setAttWisdom(getAttWisdom() + wis);
-        super.setAttDexterity(getAttDexterity() + dex);
-        super.setAttCharisma(getAttCharisma() + cha);
-        super.setAttStrength(getAttStrength() + str);
+        Main.obj.setAttWisdom(Main.obj.getAttWisdom() + wis);
+        Main.obj.setAttDexterity(Main.obj.getAttDexterity() + dex);
+        Main.obj.setAttCharisma(Main.obj.getAttCharisma() + cha);
+        Main.obj.setAttStrength(Main.obj.getAttStrength() + str);
     }
 
     public void roegadyn(){
         str=3;
         con=3;
-        setAttStrength(getAttStrength() + str);
-        setAttConstitution(getAttConstitution() + con);
+        Main.obj.setAttStrength(Main.obj.getAttStrength() + str);
+        Main.obj.setAttConstitution(Main.obj.getAttConstitution() + con);
     }
 
     public void aura(){
         str=2;
         con=2;
         dex=2;
-        super.setAttStrength(getAttStrength() + str);
-        super.setAttConstitution(getAttConstitution() + con);
-        super.setAttDexterity(getAttDexterity() + dex);
+        Main.obj.setAttStrength(Main.obj.getAttStrength() + str);
+        Main.obj.setAttConstitution(Main.obj.getAttConstitution() + con);
+        Main.obj.setAttDexterity(Main.obj.getAttDexterity() + dex);
     }
 
     public void hrothgar(){
         wis=3;
         str=2;
         con=1;
-        super.setAttWisdom(getAttWisdom() + wis);
-        super.setAttStrength(getAttStrength() + str);
-        super.setAttConstitution(getAttConstitution() + con);
+        Main.obj.setAttWisdom(Main.obj.getAttWisdom() + wis);
+        Main.obj.setAttStrength(Main.obj.getAttStrength() + str);
+        Main.obj.setAttConstitution(Main.obj.getAttConstitution() + con);
     }
 
     public void viera(){
         dex=2;
         itl=2;
         wis=2;
-        super.setAttDexterity(getAttDexterity() + dex);
-        super.setAttIntelligence(getAttIntelligence() + itl);
-        super.setAttWisdom(getAttWisdom() + wis);
+        Main.obj.setAttDexterity(Main.obj.getAttDexterity() + dex);
+        Main.obj.setAttIntelligence(Main.obj.getAttIntelligence() + itl);
+        Main.obj.setAttWisdom(Main.obj.getAttWisdom() + wis);
     }
+
 }

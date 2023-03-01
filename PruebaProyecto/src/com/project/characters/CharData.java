@@ -11,12 +11,12 @@ public class CharData {
     private String surname;
     private int gender;
     private int race;
-    private int attStrength;
-    private int attDexterity;
-    private int attConstitution;
-    private int attWisdom;
-    private int attIntelligence;
-    private int attCharisma;
+    private int attStrength=10;
+    private int attDexterity=10;
+    private int attConstitution=10;
+    private int attWisdom=10;
+    private int attIntelligence=10;
+    private int attCharisma=10;
 
 
 
@@ -48,7 +48,6 @@ public class CharData {
         this.attCharisma = attCharisma;
     }
     // GETTERS & SETTERS
-
 
     public String getName() {
         return name;
@@ -129,10 +128,6 @@ public class CharData {
     public int getGender() {
         return gender;
     }
-    // OTHER METHODS
-
-    public void selectClass(){}
-
 }
 
 
