@@ -19,9 +19,10 @@ public class Race extends CharData {
         wis=1;
         itl=1;
         cha=1;
+
         super.setAttStrength(getAttStrength() + str);
         super.setAttDexterity(getAttDexterity() + dex);
-        super.setAttConsitution(getAttConsitution() + con);
+        super.setAttConstitution(getAttConstitution() + con);
         super.setAttWisdom(getAttWisdom() + wis);
         super.setAttIntelligence(getAttIntelligence() + itl);
         super.setAttCharisma(getAttCharisma() + cha);
@@ -57,8 +58,8 @@ public class Race extends CharData {
     public void roegadyn(){
         str=3;
         con=3;
-        super.setAttStrength(getAttStrength() + str);
-        super.setAttConsitution(getAttConsitution() + con);
+        setAttStrength(getAttStrength() + str);
+        setAttConstitution(getAttConstitution() + con);
     }
 
     public void aura(){
@@ -66,7 +67,7 @@ public class Race extends CharData {
         con=2;
         dex=2;
         super.setAttStrength(getAttStrength() + str);
-        super.setAttConsitution(getAttConsitution() + con);
+        super.setAttConstitution(getAttConstitution() + con);
         super.setAttDexterity(getAttDexterity() + dex);
     }
 
@@ -76,7 +77,7 @@ public class Race extends CharData {
         con=1;
         super.setAttWisdom(getAttWisdom() + wis);
         super.setAttStrength(getAttStrength() + str);
-        super.setAttConsitution(getAttConsitution() + con);
+        super.setAttConstitution(getAttConstitution() + con);
     }
 
     public void viera(){

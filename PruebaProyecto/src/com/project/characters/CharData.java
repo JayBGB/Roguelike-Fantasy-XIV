@@ -10,13 +10,13 @@ public class CharData {
     private String name;
     private String surname;
     private int gender;
-    private String race;
-    private int AttStrength = 10;
-    private int AttDexterity = 10;
-    private int AttConsitution = 10;
-    private int AttWisdom = 10;
-    private int AttIntelligence = 10;
-    private int AttCharisma = 10;
+    private int race;
+    private int attStrength;
+    private int attDexterity;
+    private int attConstitution;
+    private int attWisdom;
+    private int attIntelligence;
+    private int attCharisma;
 
 
 
@@ -28,159 +28,104 @@ public class CharData {
      * @param surname Hero's surname.
      * @param gender Hero's gender.
      * @param race Hero's race.
-     * @param AttStrength Hero's base STR attribute.
-     * @param AttDexterity Hero's base DEX attribute.
-     * @param AttConstitution Hero's base CON attribute.
-     * @param AttWisdom Hero's base WIS attribute.
-     * @param AttIntelligence Hero's base INT attribute.
-     * @param AttCharisma Hero's base CHA attribute.
+     * @param attStrength Hero's base STR attribute.
+     * @param attDexterity Hero's base DEX attribute.
+     * @param attConstitution Hero's base CON attribute.
+     * @param attWisdom Hero's base WIS attribute.
+     * @param attIntelligence Hero's base INT attribute.
+     * @param attCharisma Hero's base CHA attribute.
      */
-    public CharData(String name, String surname, int gender, String race, int AttStrength, int AttDexterity, int AttConstitution, int AttWisdom, int AttIntelligence, int AttCharisma){
-
-        this.name=name;
-        this.surname=surname;
-        this.gender=gender;
-        this.race=race;
-        this.AttStrength=AttStrength;
-        this.AttDexterity=AttDexterity;
-        this.AttConsitution=AttConstitution;
-        this.AttWisdom=AttWisdom;
-        this.AttIntelligence=AttIntelligence;
-        this.AttCharisma=AttCharisma;
+    public CharData(String name, String surname, int gender, int race, int attStrength, int attDexterity, int attConstitution, int attWisdom, int attIntelligence, int attCharisma) {
+        this.name = name;
+        this.surname = surname;
+        this.gender = gender;
+        this.race = race;
+        this.attStrength = attStrength;
+        this.attDexterity = attDexterity;
+        this.attConstitution = attConstitution;
+        this.attWisdom = attWisdom;
+        this.attIntelligence = attIntelligence;
+        this.attCharisma = attCharisma;
     }
-
     // GETTERS & SETTERS
 
-    /**
-     * @return Returns the hero's charisma.
-     */
-    public int getAttCharisma() {
-        return AttCharisma;
-    }
-    /**
-     * @param attCharisma Hero's Charisma setter.
-     */
-    public void setAttCharisma(int attCharisma) {
-        AttCharisma = attCharisma;
-    }
-    /**
-     * @return Returns the hero's intelligence.
-     */
-    public int getAttIntelligence() {
-        return AttIntelligence;
-    }
-    /**
-     * @param attIntelligence Hero's Intelligence setter.
-     */
-    public void setAttIntelligence(int attIntelligence) {
-        AttIntelligence = attIntelligence;
-    }
-    /**
-     * @return Returns the hero's wisdom.
-     */
-    public int getAttWisdom() {
-        return AttWisdom;
-    }
-    /**
-     * @param attWisdom Hero's Wisdom setter.
-     */
-    public void setAttWisdom(int attWisdom) {
-        AttWisdom = attWisdom;
-    }
-    /**
-     * @return Returns the hero's constitution.
-     */
-    public int getAttConsitution() {
-        return AttConsitution;
-    }
-    /**
-     * @param attConsitution Hero's Constitution setter.
-     */
-    public void setAttConsitution(int attConsitution) {
-        AttConsitution = attConsitution;
-    }
-    /**
-     * @return Returns the hero's dexterity.
-     */
-    public int getAttDexterity() {
-        return AttDexterity;
-    }
-    /**
-     * @param attDexterity Hero's Dexterity setter.
-     */
-    public void setAttDexterity(int attDexterity) {
-        AttDexterity = attDexterity;
-    }
-    /**
-     * @return Returns the hero's strength.
-     */
-    public int getAttStrength() {
-        return AttStrength;
-    }
-    /**
-     * @param attStrength Hero's Strength setter.
-     */
-    public void setAttStrength(int attStrength) {
-        AttStrength = attStrength;
-    }
 
-    /**
-     * @return Returns the hero's name.
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     *
-     * @return Returns the hero's surname.
-     */
-    public String getSurname() {
-        return surname;
-    }
-
-    /**
-     *
-     * @return Returns the hero's race.
-     */
-    public String getRace(){
-        return race;
-    }
-
-    /**
-     *
-     * @param name Hero's name setter.
-     */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     *
-     * @param surname Hero's surname setter.
-     */
-    public void setSurname(String surname){
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
         this.surname = surname;
     }
 
-    /**
-     *
-     * @param gender Hero's gender setter.
-     */
-    public void setGender(int gender){
+    public void setGender(int gender) {
         this.gender = gender;
     }
 
-    /**
-     *
-     * @param race Hero's race setter.
-     */
-    public void setRace(String race){
+    public int getRace() {
+        return race;
+    }
+
+    public void setRace(int race) {
         this.race = race;
     }
-    /**
-     * @return Returns the hero's gender.
-     */
+
+    public int getAttStrength() {
+        return attStrength;
+    }
+
+    public void setAttStrength(int attStrength) {
+        this.attStrength = attStrength;
+    }
+
+    public int getAttDexterity() {
+        return attDexterity;
+    }
+
+    public void setAttDexterity(int attDexterity) {
+        this.attDexterity = attDexterity;
+    }
+
+    public int getAttConstitution() {
+        return attConstitution;
+    }
+
+    public void setAttConstitution(int attConstitution) {
+        this.attConstitution = attConstitution;
+    }
+
+    public int getAttWisdom() {
+        return attWisdom;
+    }
+
+    public void setAttWisdom(int attWisdom) {
+        this.attWisdom = attWisdom;
+    }
+
+    public int getAttIntelligence() {
+        return attIntelligence;
+    }
+
+    public void setAttIntelligence(int attIntelligence) {
+        this.attIntelligence = attIntelligence;
+    }
+
+    public int getAttCharisma() {
+        return attCharisma;
+    }
+
+    public void setAttCharisma(int attCharisma) {
+        this.attCharisma = attCharisma;
+    }
+
     public int getGender() {
         return gender;
     }
