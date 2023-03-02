@@ -14,11 +14,11 @@ Para hacer el programa que nos saque de la mugre cuando lo vendamos a la NASA.
 
 ## Items
 ## Damage and Combat System
--Player's defense -> Done.
--Player's attack -> WIP
+- Player's defense -> Done.
+- Player's attack -> WIP
 ## HP & Mana
--HP -> Done.
--MANA -> Done.
+- HP -> Done.
+- MANA -> Done.
 ## Inventory
 ## Stat Block selection
 - Attribute selection -> Done.
