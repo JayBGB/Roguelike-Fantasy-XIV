@@ -5,6 +5,9 @@
 package com.project.game;
 
 import com.project.characters.Race;
+import com.project.jobs.DarkKnight;
+import com.project.jobs.Paladin;
+import com.project.jobs.Warrior;
 
 import javax.swing.*;
 
@@ -119,10 +122,14 @@ public class CharacterCreation{
 
             switch (inputJob){
                 case WAR:
+                    Warrior war = new Warrior();
+                    war.warStats();
                     break;
                 case PLD:
+                    Paladin pal = new Paladin();
                     break;
                 case DRK:
+                    DarkKnight drk = new DarkKnight();
                     break;
                 case GNB:
                     break;
@@ -227,11 +234,13 @@ public class CharacterCreation{
 
     public void calculateHP() {
         float hp = Main.data.getAttConstitution() * 5;
+        Main.data.setHp(hp);
         System.out.println("Player's HP: "+hp); // HAY QUE QUITARLO A POSTERIORI, SOLO PARA TESTING
     }
 
     public void calculateMana(){
         float mana = Main.data.getAttIntelligence() * 5;
+        Main.data.setMana(mana);
         System.out.println("Player's Mana: "+mana); // HAY QUE QUITARLO A POSTERIORI, SOLO PARA TESTING
 
     }
@@ -239,7 +248,9 @@ public class CharacterCreation{
     public void calculateDefense(){
 
         float defense = 10f+Main.data.getAttConstitution()+Main.data.getAttDexterity();
+        Main.data.setDefense(defense);
         float defensePercentage= (defense/2)/100;
+        Main.data.setDefensePercentage(defensePercentage);
         System.out.println("Player's Defense: "+defense+"\nDefense Percentage: "+defensePercentage); // HAY QUE QUITARLO A POSTERIORI, SOLO PARA TESTING
     }
 

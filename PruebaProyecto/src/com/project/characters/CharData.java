@@ -18,6 +18,11 @@ public class CharData {
     private int attIntelligence=10;
     private int attCharisma=10;
 
+    private float hp;
+    private float mana;
+    private float defense;
+    private float defensePercentage;
+
 
 
     public CharData(){}
@@ -34,8 +39,12 @@ public class CharData {
      * @param attWisdom Hero's base WIS attribute.
      * @param attIntelligence Hero's base INT attribute.
      * @param attCharisma Hero's base CHA attribute.
+     * @param hp Hero's HP.
+     * @param mana Hero's mana.
+     * @param defense Hero's defense.
+     * @param defensePercentage Hero's defense(Percentage).
      */
-    public CharData(String name, String surname, int gender, int race, int attStrength, int attDexterity, int attConstitution, int attWisdom, int attIntelligence, int attCharisma) {
+    public CharData(String name, String surname, int gender, int race, int attStrength, int attDexterity, int attConstitution, int attWisdom, int attIntelligence, int attCharisma, float hp, float mana, float defense, float defensePercentage) {
         this.name = name;
         this.surname = surname;
         this.gender = gender;
@@ -46,7 +55,12 @@ public class CharData {
         this.attWisdom = attWisdom;
         this.attIntelligence = attIntelligence;
         this.attCharisma = attCharisma;
+        this.hp = hp;
+        this.mana = mana;
+        this.defense = defense;
+        this.defensePercentage = defensePercentage;
     }
+
     // GETTERS & SETTERS
 
     /**
@@ -208,6 +222,72 @@ public class CharData {
     public int getGender() {
         return gender;
     }
+
+    /**
+     *
+     * @return Returns PC's HP.
+     */
+    public float getHp() {
+        return hp;
+    }
+
+    /**
+     *
+     * @param hp PC's HP.
+     */
+    public void setHp(float hp) {
+        this.hp = hp;
+    }
+
+    /**
+     *
+     * @return Returns PC's mana.
+     */
+    public float getMana() {
+        return mana;
+    }
+
+    /**
+     *
+     * @param mana PC's mana.
+     */
+    public void setMana(float mana) {
+        this.mana = mana;
+    }
+
+    /**
+     *
+     * @return Returns PC's defense.
+     */
+    public float getDefense() {
+        return defense;
+    }
+
+    /**
+     *
+     * @param defense PC's defense.
+     */
+    public void setDefense(float defense) {
+        this.defense = defense;
+    }
+
+    /**
+     *
+     * @return Returns PC's defense percentage.
+     */
+    public float getDefensePercentage() {
+        return defensePercentage;
+    }
+
+    /**
+     *
+     * @param defensePercentage PC's defense percentage.
+     */
+    public void setDefensePercentage(float defensePercentage) {
+        this.defensePercentage = defensePercentage;
+    }
 }
+
+
 
 

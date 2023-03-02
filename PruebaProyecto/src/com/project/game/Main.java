@@ -17,6 +17,7 @@ public class Main {
      */
     public static void main(String[] args) {
 
+        // CHARACTER CREATION
 
         CharacterCreation hero = new CharacterCreation();
         hero.createCharacter();
