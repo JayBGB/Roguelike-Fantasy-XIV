@@ -50,8 +50,6 @@ public class CharacterCreation{
     private final int CHARISMA=5;
 
 
-
-
     public void createCharacter() {
 
         String inputName = JOptionPane.showInputDialog(null, "Welcome to the character creation.\nWhat is your hero's name:\n", "Character's Name", JOptionPane.PLAIN_MESSAGE);
@@ -164,7 +162,6 @@ public class CharacterCreation{
         }
     }
     public void pointAllocation(int levels){
-
 
         try{
 

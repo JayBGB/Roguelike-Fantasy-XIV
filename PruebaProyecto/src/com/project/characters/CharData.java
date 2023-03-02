@@ -49,82 +49,162 @@ public class CharData {
     }
     // GETTERS & SETTERS
 
+    /**
+     *
+     * @return Returns the PC's name.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param name PC's name.
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return Returns the PC's surname.
+     */
     public String getSurname() {
         return surname;
     }
 
+    /**
+     *
+     * @param surname PC's surname.
+     */
     public void setSurname(String surname) {
         this.surname = surname;
     }
 
+    /**
+     *
+     * @param gender PC's gender.
+     */
     public void setGender(int gender) {
         this.gender = gender;
     }
 
+    /**
+     *
+     * @return Returns the PC's race.
+     */
     public int getRace() {
         return race;
     }
 
+    /**
+     *
+     * @param race PC's race.
+     */
     public void setRace(int race) {
         this.race = race;
     }
 
+    /**
+     *
+     * @return Returns the PC's STR attribute.
+     */
     public int getAttStrength() {
         return attStrength;
     }
 
+    /**
+     *
+     * @param attStrength PC's STR attribute.
+     */
     public void setAttStrength(int attStrength) {
         this.attStrength = attStrength;
     }
 
+    /**
+     *
+     * @return Returns the PC's DEX attribute.
+     */
     public int getAttDexterity() {
         return attDexterity;
     }
 
+    /**
+     *
+     * @param attDexterity PC's DEX attribute.
+     */
     public void setAttDexterity(int attDexterity) {
         this.attDexterity = attDexterity;
     }
 
+    /**
+     *
+     * @return Returns the PC's CON attribute.
+     */
     public int getAttConstitution() {
         return attConstitution;
     }
 
+    /**
+     *
+     * @param attConstitution PC's CON attribute.
+     */
     public void setAttConstitution(int attConstitution) {
         this.attConstitution = attConstitution;
     }
 
+    /**
+     *
+     * @return Returns the PC's WIS attribute.
+     */
     public int getAttWisdom() {
         return attWisdom;
     }
 
+    /**
+     *
+     * @param attWisdom PC's WIS attribute.
+     */
     public void setAttWisdom(int attWisdom) {
         this.attWisdom = attWisdom;
     }
 
+    /**
+     *
+     * @return Returns the PC's INT attribute.
+     */
     public int getAttIntelligence() {
         return attIntelligence;
     }
 
+    /**
+     *
+     * @param attIntelligence PC's INT attribute.
+     */
     public void setAttIntelligence(int attIntelligence) {
         this.attIntelligence = attIntelligence;
     }
 
+    /**
+     *
+     * @return Returns the PC's CHA attribute.
+     */
     public int getAttCharisma() {
         return attCharisma;
     }
 
+    /**
+     *
+     * @param attCharisma PC's CHA attribute.
+     */
     public void setAttCharisma(int attCharisma) {
         this.attCharisma = attCharisma;
     }
 
+    /**
+     *
+     * @return Returns the PC's gender.
+     */
     public int getGender() {
         return gender;
     }

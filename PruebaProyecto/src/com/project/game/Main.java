@@ -8,10 +8,13 @@ import com.project.enemies.Enemy;
  */
 
 public class Main {
-
     public static CharData data = new CharData();
     public static Enemy enemy = new Enemy();
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
 

@@ -16,6 +16,7 @@ public class Race  {
     private int itl;
     private int cha;
 
+
     public void hyur (){
         str=1;
         dex=1;
