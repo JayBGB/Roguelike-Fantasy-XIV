@@ -1,7 +1,7 @@
 /**
  * @author Jay & Billy
  */
-package com.project.characters;
+package com.project.jobs;
 
 public class Job {
 

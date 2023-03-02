@@ -1,6 +1,7 @@
 package com.project.game;
 
 import com.project.characters.CharData;
+import com.project.enemies.Enemy;
 
 /**
  * @author Jay & Billy
@@ -8,15 +9,19 @@ import com.project.characters.CharData;
 
 public class Main {
 
-    public static CharData obj = new CharData();
+    public static CharData data = new CharData();
+    public static Enemy enemy = new Enemy();
 
     public static void main(String[] args) {
 
 
         CharacterCreation hero = new CharacterCreation();
         hero.createCharacter();
-        System.out.println(obj.getAttConstitution());
+        hero.selectClass();
+        hero.pointAllocation(5);
         hero.calculateHP();
+        hero.calculateMana();
+        hero.calculateDefense();
 
     }
 }

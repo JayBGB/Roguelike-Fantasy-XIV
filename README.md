@@ -21,3 +21,4 @@ Para hacer el programa que nos saque de la mugre cuando lo vendamos a la NASA.
 ## Inventory
 ## Stat Block selection
 - Lo de hacer + y - pa seleccionar puntos de atributo.
+## Companions????????????

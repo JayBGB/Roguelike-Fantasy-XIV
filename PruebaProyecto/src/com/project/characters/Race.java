@@ -25,12 +25,12 @@ public class Race  {
         cha=1;
 
 
-        Main.obj.setAttStrength(Main.obj.getAttStrength() + str);
-        Main.obj.setAttDexterity(Main.obj.getAttDexterity() + dex);
-        Main.obj.setAttConstitution(Main.obj.getAttConstitution() + con);
-        Main.obj.setAttWisdom(Main.obj.getAttWisdom() + wis);
-        Main.obj.setAttIntelligence(Main.obj.getAttIntelligence() + itl);
-        Main.obj.setAttCharisma(Main.obj.getAttCharisma() + cha);
+        Main.data.setAttStrength(Main.data.getAttStrength() + str);
+        Main.data.setAttDexterity(Main.data.getAttDexterity() + dex);
+        Main.data.setAttConstitution(Main.data.getAttConstitution() + con);
+        Main.data.setAttWisdom(Main.data.getAttWisdom() + wis);
+        Main.data.setAttIntelligence(Main.data.getAttIntelligence() + itl);
+        Main.data.setAttCharisma(Main.data.getAttCharisma() + cha);
     }
 
     public void elezen (){
@@ -38,16 +38,16 @@ public class Race  {
         dex=2;
         itl=2;
 
-        Main.obj.setAttCharisma(Main.obj.getAttCharisma() + cha);
-        Main.obj.setAttDexterity(Main.obj.getAttDexterity() + dex);
-        Main.obj.setAttIntelligence(Main.obj.getAttIntelligence() + itl);
+        Main.data.setAttCharisma(Main.data.getAttCharisma() + cha);
+        Main.data.setAttDexterity(Main.data.getAttDexterity() + dex);
+        Main.data.setAttIntelligence(Main.data.getAttIntelligence() + itl);
     }
 
     public void lalafell (){
         cha=3;
         dex=3;
-        Main.obj.setAttCharisma(Main.obj.getAttCharisma() + cha);
-        Main.obj.setAttDexterity(Main.obj.getAttDexterity() + dex);
+        Main.data.setAttCharisma(Main.data.getAttCharisma() + cha);
+        Main.data.setAttDexterity(Main.data.getAttDexterity() + dex);
     }
 
     public void miqote(){
@@ -55,44 +55,44 @@ public class Race  {
         dex=2;
         cha=1;
         str=1;
-        Main.obj.setAttWisdom(Main.obj.getAttWisdom() + wis);
-        Main.obj.setAttDexterity(Main.obj.getAttDexterity() + dex);
-        Main.obj.setAttCharisma(Main.obj.getAttCharisma() + cha);
-        Main.obj.setAttStrength(Main.obj.getAttStrength() + str);
+        Main.data.setAttWisdom(Main.data.getAttWisdom() + wis);
+        Main.data.setAttDexterity(Main.data.getAttDexterity() + dex);
+        Main.data.setAttCharisma(Main.data.getAttCharisma() + cha);
+        Main.data.setAttStrength(Main.data.getAttStrength() + str);
     }
 
     public void roegadyn(){
         str=3;
         con=3;
-        Main.obj.setAttStrength(Main.obj.getAttStrength() + str);
-        Main.obj.setAttConstitution(Main.obj.getAttConstitution() + con);
+        Main.data.setAttStrength(Main.data.getAttStrength() + str);
+        Main.data.setAttConstitution(Main.data.getAttConstitution() + con);
     }
 
     public void aura(){
         str=2;
         con=2;
         dex=2;
-        Main.obj.setAttStrength(Main.obj.getAttStrength() + str);
-        Main.obj.setAttConstitution(Main.obj.getAttConstitution() + con);
-        Main.obj.setAttDexterity(Main.obj.getAttDexterity() + dex);
+        Main.data.setAttStrength(Main.data.getAttStrength() + str);
+        Main.data.setAttConstitution(Main.data.getAttConstitution() + con);
+        Main.data.setAttDexterity(Main.data.getAttDexterity() + dex);
     }
 
     public void hrothgar(){
         wis=3;
         str=2;
         con=1;
-        Main.obj.setAttWisdom(Main.obj.getAttWisdom() + wis);
-        Main.obj.setAttStrength(Main.obj.getAttStrength() + str);
-        Main.obj.setAttConstitution(Main.obj.getAttConstitution() + con);
+        Main.data.setAttWisdom(Main.data.getAttWisdom() + wis);
+        Main.data.setAttStrength(Main.data.getAttStrength() + str);
+        Main.data.setAttConstitution(Main.data.getAttConstitution() + con);
     }
 
     public void viera(){
         dex=2;
         itl=2;
         wis=2;
-        Main.obj.setAttDexterity(Main.obj.getAttDexterity() + dex);
-        Main.obj.setAttIntelligence(Main.obj.getAttIntelligence() + itl);
-        Main.obj.setAttWisdom(Main.obj.getAttWisdom() + wis);
+        Main.data.setAttDexterity(Main.data.getAttDexterity() + dex);
+        Main.data.setAttIntelligence(Main.data.getAttIntelligence() + itl);
+        Main.data.setAttWisdom(Main.data.getAttWisdom() + wis);
     }
 
 }
