@@ -23,6 +23,8 @@ public class CharData {
     private float defense;
     private float defensePercentage;
 
+    private float damage;
+
 
 
     public CharData(){}
@@ -44,7 +46,7 @@ public class CharData {
      * @param defense Hero's defense.
      * @param defensePercentage Hero's defense(Percentage).
      */
-    public CharData(String name, String surname, int gender, int race, int attStrength, int attDexterity, int attConstitution, int attWisdom, int attIntelligence, int attCharisma, float hp, float mana, float defense, float defensePercentage) {
+    public CharData(String name, String surname, int gender, int race, int attStrength, int attDexterity, int attConstitution, int attWisdom, int attIntelligence, int attCharisma, float hp, float mana, float defense, float defensePercentage, float damage) {
         this.name = name;
         this.surname = surname;
         this.gender = gender;
@@ -59,6 +61,7 @@ public class CharData {
         this.mana = mana;
         this.defense = defense;
         this.defensePercentage = defensePercentage;
+        this.damage = damage;
     }
 
     // GETTERS & SETTERS
@@ -286,7 +289,25 @@ public class CharData {
     public void setDefensePercentage(float defensePercentage) {
         this.defensePercentage = defensePercentage;
     }
+
+    /**
+     *
+     * @return Returns PC's damage.
+     */
+
+    public float getDamage() {
+        return damage;
+    }
+
+    /**
+     *
+     * @param damage PC's damage.
+     */
+    public void setDamage(float damage) {
+        this.damage = damage;
+    }
 }
+
 
 
 

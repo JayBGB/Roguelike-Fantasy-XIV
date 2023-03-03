@@ -4,7 +4,7 @@ import com.project.game.Main;
 
 public class Warrior {
 
-    private int str, dex, con, itl, wis, cha;
+    private int str, dex, con, itl;
 
     public void warStats(){
         con=3;
@@ -16,6 +16,13 @@ public class Warrior {
     }
 
     public void warInnerRelease(){
+
+            Main.data.setDefense((float) (Main.data.getDefense() - (Main.data.getDefense() * 0.2f)));
+            Main.data.setDamage((float) (Main.data.getDamage() + (Main.data.getDamage() * 0.2)));
+    }
+
+    public void warFellCleave(){
+
 
     }
 }
