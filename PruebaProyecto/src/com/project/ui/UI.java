@@ -39,12 +39,23 @@ public class UI extends JFrame {
             JLabel wisLabel = new JLabel("Wisdom: " + Main.data.getAttWisdom());
             wisLabel.setBorder(BorderFactory.createEmptyBorder(0,0,10,10));
             wisLabel.setFont(new Font("Serif", Font.PLAIN, 12));
+            JLabel intLabel = new JLabel("Inteligence: " + Main.data.getAttIntelligence());
+            intLabel.setBorder(BorderFactory.createEmptyBorder(0,0,10,10));
+            intLabel.setFont(new Font("Serif", Font.PLAIN, 12));
+            JLabel chaLabel = new JLabel("Charisma: " + Main.data.getAttCharisma());
+            chaLabel.setBorder(BorderFactory.createEmptyBorder(0,0,10,10));
+            chaLabel.setFont(new Font("Serif", Font.PLAIN, 12));
+            pj.setBorder(BorderFactory.createLineBorder(Color.blue,3,false));
             pj.add(hp);
             pj.add(mana);
             pj.add(defense);
             pj.add(line);
             pj.add(strLabel);
             pj.add(dexLabel);
+            pj.add(conLabel);
+            pj.add(wisLabel);
+            pj.add(intLabel);
+            pj.add(chaLabel);
             add(pj, BorderLayout.EAST);
 
 

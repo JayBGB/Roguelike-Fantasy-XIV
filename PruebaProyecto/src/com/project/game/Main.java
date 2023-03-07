@@ -3,6 +3,7 @@ package com.project.game;
 import com.project.characters.CharData;
 import com.project.enemies.Enemy;
 import com.project.ui.UI;
+import com.project.ui.characterCreationUI;
 
 /**
  * @author Jay & Billy
@@ -19,7 +20,7 @@ public class Main {
     public static void main(String[] args) {
 
         // CHARACTER CREATION
-        /*
+/*
         CharacterCreation hero = new CharacterCreation();
         hero.createCharacter();
         hero.selectClass();
@@ -27,7 +28,9 @@ public class Main {
         hero.calculateHP();
         hero.calculateMana();
         hero.calculateDefense();
-         */
-        new UI();  //Por alguna razon no se ve bien si no amplias la pestaña
+
+ */
+        new UI();
+        new characterCreationUI();
     }
 }
