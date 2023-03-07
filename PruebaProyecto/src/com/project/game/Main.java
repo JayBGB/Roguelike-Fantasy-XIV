@@ -28,6 +28,6 @@ public class Main {
         hero.calculateMana();
         hero.calculateDefense();
          */
-        new UI();
+        new UI();  //Por alguna razon no se ve bien si no amplias la pestaña
     }
 }

@@ -113,7 +113,6 @@ public class CharacterCreation{
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
     }
     public void selectClass(){
         try {
@@ -234,12 +233,14 @@ public class CharacterCreation{
 
     public void calculateHP() {
         float hp = Main.data.getAttConstitution() * 5;
+        Main.data.setMaxHp(hp);
         Main.data.setHp(hp);
         System.out.println("Player's HP: "+hp); // HAY QUE QUITARLO A POSTERIORI, SOLO PARA TESTING
     }
 
     public void calculateMana(){
         float mana = Main.data.getAttIntelligence() * 5;
+        Main.data.setMaxMana(mana);
         Main.data.setMana(mana);
         System.out.println("Player's Mana: "+mana); // HAY QUE QUITARLO A POSTERIORI, SOLO PARA TESTING
 

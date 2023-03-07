@@ -18,7 +18,9 @@ public class CharData {
     private int attIntelligence=10;
     private int attCharisma=10;
 
+    private float maxHp;
     private float hp;
+    private float maxMana;
     private float mana;
     private float defense;
     private float defensePercentage;
@@ -42,11 +44,11 @@ public class CharData {
      * @param attIntelligence Hero's base INT attribute.
      * @param attCharisma Hero's base CHA attribute.
      * @param hp Hero's HP.
-     * @param mana Hero's mana.
+     * @param maxMana Hero's mana.
      * @param defense Hero's defense.
      * @param defensePercentage Hero's defense(Percentage).
      */
-    public CharData(String name, String surname, int gender, int race, int attStrength, int attDexterity, int attConstitution, int attWisdom, int attIntelligence, int attCharisma, float hp, float mana, float defense, float defensePercentage, float damage) {
+    public CharData(String name, String surname, int gender, int race, int attStrength, int attDexterity, int attConstitution, int attWisdom, int attIntelligence, int attCharisma, float hp, float maxMana, float defense, float defensePercentage, float damage) {
         this.name = name;
         this.surname = surname;
         this.gender = gender;
@@ -57,8 +59,8 @@ public class CharData {
         this.attWisdom = attWisdom;
         this.attIntelligence = attIntelligence;
         this.attCharisma = attCharisma;
-        this.hp = hp;
-        this.mana = mana;
+        this.maxHp = hp;
+        this.maxMana = maxMana;
         this.defense = defense;
         this.defensePercentage = defensePercentage;
         this.damage = damage;
@@ -230,32 +232,32 @@ public class CharData {
      *
      * @return Returns PC's HP.
      */
-    public float getHp() {
-        return hp;
+    public float getMaxHp() {
+        return maxHp;
     }
 
     /**
      *
-     * @param hp PC's HP.
+     * @param maxHp PC's HP.
      */
-    public void setHp(float hp) {
-        this.hp = hp;
+    public void setMaxHp(float maxHp) {
+        this.maxHp = maxHp;
     }
 
     /**
      *
      * @return Returns PC's mana.
      */
-    public float getMana() {
-        return mana;
+    public float getMaxMana() {
+        return maxMana;
     }
 
     /**
      *
-     * @param mana PC's mana.
+     * @param maxMana PC's mana.
      */
-    public void setMana(float mana) {
-        this.mana = mana;
+    public void setMaxMana(float maxMana) {
+        this.maxMana = maxMana;
     }
 
     /**
@@ -305,6 +307,22 @@ public class CharData {
      */
     public void setDamage(float damage) {
         this.damage = damage;
+    }
+
+    public float getHp() {
+        return hp;
+    }
+
+    public void setHp(float hp) {
+        this.hp = hp;
+    }
+
+    public float getMana() {
+        return mana;
+    }
+
+    public void setMana(float mana) {
+        this.mana = mana;
     }
 }
 
