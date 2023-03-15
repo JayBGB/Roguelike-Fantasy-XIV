@@ -2,24 +2,24 @@ package com.project.enemies;
 
 public class Enemy {
     //ATTs
-    private int eHp;
-    private int eDmg;
+    private float eHp;
+    private float eDmg;
 
     //GETTERS & SETTERS
 
-    public int geteHp() {
+    public float geteHp() {
         return eHp;
     }
 
-    public void seteHp(int eHp) {
+    public void seteHp(float eHp) {
         this.eHp = eHp;
     }
 
-    public int geteDmg() {
+    public float geteDmg() {
         return eDmg;
     }
 
-    public void seteDmg(int eDmg) {
+    public void seteDmg(float eDmg) {
         this.eDmg = eDmg;
     }
 }

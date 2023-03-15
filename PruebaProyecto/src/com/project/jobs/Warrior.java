@@ -1,5 +1,6 @@
 package com.project.jobs;
 
+import com.project.game.CharacterCreation;
 import com.project.game.Main;
 
 public class Warrior {
@@ -15,6 +16,11 @@ public class Warrior {
         Main.data.setAttDexterity(Main.data.getAttDexterity()+dex);
     }
 
+    public void warDamage(){
+
+        Main.data.setDamage(10f+Main.data.getAttStrength()*0.8f);
+    }
+
     public void warInnerRelease(){
 
             Main.data.setDefense((float) (Main.data.getDefense() - (Main.data.getDefense() * 0.2f)));
@@ -22,7 +28,25 @@ public class Warrior {
     }
 
     public void warFellCleave(){
+        float fcDamage = 15f + Main.data.getDamage();
+        Main.enemy.seteHp((Main.enemy.geteHp()-fcDamage));
+        // COOLDOWN WIP
+    }
 
+    public void warNascentFlash(){
+
+        float nfDamage = 7.5f + Main.data.getDamage();
+        Main.enemy.seteHp(Main.enemy.geteHp()-nfDamage);
+        Main.data.setHp((Main.data.getHp()+(nfDamage*0.15f)));
 
     }
+
+    public void warHolmgang(){
+
+        Main.data.setAttConstitution(Main.data.getAttConstitution()*2);
+        CharacterCreation war = new CharacterCreation();
+        war.calculateDefense();
+    }
+
+
 }
