@@ -11,22 +11,26 @@ public class Astrologian {
 
     public void astMicrocosmos(){
 
-        Main.data.setHp(Main.data.getHp()+(Main.data.getAttCharisma()/2)*3)
+        Main.data.setMana(Main.data.getMana()-25);
+        Main.data.setHp(Main.data.getHp()+(Main.data.getAttCharisma()/2)*3);
     }
 
     public void astMacrocosmos(){
 
+        Main.data.setMana(Main.data.getMana()-20);
         float mcDamage = 10f + Main.data.getAttCharisma()*0.8f;
         Main.enemy.seteHp(Main.enemy.geteHp()-mcDamage);
     }
 
     public void astDivination(){
 
-        Main.data.setDamage((float) (Main.data.getDamage() + (Main.data.getDamage() * 0.2)))
+        Main.data.setMana(Main.data.getMana()-25);
+        Main.data.setDamage((Main.data.getDamage() + (Main.data.getDamage() * 0.2)));
     }
 
     public void astExaltation(){
 
+        Main.data.setMana(Main.data.getMana()-15);
         Main.data.setDefensePercentage(Main.data.getDefensePercentage()*2);
     }
 

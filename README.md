@@ -27,9 +27,9 @@ Para hacer el programa que nos saque de la mugre cuando lo vendamos a la NASA.
 ## Stat Block selection
 - Attribute selection -> Done.
 ## Jobs skills
-- AST - Only mana left.
+- AST - Done.
 - BRD - WIP
-- BLM - WIP
+- BLM - Done.
 - DNC - WIP
 - DRK - WIP
 - DRG - WIP
