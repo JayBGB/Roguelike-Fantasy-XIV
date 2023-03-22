@@ -123,44 +123,63 @@ public class CharacterCreation{
                 case WAR:
                     Warrior war = new Warrior();
                     war.warStats();
+                    Main.data.setJob("WARRIOR");
                     break;
                 case PLD:
                     Paladin pal = new Paladin();
+                    Main.data.setJob("PALADIN");
                     break;
                 case DRK:
                     DarkKnight drk = new DarkKnight();
+                    Main.data.setJob("DARK KNIGHT");
                     break;
                 case GNB:
+                    Main.data.setJob("GUNBREAKER");
                     break;
                 case BRD:
+                    Main.data.setJob("BARD");
                     break;
                 case DNC:
+                    Main.data.setJob("DANCER");
                     break;
                 case MCH:
+                    Main.data.setJob("MACHINIST");
                     break;
                 case DRG:
+                    Main.data.setJob("DRAGOON");
                     break;
                 case MNK:
+                    Main.data.setJob("MONK");
                     break;
                 case SAM:
+                    Main.data.setJob("SAMURAI");
                     break;
                 case NIN:
+                    Main.data.setJob("NINJA");
                     break;
                 case RPR:
+                    Main.data.setJob("REAPER");
                     break;
                 case BLM:
+                    Main.data.setJob("BLACK MAGE");
                     break;
                 case SMN:
+                    Main.data.setJob("SUMMONER");
                     break;
                 case RDM:
+                    Main.data.setJob("RED MAGE");
                     break;
                 case WHM:
+                    Main.data.setJob("WHITE MAGE");
                     break;
                 case SGE:
+                    Main.data.setJob("SAGE");
                     break;
                 case SCH:
+                    Main.data.setJob("SCHOLAR");
                     break;
                 case AST:
+                    Main.data.setJob("ASTROLOGIAN");
                     break;
             }
         } catch (Exception e) {

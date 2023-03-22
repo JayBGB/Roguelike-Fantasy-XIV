@@ -2,8 +2,7 @@ package com.project.game;
 
 import com.project.characters.CharData;
 import com.project.enemies.Enemy;
-import com.project.ui.ejemplo;
-
+import com.project.ui.UI;
 /**
  * @author Jay & Billy
  */
@@ -27,8 +26,9 @@ public class Main {
         hero.calculateHP();
         hero.calculateMana();
         hero.calculateDefense();
+        UI ob = new UI();
+        ob.setVisible(true);
 
 
-        new ejemplo();
     }
 }

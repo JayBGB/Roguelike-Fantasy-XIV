@@ -5,6 +5,7 @@ import com.project.game.Main;
 public class Astrologian {
 // PLEASE DO THE GOD DAMNED MANA CONSUMPTION THING
     
+    private int con,itl,dex;
 
     public void astStats(){
         con=3;
@@ -18,6 +19,7 @@ public class Astrologian {
 
         Main.data.setDamage(10f+Main.data.getAttIntelligence()*0.4f);
     }
+
 
     public void astMicrocosmos(){
 
@@ -35,7 +37,7 @@ public class Astrologian {
     public void astDivination(){
 
         Main.data.setMana(Main.data.getMana()-25);
-        Main.data.setDamage((Main.data.getDamage() + (Main.data.getDamage() * 0.2)));
+        Main.data.setDamage((float) (Main.data.getDamage() + (Main.data.getDamage() * 0.2)));
     }
 
     public void astExaltation(){

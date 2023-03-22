@@ -9,6 +9,7 @@ public class CharData {
     // VARIABLES
     private String name;
     private String surname;
+    private String job;
     private int gender;
     private int race;
     private int attStrength=10;
@@ -323,6 +324,14 @@ public class CharData {
 
     public void setMana(float mana) {
         this.mana = mana;
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
     }
 }
 
