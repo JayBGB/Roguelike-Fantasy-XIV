@@ -18,7 +18,7 @@ public class Warrior {
 
     public void warDamage(){
 
-        Main.data.setDamage(10f+Main.data.getAttStrength()*0.8f);
+        Main.data.setDamage(10f+Main.data.getAttStrength()*0.7f);
     }
 
     public void warInnerRelease(){

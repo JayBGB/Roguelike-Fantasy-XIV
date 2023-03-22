@@ -27,6 +27,7 @@ Para hacer el programa que nos saque de la mugre cuando lo vendamos a la NASA.
 ## Stat Block selection
 - Attribute selection -> Done.
 ## Jobs skills
+### COOLDOWN SYSTEM SHOULD BE A PRIORITY
 - AST - Done.
 - BRD - WIP
 - BLM - Done.
