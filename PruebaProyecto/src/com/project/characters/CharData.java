@@ -9,7 +9,7 @@ public class CharData {
     // VARIABLES
     private String name;
     private String surname;
-    private String job;
+    private int job;
     private int gender;
     private int race;
     private int attStrength=10;
@@ -326,11 +326,11 @@ public class CharData {
         this.mana = mana;
     }
 
-    public String getJob() {
+    public int getJob() {
         return job;
     }
 
-    public void setJob(String job) {
+    public void setJob(int job) {
         this.job = job;
     }
 }

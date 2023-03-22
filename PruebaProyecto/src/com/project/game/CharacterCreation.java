@@ -1,14 +1,8 @@
-/**
+package com.project.game; /**
  * @author Jay & Billy
  */
 
-package com.project.game;
-
 import com.project.characters.Race;
-import com.project.jobs.DarkKnight;
-import com.project.jobs.Paladin;
-import com.project.jobs.Warrior;
-
 import javax.swing.*;
 
 public class CharacterCreation{
@@ -121,65 +115,61 @@ public class CharacterCreation{
 
             switch (inputJob){
                 case WAR:
-                    Warrior war = new Warrior();
-                    war.warStats();
-                    Main.data.setJob("WARRIOR");
+                    Main.data.setJob(1);
                     break;
                 case PLD:
-                    Paladin pal = new Paladin();
-                    Main.data.setJob("PALADIN");
+                    Main.data.setJob(2);
                     break;
                 case DRK:
-                    DarkKnight drk = new DarkKnight();
-                    Main.data.setJob("DARK KNIGHT");
+                    Main.data.setJob(3);
                     break;
                 case GNB:
-                    Main.data.setJob("GUNBREAKER");
+                    Main.data.setJob(4);
                     break;
                 case BRD:
-                    Main.data.setJob("BARD");
+                    Main.data.setJob(5);
                     break;
                 case DNC:
-                    Main.data.setJob("DANCER");
+                    Main.data.setJob(6);
                     break;
                 case MCH:
-                    Main.data.setJob("MACHINIST");
+                    Main.data.setJob(7);
                     break;
                 case DRG:
-                    Main.data.setJob("DRAGOON");
+                    Main.data.setJob(8);
                     break;
                 case MNK:
-                    Main.data.setJob("MONK");
+                    Main.data.setJob(9);
                     break;
                 case SAM:
-                    Main.data.setJob("SAMURAI");
+                    Main.data.setJob(10);
                     break;
                 case NIN:
-                    Main.data.setJob("NINJA");
+                    Main.data.setJob(11);
                     break;
                 case RPR:
-                    Main.data.setJob("REAPER");
+                    Main.data.setJob(12);
                     break;
                 case BLM:
-                    Main.data.setJob("BLACK MAGE");
+                    Main.data.setJob(13);
                     break;
                 case SMN:
-                    Main.data.setJob("SUMMONER");
+                    Main.data.setJob(14);
                     break;
                 case RDM:
-                    Main.data.setJob("RED MAGE");
+                    Main.data.setJob(15);
                     break;
                 case WHM:
-                    Main.data.setJob("WHITE MAGE");
+                    Main.data.setJob(16);
                     break;
                 case SGE:
-                    Main.data.setJob("SAGE");
+                    Main.data.setJob(17);
                     break;
                 case SCH:
-                    Main.data.setJob("SCHOLAR");
+                    Main.data.setJob(18);
                     break;
                 case AST:
-                    Main.data.setJob("ASTROLOGIAN");
+                    Main.data.setJob(19);
                     break;
             }
         } catch (Exception e) {
