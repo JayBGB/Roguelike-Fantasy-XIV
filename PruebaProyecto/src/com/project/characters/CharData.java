@@ -10,6 +10,7 @@ public class CharData {
     private String name;
     private String surname;
     private int job;
+    private String jobName;
     private int gender;
     private int race;
     private int attStrength=10;
@@ -332,6 +333,14 @@ public class CharData {
 
     public void setJob(int job) {
         this.job = job;
+    }
+
+    public String getJobName() {
+        return jobName;
+    }
+
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
     }
 }
 

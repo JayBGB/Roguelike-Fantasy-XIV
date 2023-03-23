@@ -8,65 +8,75 @@ public class Ability {
     int manaCost;
 
     public void calculateDamage(){
-        switch (Main.data.getJob()){
+        switch (Main.data.getJob()) {
             //WARRIOR
             case 1:
-                Main.data.setDamage(10f+Main.data.getAttStrength()*0.7f);
-            //PALADIN
+                Main.data.setDamage(10f + Main.data.getAttStrength() * 0.7f);
+                //PALADIN
             case 2:
                 Main.data.setDamage(10f);
-            //DARK KNIGHT
+                //DARK KNIGHT
             case 3:
                 Main.data.setDamage(10f);
-            //GUNBREAKER
+                //GUNBREAKER
             case 4:
                 Main.data.setDamage(10f);
-            //BARD
+                //BARD
             case 5:
                 Main.data.setDamage(10f);
-            //DANCER
+                //DANCER
             case 6:
                 Main.data.setDamage(10f);
-            //MACHINIST
+                //MACHINIST
             case 7:
                 Main.data.setDamage(10f);
-            //DRAGOON
+                //DRAGOON
             case 8:
                 Main.data.setDamage(10f);
-            //MONK
+                //MONK
             case 9:
                 Main.data.setDamage(10f);
-            //NINJA
+                //NINJA
             case 10:
                 Main.data.setDamage(10f);
-            //SAMURAI
+                //SAMURAI
             case 11:
                 Main.data.setDamage(10f);
-            //REAPER
+                //REAPER
             case 12:
                 Main.data.setDamage(10f);
-            //BLACK MAGE
+                //BLACK MAGE
             case 13:
                 Main.data.setDamage(10f);
-            //SUMMONER
+                //SUMMONER
             case 14:
                 Main.data.setDamage(10f);
-            //RED MAGE
+                //RED MAGE
             case 15:
                 Main.data.setDamage(10f);
-            //WHITE MAGE
+                //WHITE MAGE
             case 16:
                 Main.data.setDamage(10f);
-            //SCHOLAR
+                //SCHOLAR
             case 17:
                 Main.data.setDamage(10f);
-            //SAGE
+                //SAGE
             case 18:
                 Main.data.setDamage(10f);
-            //ASTROLOGIAN
+                //ASTROLOGIAN
             case 19:
                 Main.data.setDamage(10f);
         }
     }
 
+    public float attack(float enemyHp){
+                float hpleft = enemyHp - Main.data.getDamage();
+                if(hpleft <= 0){
+                    return 0;
+                }else {
+                    return hpleft;
+                }
+        }
 }
+
+

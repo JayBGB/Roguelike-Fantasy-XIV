@@ -1,6 +1,7 @@
 package com.project.game;
 
 import com.project.characters.CharData;
+import com.project.combat.Ability;
 import com.project.enemies.Enemy;
 import com.project.ui.UI;
 /**
@@ -10,6 +11,7 @@ import com.project.ui.UI;
 public class Main {
     public static CharData data = new CharData();
     public static Enemy enemy = new Enemy();
+    public static Ability ab = new Ability();
 
     /**
      *
