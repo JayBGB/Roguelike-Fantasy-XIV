@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="netbeans.external.AbsoluteLayout" type="repository">
+    <properties maven-id="org.netbeans.external:AbsoluteLayout:RELEASE150" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/netbeans/external/AbsoluteLayout/RELEASE150/AbsoluteLayout-RELEASE150.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

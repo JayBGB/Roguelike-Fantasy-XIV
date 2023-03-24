@@ -4,7 +4,7 @@ package com.project.characters;
  * @author Jay & Billy
  */
 
-public class CharData {
+public class CharData{
 
     // VARIABLES
     private String name;

@@ -5,8 +5,14 @@ package com.project.ui;
 
 import com.project.game.Main;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import com.project.combat.Combat;
 
 
 public class UI extends javax.swing.JFrame implements ActionListener {
@@ -18,61 +24,61 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        pjPanel = new javax.swing.JPanel();
-        pjImgPanel = new javax.swing.JPanel();
+        jPanel1 = new JPanel();
+        pjPanel = new JPanel();
+        pjImgPanel = new JPanel();
         pj2Separator = new javax.swing.JSeparator();
-        pjImgLabel = new javax.swing.JLabel();
-        fightStats = new javax.swing.JPanel();
-        hpText = new javax.swing.JLabel();
-        manaText = new javax.swing.JLabel();
-        degenseText = new javax.swing.JLabel();
-        dmgText = new javax.swing.JLabel();
-        hpStat = new javax.swing.JLabel();
-        defStat = new javax.swing.JLabel();
-        manaStat = new javax.swing.JLabel();
-        dmgStat = new javax.swing.JLabel();
-        charStats = new javax.swing.JPanel();
+        pjImgLabel = new JLabel();
+        fightStats = new JPanel();
+        hpText = new JLabel();
+        manaText = new JLabel();
+        degenseText = new JLabel();
+        dmgText = new JLabel();
+        hpStat = new JLabel();
+        defStat = new JLabel();
+        manaStat = new JLabel();
+        dmgStat = new JLabel();
+        charStats = new JPanel();
         pj3Separator = new javax.swing.JSeparator();
-        strText = new javax.swing.JLabel();
-        dexText = new javax.swing.JLabel();
-        conText = new javax.swing.JLabel();
-        wisText = new javax.swing.JLabel();
-        itlText = new javax.swing.JLabel();
-        chaText = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        namePanel = new javax.swing.JPanel();
+        strText = new JLabel();
+        dexText = new JLabel();
+        conText = new JLabel();
+        wisText = new JLabel();
+        itlText = new JLabel();
+        chaText = new JLabel();
+        jLabel2 = new JLabel();
+        jLabel3 = new JLabel();
+        jLabel4 = new JLabel();
+        jLabel5 = new JLabel();
+        jLabel6 = new JLabel();
+        jLabel7 = new JLabel();
+        namePanel = new JPanel();
         pj1Separator = new javax.swing.JSeparator();
-        jobText = new javax.swing.JLabel();
-        nameShowText = new javax.swing.JLabel();
-        fightingPanel = new javax.swing.JPanel();
-        abilities = new javax.swing.JButton();
-        attack = new javax.swing.JButton();
-        run = new javax.swing.JButton();
-        defense = new javax.swing.JButton();
-        spellScroll = new javax.swing.JScrollPane();
+        jobText = new JLabel();
+        nameShowText = new JLabel();
+        fightingPanel = new JPanel();
+        abilities = new JButton();
+        attack = new JButton();
+        run = new JButton();
+        defense = new JButton();
+        spellScroll = new JScrollPane();
         spellList = new javax.swing.JList<>();
-        spellTextScroll = new javax.swing.JScrollPane();
-        spellTextArea = new javax.swing.JTextArea();
-        enemyPanel = new javax.swing.JPanel();
-        eImgLabel = new javax.swing.JLabel();
-        eHPText = new javax.swing.JLabel();
-        eHPStat = new javax.swing.JLabel();
-        potionPanel = new javax.swing.JPanel();
-        useHPPotion = new javax.swing.JButton();
-        useManaPotion = new javax.swing.JButton();
-        hpPotionShowText = new javax.swing.JLabel();
-        manaPotionShowText = new javax.swing.JLabel();
-        hpPotionStat = new javax.swing.JLabel();
-        manaPotionStat = new javax.swing.JLabel();
-        eventPanel = new javax.swing.JPanel();
-        eventScrollPane = new javax.swing.JScrollPane();
-        eventTextArea = new javax.swing.JTextArea();
+        spellTextScroll = new JScrollPane();
+        spellTextArea = new JTextArea();
+        enemyPanel = new JPanel();
+        eImgLabel = new JLabel();
+        eHPText = new JLabel();
+        eHPStat = new JLabel();
+        potionPanel = new JPanel();
+        useHPPotion = new JButton();
+        useManaPotion = new JButton();
+        hpPotionShowText = new JLabel();
+        manaPotionShowText = new JLabel();
+        hpPotionStat = new JLabel();
+        manaPotionStat = new JLabel();
+        eventPanel = new JPanel();
+        eventScrollPane = new JScrollPane();
+        eventTextArea = new JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -347,10 +353,11 @@ public class UI extends javax.swing.JFrame implements ActionListener {
         spellScroll.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         spellList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Spell1","Spell2","Spell3","Spell4" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            String[] spellStringName = Main.combat.createSpellNameList();
+            public int getSize() { return spellStringName.length; }
+            public String getElementAt(int i) { return spellStringName[i]; }
         });
+
         spellList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         spellList.setToolTipText("");
         spellList.setName(""); // NOI18N
@@ -528,93 +535,80 @@ public class UI extends javax.swing.JFrame implements ActionListener {
         pack();
     }// </editor-fold>
 
-    private void abilitiesActionPerformed(java.awt.event.ActionEvent evt) {
-
-    }
-
-    private void attackActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void runActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void defenseActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
 
     // Variables declaration - do not modify
-    private javax.swing.JButton abilities;
-    private javax.swing.JButton attack;
-    private javax.swing.JLabel chaText;
-    private javax.swing.JPanel charStats;
-    private javax.swing.JLabel conText;
-    private javax.swing.JLabel defStat;
-    private javax.swing.JButton defense;
-    private javax.swing.JLabel degenseText;
-    private javax.swing.JLabel dexText;
-    private javax.swing.JLabel dmgStat;
-    private javax.swing.JLabel dmgText;
-    private javax.swing.JLabel eHPStat;
-    private javax.swing.JLabel eHPText;
-    private javax.swing.JLabel eImgLabel;
-    private javax.swing.JPanel enemyPanel;
-    private javax.swing.JPanel eventPanel;
-    private javax.swing.JScrollPane eventScrollPane;
-    private javax.swing.JTextArea eventTextArea;
-    private javax.swing.JPanel fightStats;
-    private javax.swing.JPanel fightingPanel;
-    private javax.swing.JLabel hpPotionShowText;
-    private javax.swing.JLabel hpPotionStat;
-    private javax.swing.JLabel hpStat;
-    private javax.swing.JLabel hpText;
-    private javax.swing.JLabel itlText;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel jobText;
-    private javax.swing.JLabel manaPotionShowText;
-    private javax.swing.JLabel manaPotionStat;
-    private javax.swing.JLabel manaStat;
-    private javax.swing.JLabel manaText;
-    private javax.swing.JPanel namePanel;
-    private javax.swing.JLabel nameShowText;
+    private JButton abilities;
+    private JButton attack;
+    private JLabel chaText;
+    private JPanel charStats;
+    private JLabel conText;
+    private JLabel defStat;
+    private JButton defense;
+    private JLabel degenseText;
+    private JLabel dexText;
+    private JLabel dmgStat;
+    private JLabel dmgText;
+    private JLabel eHPStat;
+    private JLabel eHPText;
+    private JLabel eImgLabel;
+    private JPanel enemyPanel;
+    private JPanel eventPanel;
+    private JScrollPane eventScrollPane;
+    private JTextArea eventTextArea;
+    private JPanel fightStats;
+    private JPanel fightingPanel;
+    private JLabel hpPotionShowText;
+    private JLabel hpPotionStat;
+    private JLabel hpStat;
+    private JLabel hpText;
+    private JLabel itlText;
+    private JLabel jLabel2;
+    private JLabel jLabel3;
+    private JLabel jLabel4;
+    private JLabel jLabel5;
+    private JLabel jLabel6;
+    private JLabel jLabel7;
+    private JPanel jPanel1;
+    private JLabel jobText;
+    private JLabel manaPotionShowText;
+    private JLabel manaPotionStat;
+    private JLabel manaStat;
+    private JLabel manaText;
+    private JPanel namePanel;
+    private JLabel nameShowText;
     private javax.swing.JSeparator pj1Separator;
     private javax.swing.JSeparator pj2Separator;
     private javax.swing.JSeparator pj3Separator;
-    private javax.swing.JLabel pjImgLabel;
-    private javax.swing.JPanel pjImgPanel;
-    private javax.swing.JPanel pjPanel;
-    private javax.swing.JPanel potionPanel;
-    private javax.swing.JButton run;
+    private JLabel pjImgLabel;
+    private JPanel pjImgPanel;
+    private JPanel pjPanel;
+    private JPanel potionPanel;
+    private JButton run;
     private javax.swing.JList<String> spellList;
-    private javax.swing.JScrollPane spellScroll;
-    private javax.swing.JTextArea spellTextArea;
-    private javax.swing.JScrollPane spellTextScroll;
-    private javax.swing.JLabel strText;
-    private javax.swing.JButton useHPPotion;
-    private javax.swing.JButton useManaPotion;
-    private javax.swing.JLabel wisText;
+    private JScrollPane spellScroll;
+    private JTextArea spellTextArea;
+    private JScrollPane spellTextScroll;
+    private JLabel strText;
+    private JButton useHPPotion;
+    private JButton useManaPotion;
+    private JLabel wisText;
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == abilities){
-
+            Main.combat.useSpell(spellList.getSelectedIndex(),Combat.spellArray);
         }else if (e.getSource() == attack){
-            Main.enemy.seteHp(Main.ab.attack(Main.enemy.geteHp()));
-            if (Main.enemy.geteHp() == 0){
-
-            }
+            Main.combat.doDamage(Main.data.getDamage());
         }else if(e.getSource() == defense){
-
+            Main.data.setHp(Main.combat.defense(Main.data.getHp(),Main.enemyData.geteDmg(),Main.data.getDefensePercentage()));
         }else if (e.getSource() == run){
 
+        }else if (e.getSource() == useHPPotion){
+            Main.combat.doHeal(50); //Valor de cura provisional
+            //setPotionQuantity - 1
+        }else  if (e.getSource() == useManaPotion){
+            Main.combat.doMana(-50); //Valor mana provisional
+            //setPotionQuantity - 1
         }
     }
-    // End of variables declaration
 }

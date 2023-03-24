@@ -2,16 +2,19 @@ package com.project.game;
 
 import com.project.characters.CharData;
 import com.project.combat.Ability;
-import com.project.enemies.Enemy;
+import com.project.combat.Combat;
+import com.project.characters.EnemyData;
 import com.project.ui.UI;
+
 /**
  * @author Jay & Billy
  */
 
 public class Main {
     public static CharData data = new CharData();
-    public static Enemy enemy = new Enemy();
-    public static Ability ab = new Ability();
+    public static EnemyData enemyData = new EnemyData();
+    public static Combat combat = new Combat();
+    public static UI combatui;
 
     /**
      *
@@ -28,8 +31,10 @@ public class Main {
         hero.calculateHP();
         hero.calculateMana();
         hero.calculateDefense();
-        UI ob = new UI();
-        ob.setVisible(true);
+        hero.calculateDamage();
+        combat.addToSpellArrayList();
+        combatui = new UI();
+        combatui.setVisible(true);
 
 
     }

@@ -19,24 +19,9 @@ public class CharacterCreation{
 
     // Jobs
     private final int WAR = 0;
-    private final int PLD= 1;
-    private final int DRK = 2;
-    private final int GNB = 3;
-    private final int BRD = 4;
-    private final int DNC= 5;
-    private final int MCH = 6;
-    private final int DRG = 7;
-    private final int MNK = 8;
-    private final int NIN = 9;
-    private final int SAM = 10;
-    private final int RPR = 11;
-    private final int BLM = 12;
-    private final int SMN = 13;
-    private final int RDM = 14;
-    private final int WHM = 15;
-    private final int SGE = 16;
-    private final int SCH = 17;
-    private final int AST = 18;
+    private final int BRD = 1;
+    private final int BLM = 2;
+    private final int AST = 3;
 
     // Attributes
     private final int STRENGTH=0;
@@ -54,11 +39,6 @@ public class CharacterCreation{
 
         String inputSurname = JOptionPane.showInputDialog(null, "What is your hero's surname?", "Character's Surname", JOptionPane.PLAIN_MESSAGE);
         Main.data.setSurname(inputSurname);
-
-        String[] gender = new String[]{"Male", "Female"};
-        int inputGender = JOptionPane.showOptionDialog(null, "What is your hero's gender?", "Character's Gender", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
-                null, gender, gender[0]);
-        Main.data.setGender(inputGender);
 
         Race races = new Race();
         try {
@@ -110,7 +90,7 @@ public class CharacterCreation{
     }
     public void selectClass(){
         try {
-            String[] jobArray = new String[]{"Warrior","Paladin","Dark Knight","Gunbreaker","Bard","Dancer","Machinist","Dragoon","Monk","Ninja","Samurai","Reaper","Black Mage","Summoner","Red Mage","White Mage","Scholar","Sage","Astrologian"};
+            String[] jobArray = new String[]{"Warrior","Bard","Black Mage","Astrologian"};
             int inputJob = JOptionPane.showOptionDialog(null, "What is your hero's job?", "Character's job", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, jobArray, jobArray[0]);
 
             switch (inputJob){
@@ -118,76 +98,16 @@ public class CharacterCreation{
                     Main.data.setJob(1);
                     Main.data.setJobName("Warrior");
                     break;
-                case PLD:
-                    Main.data.setJob(2);
-                    Main.data.setJobName("Paladin");
-                    break;
-                case DRK:
-                    Main.data.setJob(3);
-                    Main.data.setJobName("Dark Knight");
-                    break;
-                case GNB:
-                    Main.data.setJob(4);
-                    Main.data.setJobName("Gunbreaker");
-                    break;
                 case BRD:
-                    Main.data.setJob(5);
+                    Main.data.setJob(2);
                     Main.data.setJobName("Bard");
                     break;
-                case DNC:
-                    Main.data.setJob(6);
-                    Main.data.setJobName("Dancer");
-                    break;
-                case MCH:
-                    Main.data.setJob(7);
-                    Main.data.setJobName("Machinist");
-                    break;
-                case DRG:
-                    Main.data.setJob(8);
-                    Main.data.setJobName("Dragoon");
-                    break;
-                case MNK:
-                    Main.data.setJob(9);
-                    Main.data.setJobName("Monk");
-                    break;
-                case SAM:
-                    Main.data.setJob(10);
-                    Main.data.setJobName("Samurai");
-                    break;
-                case NIN:
-                    Main.data.setJob(11);
-                    Main.data.setJobName("Ninja");
-                    break;
-                case RPR:
-                    Main.data.setJob(12);
-                    Main.data.setJobName("Reaper");
-                    break;
                 case BLM:
-                    Main.data.setJob(13);
+                    Main.data.setJob(3);
                     Main.data.setJobName("Black Mage");
                     break;
-                case SMN:
-                    Main.data.setJob(14);
-                    Main.data.setJobName("Summoner");
-                    break;
-                case RDM:
-                    Main.data.setJob(15);
-                    Main.data.setJobName("Red Mage");
-                    break;
-                case WHM:
-                    Main.data.setJob(16);
-                    Main.data.setJobName("White Mage");
-                    break;
-                case SGE:
-                    Main.data.setJob(17);
-                    Main.data.setJobName("Sage");
-                    break;
-                case SCH:
-                    Main.data.setJob(18);
-                    Main.data.setJobName("Scholar");
-                    break;
                 case AST:
-                    Main.data.setJob(19);
+                    Main.data.setJob(4);
                     Main.data.setJobName("Astrologian");
                     break;
             }
@@ -283,6 +203,27 @@ public class CharacterCreation{
         System.out.println("Player's Defense: "+defense+"\nDefense Percentage: "+defensePercentage); // HAY QUE QUITARLO A POSTERIORI, SOLO PARA TESTING
     }
 
+    public void calculateDamage(){
+        int job = Main.data.getJob();
+        switch (job) {
+                //WARRIOR
+            case 1:
+                Main.data.setDamage(10f + Main.data.getAttStrength() * 0.7f);
+                break;
+                //BARD
+            case 2:
+                Main.data.setDamage(10f);
+                break;
+                //BLACK MAGE
+            case 3:
+                Main.data.setDamage(10f);
+                break;
+                //ASTROLOGIAN
+            case 4:
+                Main.data.setDamage(10f);
+                break;
+        }
+    }
 
 }
 

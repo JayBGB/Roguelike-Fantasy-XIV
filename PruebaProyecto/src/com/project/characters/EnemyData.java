@@ -1,11 +1,10 @@
-package com.project.enemies;
+package com.project.characters;
 
-public class Enemy {
-    //ATTs
-    private float eHp;
-    private float eDmg;
+public class EnemyData {
 
-    //GETTERS & SETTERS
+    public String eName;
+    public float eHp;
+    public  float eDmg;
 
     public float geteHp() {
         return eHp;
@@ -22,4 +21,10 @@ public class Enemy {
     public void seteDmg(float eDmg) {
         this.eDmg = eDmg;
     }
+
+    public void getEnemy(){
+
+    }
+
+
 }
