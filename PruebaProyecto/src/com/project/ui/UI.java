@@ -5,13 +5,9 @@ package com.project.ui;
 
 import com.project.game.Main;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.*;
+import java.awt.event.*;
+
 import com.project.combat.Combat;
 
 
@@ -360,13 +356,25 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
         spellList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         spellList.setToolTipText("");
-        spellList.setName(""); // NOI18N
+        spellList.setName("");
         spellList.setVisibleRowCount(4);
+        MouseListener mouseListener = new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 1) {
+                    int selectedSpell = spellList.getSelectedIndex();
+                    spellTextArea.setText(Combat.spellArray.get(selectedSpell).getSpellInfo());
+                }
+            }
+        };
+        spellList.addMouseListener(mouseListener);
         spellScroll.setViewportView(spellList);
         spellList.getAccessibleContext().setAccessibleName("");
 
         spellTextArea.setColumns(20);
         spellTextArea.setRows(5);
+        spellTextArea.setEditable(false);
+        spellTextArea.setLineWrap(true);
+        spellTextArea.setWrapStyleWord(true);
         spellTextScroll.setViewportView(spellTextArea);
 
         javax.swing.GroupLayout fightingPanelLayout = new javax.swing.GroupLayout(fightingPanel);
@@ -447,11 +455,13 @@ public class UI extends javax.swing.JFrame implements ActionListener {
         useHPPotion.setMaximumSize(new java.awt.Dimension(65, 65));
         useHPPotion.setMinimumSize(new java.awt.Dimension(65, 65));
         useHPPotion.setPreferredSize(new java.awt.Dimension(65, 65));
+        useHPPotion.addActionListener(this);
 
         useManaPotion.setText("jButton1");
         useManaPotion.setMaximumSize(new java.awt.Dimension(65, 65));
         useManaPotion.setMinimumSize(new java.awt.Dimension(65, 65));
         useManaPotion.setPreferredSize(new java.awt.Dimension(65, 65));
+        useManaPotion.addActionListener(this);
 
         hpPotionShowText.setText("HP");
 
@@ -506,6 +516,9 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
         eventTextArea.setColumns(20);
         eventTextArea.setRows(5);
+        eventTextArea.setEditable(false);
+        eventTextArea.setLineWrap(true);
+        eventTextArea.setWrapStyleWord(true);
         eventScrollPane.setViewportView(eventTextArea);
 
         javax.swing.GroupLayout eventPanelLayout = new javax.swing.GroupLayout(eventPanel);
@@ -584,7 +597,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
     private JPanel pjPanel;
     private JPanel potionPanel;
     private JButton run;
-    private javax.swing.JList<String> spellList;
+    private JList<String> spellList;
     private JScrollPane spellScroll;
     private JTextArea spellTextArea;
     private JScrollPane spellTextScroll;
@@ -593,22 +606,40 @@ public class UI extends javax.swing.JFrame implements ActionListener {
     private JButton useManaPotion;
     private JLabel wisText;
 
+    public void combatUIRefresh(){
+
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == abilities){
             Main.combat.useSpell(spellList.getSelectedIndex(),Combat.spellArray);
-        }else if (e.getSource() == attack){
-            Main.combat.doDamage(Main.data.getDamage());
-        }else if(e.getSource() == defense){
+        }if (e.getSource() == attack){
+               Main.combat.doDamage(Main.data.getDamage());
+               combatUIRefresh();
+               eventTextArea.append("");
+        }if(e.getSource() == defense){
             Main.data.setHp(Main.combat.defense(Main.data.getHp(),Main.enemyData.geteDmg(),Main.data.getDefensePercentage()));
-        }else if (e.getSource() == run){
+        }if (e.getSource() == run){
 
-        }else if (e.getSource() == useHPPotion){
-            Main.combat.doHeal(50); //Valor de cura provisional
-            //setPotionQuantity - 1
-        }else  if (e.getSource() == useManaPotion){
-            Main.combat.doMana(-50); //Valor mana provisional
-            //setPotionQuantity - 1
+        }if (e.getSource() == useHPPotion){
+            if (Main.hpPotions.getQuantity() - 1 <= 0) {
+                Main.hpPotions.setQuantity(0);
+                eventTextArea.append("\nYou don't have HP potions left\n");
+            }else {
+                Main.hpPotions.setQuantity(Main.hpPotions.getQuantity() - 1);
+                Main.combat.doHeal(Main.hpPotions.getValue());
+                eventTextArea.append("\nYou use an HP potion and restore " + Main.hpPotions.getValue() + " health.\n");
+            }
+        }if (e.getSource() == useManaPotion) {
+            if (Main.manaPotions.getQuantity() - 1 <= 0) {
+                Main.manaPotions.setQuantity(0);
+                eventTextArea.append("\nYou don't have mana potions left\n");
+            } else {
+                Main.manaPotions.setQuantity(Main.manaPotions.getQuantity() - 1);
+                Main.combat.doMana(Main.manaPotions.getValue());
+                eventTextArea.append("\nYou use a Mana potion and restore " + Main.manaPotions.getValue() + " mana.\n");
+            }
         }
     }
 }

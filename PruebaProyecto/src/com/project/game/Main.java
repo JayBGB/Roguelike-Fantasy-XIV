@@ -4,6 +4,7 @@ import com.project.characters.CharData;
 import com.project.combat.Ability;
 import com.project.combat.Combat;
 import com.project.characters.EnemyData;
+import com.project.inventory.Potions;
 import com.project.ui.UI;
 
 /**
@@ -14,6 +15,8 @@ public class Main {
     public static CharData data = new CharData();
     public static EnemyData enemyData = new EnemyData();
     public static Combat combat = new Combat();
+    public static Potions manaPotions = new Potions(5,50);
+    public static Potions hpPotions = new Potions(5,50);
     public static UI combatui;
 
     /**

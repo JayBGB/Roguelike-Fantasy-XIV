@@ -1,5 +1,6 @@
 package com.project.combat;
 
+import com.project.characters.EnemyData;
 import com.project.game.Main;
 
 import java.util.ArrayList;
@@ -10,6 +11,13 @@ public class Combat {
     boolean heroIsAlive;
     boolean enemyIsAlive;
     public static List<Ability> spellArray = new ArrayList<>();
+
+    public void  enemyTurn(float dmg){
+        if(Main.data.getHp() - dmg == 0){
+            Main.combat.setHeroIsAlive(false);
+        }else
+            Main.data.setHp(Main.data.getHp() - dmg);
+    }
 
     public void addToSpellArrayList () {
         int job = Main.data.getJob();
