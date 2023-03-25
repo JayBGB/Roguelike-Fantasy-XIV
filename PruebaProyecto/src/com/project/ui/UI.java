@@ -3,6 +3,8 @@
 package com.project.ui;
 
 
+import com.project.characters.EnemyData;
+import com.project.game.CharacterCreation;
 import com.project.game.Main;
 
 import javax.swing.*;
@@ -111,7 +113,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(pj2Separator, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        pjImgLabel.setIcon(new ImageIcon("PruebaProyecto/src/com/project/images/vieraBLM.png"));
+        pjImgLabel.setIcon(new ImageIcon(CharacterCreation.heroImgUrl + ".png"));
 
         fightStats.setBackground(new java.awt.Color(102, 0, 102));
         fightStats.setAutoscrolls(true);
@@ -458,6 +460,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
                                         .addComponent(eHPStat))
                                 .addGap(0, 20, Short.MAX_VALUE))
         );
+        eImgLabel.setIcon(new ImageIcon(EnemyData.enemyImgUrl));
 
         jPanel1.add(enemyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 240, 250));
 
@@ -690,13 +693,15 @@ public class UI extends javax.swing.JFrame implements ActionListener {
                 enemyDead = true;
                 if (enemyCount == 9){
                     Main.enemyData.createBoss();
+                    eImgLabel.setIcon(new ImageIcon(EnemyData.enemyImgUrl));
                     enemyCount = 0;
                 }else {
                     Main.enemyData.createEnemy();
+                    eImgLabel.setIcon(new ImageIcon(EnemyData.enemyImgUrl));
                 }
                 Main.combat.setEnemyIsAlive(true);
                 refreshCombatUI();
-                eventTextArea.setText("You encounter a " + Main.enemyData.geteName());
+                eventTextArea.setText("\nYou encounter a " + Main.enemyData.geteName() + ".\n");
             } else if (Main.combat.checkStateCombat() == 1) {
                 eventTextArea.append("\n You lost the fight, going back to lobby \n");
             }

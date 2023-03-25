@@ -15,6 +15,13 @@ public class UIpointAllocation extends javax.swing.JFrame implements ActionListe
 
     public static int points = 0;
 
+    int tempStr = Main.data.getAttStrength();
+    int tempDex = Main.data.getAttDexterity();
+    int tempCon = Main.data.getAttConstitution();
+    int tempWis = Main.data.getAttWisdom();
+    int tempItl = Main.data.getAttIntelligence();
+    int tempCha = Main.data.getAttCharisma();
+    final int STR=1, DEX=2, CON=3, ITL=4, WIS=5, CHA=6;
     /**
      * Creates new form characterCreationUI
      */
@@ -139,6 +146,21 @@ public class UIpointAllocation extends javax.swing.JFrame implements ActionListe
         itlStatLabel.setPreferredSize(new java.awt.Dimension(12, 17));
         jPanel1.add(itlStatLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 30, 30));
 
+        if (points < 1){
+            addStrButton.setEnabled(false);
+            addDexButton.setEnabled(false);
+            addConButton.setEnabled(false);
+            addWisButton.setEnabled(false);
+            addItlButton.setEnabled(false);
+            addChaButton.setEnabled(false);
+        }else {
+            addStrButton.setEnabled(true);
+            addDexButton.setEnabled(true);
+            addConButton.setEnabled(true);
+            addWisButton.setEnabled(true);
+            addItlButton.setEnabled(true);
+            addChaButton.setEnabled(true);
+        }
         addChaButton.setText("+");
         addChaButton.setToolTipText("");
         addChaButton.addActionListener(this);
@@ -211,10 +233,88 @@ public class UIpointAllocation extends javax.swing.JFrame implements ActionListe
     private javax.swing.JLabel wisStatLabel;
     private javax.swing.JLabel wisTextLabel;
 
+    public void refreshPAUI(){
+        strStatLabel.setText(String.valueOf(Main.data.getAttStrength()));
+        dexStatLabel.setText(String.valueOf(Main.data.getAttDexterity()));
+        conStatLabel.setText(String.valueOf(Main.data.getAttConstitution()));
+        wisStatLabel.setText(String.valueOf(Main.data.getAttWisdom()));
+        itlStatLabel.setText(String.valueOf(Main.data.getAttIntelligence()));
+        chaStatLabel.setText(String.valueOf(Main.data.getAttCharisma()));
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addStrButton){
+            alocatePoint(STR);
+        }else if (e.getSource() == addDexButton){
+            alocatePoint(DEX);
+        }else if (e.getSource() == addConButton){
+            alocatePoint(CON);
+        }else if (e.getSource() == addWisButton){
+            alocatePoint(WIS);
+        }else if (e.getSource() == addItlButton){
+            alocatePoint(ITL);
+        } else if (e.getSource() == addChaButton) {
+            alocatePoint(CHA);
+        } else if (e.getSource() == reassignButton) {
+            Main.data.setAttStrength(tempStr);
+            Main.data.setAttDexterity(tempDex);
+            Main.data.setAttConstitution(tempCon);
+            Main.data.setAttWisdom(tempWis);
+            Main.data.setAttIntelligence(tempItl);
+            Main.data.setAttCharisma(tempCha);
+            refreshPAUI();
+        } else if (e.getSource() == okButton) {
+            Main.combatui.setVisible(true);
+            Main.combatui.refreshCombatUI();
+            this.dispose();
+        }
+    }
 
+    public void alocatePoint(int stat){
+            switch (stat) {
+                case STR:
+                    Main.data.setAttStrength(Main.data.getAttStrength() + 1);
+                    refreshPAUI();
+                    break;
+                case DEX:
+                    Main.data.setAttDexterity(Main.data.getAttDexterity() + 1);
+                    refreshPAUI();
+                    break;
+                case CON:
+                    Main.data.setAttConstitution(Main.data.getAttConstitution() + 1);
+                    refreshPAUI();
+                    break;
+                case WIS:
+                    Main.data.setAttWisdom(Main.data.getAttWisdom() + 1);
+                    refreshPAUI();
+                    break;
+                case ITL:
+                    Main.data.setAttIntelligence(Main.data.getAttIntelligence() + 1);
+                    refreshPAUI();
+                    break;
+                case CHA:
+                    Main.data.setAttCharisma(Main.data.getAttCharisma() + 1);
+                    refreshPAUI();
+                    break;
+            }
+            points --;
+        if (points < 1){
+            addStrButton.setEnabled(false);
+            addDexButton.setEnabled(false);
+            addConButton.setEnabled(false);
+            addWisButton.setEnabled(false);
+            addItlButton.setEnabled(false);
+            addChaButton.setEnabled(false);
+            refreshPAUI();
+        }else {
+            addStrButton.setEnabled(true);
+            addDexButton.setEnabled(true);
+            addConButton.setEnabled(true);
+            addWisButton.setEnabled(true);
+            addItlButton.setEnabled(true);
+            addChaButton.setEnabled(true);
+            refreshPAUI();
         }
     }
 

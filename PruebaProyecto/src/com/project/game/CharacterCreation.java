@@ -31,6 +31,9 @@ public class CharacterCreation{
     private final int WISDOM=4;
     private final int CHARISMA=5;
 
+    public static String heroImgUrl;
+    public static String raceName;
+
 
     public void createCharacter() {
 
@@ -74,6 +77,8 @@ public class CharacterCreation{
                     case 6:
                         Main.data.setRace(VIERA);
                         races.viera();
+                        heroImgUrl = "PruebaProyecto/src/com/project/images/Viera/";
+                        raceName = "Viera";
                         break;
                     case 7:
                         Main.data.setRace(HROTHGAR);
@@ -105,6 +110,7 @@ public class CharacterCreation{
                 case BLM:
                     Main.data.setJob(3);
                     Main.data.setJobName("Black Mage");
+                    heroImgUrl = heroImgUrl + "blm" + raceName;
                     break;
                 case AST:
                     Main.data.setJob(4);

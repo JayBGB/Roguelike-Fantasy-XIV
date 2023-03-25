@@ -112,13 +112,13 @@ public class EnemyData {
     }
 
     public void createBoss() {
-        switch (math.randomNumber(6, 1)) {//Change the left number so it matches the number of enemies
+        switch (math.randomNumber(6, 1)) {
 
             case 1:
                 Main.enemyData.seteName("Ifrit");//Enemy name
-                Main.enemyData.seteMaxHp(math.randomNumber(700, 500));//Max HP
-                Main.enemyData.seteHp(Main.enemyData.geteMaxHp());//Enemy HP
-                Main.enemyData.seteDmg(math.randomNumber(65, 35));//Enemy Damage
+                Main.enemyData.seteMaxHp(math.randomNumber(250, 200));//Max HP
+                Main.enemyData.seteHp(Main.enemyData.geteMaxHp());//nemy HP
+                Main.enemyData.seteDmg(math.randomNumber(19, 16));//Enemy Damage
                 break;
 
             case 2:
@@ -143,8 +143,9 @@ public class EnemyData {
                 break;
 
             case 5:
-                Main.enemyData.seteName("Rammu");//Enemy name
-                Main.enemyData.seteMaxHp(math.randomNumber(650, 500));//Max HP
+                enemyImgUrl="PruebaProyecto/src/com/project/images/Bosses/bossRamuh.png";
+                Main.enemyData.seteName("Ramuh");//Enemy name
+                Main.enemyData.seteMaxHp(math.randomNumber(230, 170));//Max HP
                 Main.enemyData.seteHp(Main.enemyData.geteMaxHp());//Enemy HP
                 Main.enemyData.seteDmg(math.randomNumber(65, 40));//Enemy Damage
                 break;

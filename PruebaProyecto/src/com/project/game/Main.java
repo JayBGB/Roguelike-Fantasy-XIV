@@ -34,16 +34,15 @@ public class Main {
         CharacterCreation hero = new CharacterCreation();
         hero.createCharacter();
         hero.selectClass();
-        hero.pointAllocation(5);
+        UIpointAllocation.points = 5;
+        paUI = new UIpointAllocation();
         hero.calculateHP();
         hero.calculateMana();
         hero.calculateDefense();
         hero.calculateDamage();
         enemyData.createEnemy();
         combat.addToSpellArrayList();
-        paUI = new UIpointAllocation();
         paUI.setVisible(true);
         combatui = new UI();
-        combatui.setVisible(true);
     }
 }
