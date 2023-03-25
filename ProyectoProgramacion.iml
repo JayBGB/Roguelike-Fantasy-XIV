@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="netbeans.external.AbsoluteLayout" level="project" />
+    <orderEntry type="library" name="projectLibrary" level="project" />
   </component>
 </module>

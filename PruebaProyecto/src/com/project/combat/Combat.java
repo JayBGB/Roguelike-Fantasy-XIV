@@ -1,6 +1,5 @@
 package com.project.combat;
 
-import com.project.characters.EnemyData;
 import com.project.game.Main;
 
 import java.util.ArrayList;
@@ -8,8 +7,8 @@ import java.util.List;
 
 public class Combat {
 
-    boolean heroIsAlive;
-    boolean enemyIsAlive;
+    boolean heroIsAlive = true;
+    boolean enemyIsAlive = true;
     public static List<Ability> spellArray = new ArrayList<>();
 
     public void  enemyTurn(float dmg){
@@ -59,15 +58,29 @@ public class Combat {
         return spellNameList;
     }
 
-    public void useSpell(int spellNumber,List<Ability> spellList){
+    public void enemyTurn(){
+        if (Main.data.getHp() - (Main.enemyData.geteDmg() - Main.enemyData.geteDmg() * Main.data.getDefensePercentage()) <= 0){
+            Main.data.setHp(0);
+            setHeroIsAlive(false);
+        }else
+        Main.data.setHp(Main.data.getHp() - (Main.enemyData.geteDmg() - Main.enemyData.geteDmg() * Main.data.getDefensePercentage()));
+    }
+
+    public boolean useSpell(int spellNumber,List<Ability> spellList){
         Ability useSpell = spellList.get(spellNumber);
-        doDamage(useSpell.spellDmg);
-        doMana(useSpell.manaCost);
-        doHeal(useSpell.spellHealing);
+        if (useSpell.getManaCost() > Main.data.getMana()) {
+            return false;
+        }else{
+            doDamage(useSpell.spellDmg);
+            doMana(useSpell.manaCost);
+            doHeal(useSpell.spellHealing);
+            return true;
+        }
     }
 
     public void doDamage(float dmg){
-        if (Main.enemyData.geteHp() - dmg < 0) {
+        if (Main.enemyData.geteHp() - dmg <= 0) {
+            Main.enemyData.seteHp(0);
             Main.combat.setEnemyIsAlive(false);
         }else
         Main.enemyData.seteHp(Main.enemyData.geteHp() - dmg);
@@ -105,22 +118,20 @@ public class Combat {
         this.enemyIsAlive = enemyIsAlive;
     }
 
-    public void  heroWins(){
-
+    public int checkStateCombat(){
+        if (!heroIsAlive){
+            return 1;
+        }else if (!enemyIsAlive){
+            return 2;
+        }return 3;
     }
 
-    public float attack(float enemyHp){
-        float hpleft = enemyHp - Main.data.getDamage();
-        if(hpleft <= 0){
-            return 0;
-        }else {
-            return hpleft;
-        }
-    }
-
-    public float defense(float hp, float enemydmg, float defensePercentage){
-        float tempHp;
-        tempHp = hp - (enemydmg - defensePercentage * 2);
-        return tempHp;
+    public void defense(float enemydmg, float defensePercentage){
+        float tempeDmg =(enemydmg - (enemydmg * (defensePercentage * 2)));
+        if (Main.enemyData.geteHp() - tempeDmg <= 0) {
+            Main.enemyData.seteHp(0);
+            Main.combat.setHeroIsAlive(false);
+        }else
+            Main.data.setHp(Main.data.getHp() - tempeDmg);
     }
 }

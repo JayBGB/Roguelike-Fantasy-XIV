@@ -10,9 +10,16 @@ import java.awt.event.*;
 
 import com.project.combat.Combat;
 
+import com.projectLibrary.mathematics.math;
+
 
 public class UI extends javax.swing.JFrame implements ActionListener {
 
+    boolean defenseCase = false;
+    boolean noPotionsCase = false;
+    boolean enemyDead = false;
+    boolean notEnhoughManaCase = false;
+    int enemyCount = 0;
 
     public UI(){
         initComponents();
@@ -20,6 +27,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
     private void initComponents() {
 
+        float spellDmg;
         jPanel1 = new JPanel();
         pjPanel = new JPanel();
         pjImgPanel = new JPanel();
@@ -42,12 +50,12 @@ public class UI extends javax.swing.JFrame implements ActionListener {
         wisText = new JLabel();
         itlText = new JLabel();
         chaText = new JLabel();
-        jLabel2 = new JLabel();
-        jLabel3 = new JLabel();
-        jLabel4 = new JLabel();
-        jLabel5 = new JLabel();
-        jLabel6 = new JLabel();
-        jLabel7 = new JLabel();
+        strStat = new JLabel();
+        itlStat = new JLabel();
+        dexStat = new JLabel();
+        conStat = new JLabel();
+        wisStat = new JLabel();
+        chaStat = new JLabel();
         namePanel = new JPanel();
         pj1Separator = new javax.swing.JSeparator();
         jobText = new JLabel();
@@ -103,6 +111,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(pj2Separator, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+        pjImgLabel.setIcon(new ImageIcon("PruebaProyecto/src/com/project/images/vieraBLM.png"));
 
         fightStats.setBackground(new java.awt.Color(102, 0, 102));
         fightStats.setAutoscrolls(true);
@@ -122,7 +131,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
         manaStat.setText(Main.data.getMana()+"/"+Main.data.getMaxMana());
 
-        dmgStat.setText(String.valueOf(Main.data.getDamage()));
+        dmgStat.setText(String.valueOf(math.floatFormat.format(Main.data.getDamage())));
 
         javax.swing.GroupLayout fightStatsLayout = new javax.swing.GroupLayout(fightStats);
         fightStats.setLayout(fightStatsLayout);
@@ -188,17 +197,17 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
         chaText.setText("Charisma :");
 
-        jLabel2.setText(String.valueOf(Main.data.getAttStrength()));
+        strStat.setText(String.valueOf(Main.data.getAttStrength()));
 
-        jLabel3.setText(String.valueOf(Main.data.getAttIntelligence()));
+        itlStat.setText(String.valueOf(Main.data.getAttIntelligence()));
 
-        jLabel4.setText(String.valueOf(Main.data.getAttDexterity()));
+        dexStat.setText(String.valueOf(Main.data.getAttDexterity()));
 
-        jLabel5.setText(String.valueOf(Main.data.getAttConstitution()));
+        conStat.setText(String.valueOf(Main.data.getAttConstitution()));
 
-        jLabel6.setText(String.valueOf(Main.data.getAttWisdom()));
+        wisStat.setText(String.valueOf(Main.data.getAttWisdom()));
 
-        jLabel7.setText(String.valueOf(Main.data.getAttCharisma()));
+        chaStat.setText(String.valueOf(Main.data.getAttCharisma()));
 
         javax.swing.GroupLayout charStatsLayout = new javax.swing.GroupLayout(charStats);
         charStats.setLayout(charStatsLayout);
@@ -213,19 +222,19 @@ public class UI extends javax.swing.JFrame implements ActionListener {
                                                         .addGroup(charStatsLayout.createSequentialGroup()
                                                                 .addComponent(chaText)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(jLabel7))
+                                                                .addComponent(chaStat))
                                                         .addGroup(charStatsLayout.createSequentialGroup()
                                                                 .addComponent(conText)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(jLabel5))
+                                                                .addComponent(conStat))
                                                         .addGroup(charStatsLayout.createSequentialGroup()
                                                                 .addComponent(wisText)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(jLabel6))
+                                                                .addComponent(wisStat))
                                                         .addGroup(charStatsLayout.createSequentialGroup()
                                                                 .addComponent(itlText)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(jLabel3))))
+                                                                .addComponent(itlStat))))
                                         .addGroup(charStatsLayout.createSequentialGroup()
                                                 .addGap(26, 26, 26)
                                                 .addGroup(charStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -233,8 +242,8 @@ public class UI extends javax.swing.JFrame implements ActionListener {
                                                         .addComponent(strText))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGroup(charStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                                        .addComponent(strStat, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(dexStat, javax.swing.GroupLayout.Alignment.TRAILING))))
                                 .addGap(33, 33, 33))
         );
         charStatsLayout.setVerticalGroup(
@@ -245,27 +254,27 @@ public class UI extends javax.swing.JFrame implements ActionListener {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(charStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(strText)
-                                        .addComponent(jLabel2))
+                                        .addComponent(strStat))
                                 .addGap(18, 18, 18)
                                 .addGroup(charStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(dexText)
-                                        .addComponent(jLabel4))
+                                        .addComponent(dexStat))
                                 .addGap(18, 18, 18)
                                 .addGroup(charStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(conText)
-                                        .addComponent(jLabel5))
+                                        .addComponent(conStat))
                                 .addGap(18, 18, 18)
                                 .addGroup(charStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(wisText)
-                                        .addComponent(jLabel6))
+                                        .addComponent(wisStat))
                                 .addGap(18, 18, 18)
                                 .addGroup(charStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(itlText)
-                                        .addComponent(jLabel3))
+                                        .addComponent(itlStat))
                                 .addGap(18, 18, 18)
                                 .addGroup(charStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(chaText)
-                                        .addComponent(jLabel7))
+                                        .addComponent(chaStat))
                                 .addGap(41, 41, 41))
         );
 
@@ -363,6 +372,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
                 if (e.getClickCount() == 1) {
                     int selectedSpell = spellList.getSelectedIndex();
                     spellTextArea.setText(Combat.spellArray.get(selectedSpell).getSpellInfo());
+
                 }
             }
         };
@@ -422,9 +432,9 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
         jPanel1.add(fightingPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 1000, 150));
 
-        eHPText.setText("HP:");
+        eHPText.setText(Main.enemyData.geteName() + ":");
 
-        eHPStat.setText("100/100");
+        eHPStat.setText(Main.enemyData.geteHp() + "/" + Main.enemyData.geteMaxHp());
 
         javax.swing.GroupLayout enemyPanelLayout = new javax.swing.GroupLayout(enemyPanel);
         enemyPanel.setLayout(enemyPanelLayout);
@@ -432,7 +442,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
                 enemyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(eImgLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(enemyPanelLayout.createSequentialGroup()
-                                .addGap(71, 71, 71)
+                                .addGap(30, 30, 30)
                                 .addComponent(eHPText)
                                 .addGap(18, 18, 18)
                                 .addComponent(eHPStat)
@@ -519,6 +529,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
         eventTextArea.setEditable(false);
         eventTextArea.setLineWrap(true);
         eventTextArea.setWrapStyleWord(true);
+        eventTextArea.setText("You encounter a " + Main.enemyData.geteName());
         eventScrollPane.setViewportView(eventTextArea);
 
         javax.swing.GroupLayout eventPanelLayout = new javax.swing.GroupLayout(eventPanel);
@@ -575,12 +586,12 @@ public class UI extends javax.swing.JFrame implements ActionListener {
     private JLabel hpStat;
     private JLabel hpText;
     private JLabel itlText;
-    private JLabel jLabel2;
-    private JLabel jLabel3;
-    private JLabel jLabel4;
-    private JLabel jLabel5;
-    private JLabel jLabel6;
-    private JLabel jLabel7;
+    private JLabel strStat;
+    private JLabel itlStat;
+    private JLabel dexStat;
+    private JLabel conStat;
+    private JLabel wisStat;
+    private JLabel chaStat;
     private JPanel jPanel1;
     private JLabel jobText;
     private JLabel manaPotionShowText;
@@ -610,36 +621,96 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
     }
 
+    public void refreshCombatUI(){
+        eHPStat.setText(String.valueOf(math.floatFormat.format(Main.enemyData.geteHp())));
+        eHPText.setText(String.valueOf(Main.enemyData.geteName()));
+        hpPotionStat.setText(String.valueOf(Main.hpPotions.getQuantity()));
+        manaPotionStat.setText(String.valueOf(Main.manaPotions.getQuantity()));
+        hpStat.setText(math.floatFormat.format(Main.data.getHp())+"/"+ math.floatFormat.format(Main.data.getMaxHp()));
+        defStat.setText(String.valueOf(Main.data.getDefense()));
+        manaStat.setText( math.floatFormat.format(Main.data.getMana())+"/"+ math.floatFormat.format(Main.data.getMaxMana()));
+        dmgStat.setText(String.valueOf(math.floatFormat.format(Main.data.getDamage())));
+        strStat.setText(String.valueOf(Main.data.getAttStrength()));
+        dexStat.setText(String.valueOf(Main.data.getAttDexterity()));
+        conStat.setText(String.valueOf(Main.data.getAttConstitution()));
+        wisStat.setText(String.valueOf(Main.data.getAttWisdom()));
+        chaStat.setText(String.valueOf(Main.data.getAttCharisma()));
+
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == abilities){
-            Main.combat.useSpell(spellList.getSelectedIndex(),Combat.spellArray);
+            boolean checkSpell;
+            checkSpell = Main.combat.useSpell(spellList.getSelectedIndex(),Combat.spellArray);
+            if (checkSpell) {
+                eventTextArea.append("\nYou use the spell " + spellList.getSelectedValue() + " on " + Main.enemyData.geteName() + "\n");
+            }else if(!checkSpell) {
+                notEnhoughManaCase = true;
+                eventTextArea.append("\nYou don't have enough mana\n");
+                refreshCombatUI();
+            }
         }if (e.getSource() == attack){
                Main.combat.doDamage(Main.data.getDamage());
-               combatUIRefresh();
-               eventTextArea.append("");
+               eventTextArea.append("\nYou damage " + Main.enemyData.geteName() + " for " + math.floatFormat.format(Main.data.getDamage()) + " damage.\n");
+               refreshCombatUI();
         }if(e.getSource() == defense){
-            Main.data.setHp(Main.combat.defense(Main.data.getHp(),Main.enemyData.geteDmg(),Main.data.getDefensePercentage()));
+                Main.combat.defense(Main.enemyData.geteDmg(),Main.data.getDefensePercentage());
+                defenseCase = true;
+                refreshCombatUI();
         }if (e.getSource() == run){
 
         }if (e.getSource() == useHPPotion){
             if (Main.hpPotions.getQuantity() - 1 <= 0) {
                 Main.hpPotions.setQuantity(0);
                 eventTextArea.append("\nYou don't have HP potions left\n");
+                noPotionsCase = true;
             }else {
                 Main.hpPotions.setQuantity(Main.hpPotions.getQuantity() - 1);
                 Main.combat.doHeal(Main.hpPotions.getValue());
-                eventTextArea.append("\nYou use an HP potion and restore " + Main.hpPotions.getValue() + " health.\n");
+                eventTextArea.append("\nYou use an HP potion and restore " + math.floatFormat.format(Main.hpPotions.getValue()) + " health.\n");
             }
+            refreshCombatUI();
         }if (e.getSource() == useManaPotion) {
             if (Main.manaPotions.getQuantity() - 1 <= 0) {
                 Main.manaPotions.setQuantity(0);
                 eventTextArea.append("\nYou don't have mana potions left\n");
+                noPotionsCase = true;
             } else {
                 Main.manaPotions.setQuantity(Main.manaPotions.getQuantity() - 1);
                 Main.combat.doMana(Main.manaPotions.getValue());
-                eventTextArea.append("\nYou use a Mana potion and restore " + Main.manaPotions.getValue() + " mana.\n");
+                eventTextArea.append("\nYou use a Mana potion and restore " + math.floatFormat.format(-Main.manaPotions.getValue()) + " mana.\n");
             }
+            refreshCombatUI();
+        }
+        try {
+            if (Main.combat.checkStateCombat() == 2) {
+                eventTextArea.setText("\n You won the fight and got " + Main.gold.addGold() + ".\n");
+                enemyCount ++;
+                enemyDead = true;
+                if (enemyCount == 9){
+                    Main.enemyData.createBoss();
+                    enemyCount = 0;
+                }else {
+                    Main.enemyData.createEnemy();
+                }
+                Main.combat.setEnemyIsAlive(true);
+                refreshCombatUI();
+                eventTextArea.setText("You encounter a " + Main.enemyData.geteName());
+            } else if (Main.combat.checkStateCombat() == 1) {
+                eventTextArea.append("\n You lost the fight, going back to lobby \n");
+            }
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        if (!defenseCase && !noPotionsCase && !enemyDead) {
+            Main.combat.enemyTurn();
+            refreshCombatUI();
+        }else {
+            defenseCase = false;
+            noPotionsCase = false;
+            enemyDead = false;
+            notEnhoughManaCase = false;
         }
     }
 }

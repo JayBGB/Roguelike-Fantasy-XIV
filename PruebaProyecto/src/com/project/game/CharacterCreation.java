@@ -208,19 +208,19 @@ public class CharacterCreation{
         switch (job) {
                 //WARRIOR
             case 1:
-                Main.data.setDamage(10f + Main.data.getAttStrength() * 0.7f);
+                Main.data.setDamage(10f + Main.data.getAttStrength() * 0.6f);
                 break;
                 //BARD
             case 2:
-                Main.data.setDamage(10f);
+                Main.data.setDamage(10f + Main.data.getAttDexterity() * 0.7f);
                 break;
                 //BLACK MAGE
             case 3:
-                Main.data.setDamage(10f);
+                Main.data.setDamage(10f + Main.data.getAttIntelligence() * 0.8f);
                 break;
                 //ASTROLOGIAN
             case 4:
-                Main.data.setDamage(10f);
+                Main.data.setDamage(10f + Main.data.getAttIntelligence() * 0.5f);
                 break;
         }
     }
