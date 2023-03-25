@@ -53,26 +53,38 @@ public class CharacterCreation{
                     case 0:
                         Main.data.setRace(HYUR);
                         races.hyur();
+                        heroImgUrl = "PruebaProyecto/src/com/project/images/Hyur/";
+                        raceName = "Hyur";
                         break;
                     case 1:
                         Main.data.setRace(ELEZEN);
                         races.elezen();
+                        heroImgUrl = "PruebaProyecto/src/com/project/images/Elezen/";
+                        raceName = "Elezen";
                         break;
                     case 2:
                         Main.data.setRace(MIQOTE);
                         races.miqote();
+                        heroImgUrl = "PruebaProyecto/src/com/project/images/Miqote/";
+                        raceName = "Miqote";
                         break;
                     case 3:
                         Main.data.setRace(ROEGADYN);
                         races.roegadyn();
+                        heroImgUrl = "PruebaProyecto/src/com/project/images/Roegadyn/";
+                        raceName = "Roegadyn";
                         break;
                     case 4:
                         Main.data.setRace(LALAFELL);
                         races.lalafell();
+                        heroImgUrl = "PruebaProyecto/src/com/project/images/Lalafell/";
+                        raceName = "Lalafell";
                         break;
                     case 5:
                         Main.data.setRace(AURA);
                         races.aura();
+                        heroImgUrl = "PruebaProyecto/src/com/project/images/Aura/";
+                        raceName = "Aura";
                         break;
                     case 6:
                         Main.data.setRace(VIERA);
@@ -83,6 +95,8 @@ public class CharacterCreation{
                     case 7:
                         Main.data.setRace(HROTHGAR);
                         races.hrothgar();
+                        heroImgUrl = "PruebaProyecto/src/com/project/images/Hrothgar/";
+                        raceName = "Hrothgar";
                         break;
                     default:
                         JOptionPane.showMessageDialog(null, "ERROR: RACE SELECTION");
@@ -102,10 +116,12 @@ public class CharacterCreation{
                 case WAR:
                     Main.data.setJob(1);
                     Main.data.setJobName("Warrior");
+                    heroImgUrl = heroImgUrl + "war" + raceName;
                     break;
                 case BRD:
                     Main.data.setJob(2);
                     Main.data.setJobName("Bard");
+                    heroImgUrl = heroImgUrl + "brd" + raceName;
                     break;
                 case BLM:
                     Main.data.setJob(3);
@@ -115,6 +131,7 @@ public class CharacterCreation{
                 case AST:
                     Main.data.setJob(4);
                     Main.data.setJobName("Astrologian");
+                    heroImgUrl = heroImgUrl + "ast" + raceName;
                     break;
             }
         } catch (Exception e) {
@@ -186,14 +203,14 @@ public class CharacterCreation{
     }
 
     public void calculateHP() {
-        float hp = Main.data.getAttConstitution() * 5;
+        float hp = Main.data.getAttConstitution() * 10;
         Main.data.setMaxHp(hp);
         Main.data.setHp(hp);
         System.out.println("Player's HP: "+hp); // HAY QUE QUITARLO A POSTERIORI, SOLO PARA TESTING
     }
 
     public void calculateMana(){
-        float mana = Main.data.getAttIntelligence() * 5;
+        float mana = Main.data.getAttIntelligence() * 10;
         Main.data.setMaxMana(mana);
         Main.data.setMana(mana);
         System.out.println("Player's Mana: "+mana); // HAY QUE QUITARLO A POSTERIORI, SOLO PARA TESTING

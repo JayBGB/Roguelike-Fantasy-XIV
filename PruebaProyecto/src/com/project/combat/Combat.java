@@ -1,6 +1,7 @@
 package com.project.combat;
 
 import com.project.game.Main;
+import com.projectLibrary.mathematics.math;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,28 +23,28 @@ public class Combat {
         int job = Main.data.getJob();
         switch (job) {
             case 1: // Warrior
-                spellArray.add(new Ability("Inner Release", "info", 25, (float) (Main.data.getDamage() + (Main.data.getDamage() * 0.2)), 0));
-                spellArray.add(new Ability("Fell Cleave", "info", 35, 15f + Main.data.getDamage(), 0));
-                spellArray.add(new Ability("Nascent Flash", "info", 50, 7.5f + Main.data.getDamage(), (7.5f + Main.data.getDamage())*0.15f));
-                spellArray.add(new Ability("Holmgang", "info", 60, 0, (float)(Main.data.getAttConstitution()*2f)));
+                spellArray.add(new Ability("Inner Release", "Unleash your rage and crush your enemy!\nDamage: "+ math.floatFormat.format((float) (Main.data.getDamage() + (Main.data.getDamage() * 0.2)))+"\nMana cost: 15\nHealing: None\nMana recovery: None", 15,  0+(float) (Main.data.getDamage() + (Main.data.getDamage() * 0.2)), 0));
+                spellArray.add(new Ability("Fell Cleave", "Perform a deadly swing with your greataxe!\nDamage: "+math.floatFormat.format(15f + Main.data.getDamage())+"\nMana cost: 35\nHealing: None\nMana recovery: None", 35, 15f + Main.data.getDamage(), 0));
+                spellArray.add(new Ability("Nascent Flash", "Drain your foe's life force to reinvigorate yourself!\nDamage: "+math.floatFormat.format(7.5f + Main.data.getDamage()) + "\nMana cost: 50\nHealing: " + math.floatFormat.format((float) ((Main.data.getDamage()*0.3)) + (float) (Main.data.getAttWisdom()*0.2))+"\nMana recovery: None" , 50, 7.5f + Main.data.getDamage(), (float)((Main.data.getDamage())*0.15f)+(float)(Main.data.getAttWisdom()*0.2)));
+                spellArray.add(new Ability("Holmgang", "Use your inner force to heal your wounds!\nDamage: None\nMana cost: 60\nHealing: " + math.floatFormat.format((float) (Main.data.getAttConstitution()*2f))+"\nMana recovery: None", 60, 0, (float)(Main.data.getAttConstitution()*2f)));
             break;
             case 2: // Bard
-                spellArray.add(new Ability("Apex Arrow", "info", 50, 10, 0));
-                spellArray.add(new Ability("Refulgent Arrow", "info", 50, 10, 0));
-                spellArray.add(new Ability("Nature's Minne", "info", 50, 10, 0));
-                spellArray.add(new Ability("Radiant Finale", "info", 50, 10, 0));
+                spellArray.add(new Ability("Apex Arrow", "Pierce your foe with one of your sharpest arrows!\nDamage: "+math.floatFormat.format(10f+Main.data.getDamage())+"\nMana cost: 20\nHealing: None\nMana recovery: None", 20, 10f+Main.data.getDamage(), 0));
+                spellArray.add(new Ability("Refulgent Arrow", "Set one arrow on fire to burn your enemy!\nDamage: "+math.floatFormat.format(15f+Main.data.getDamage())+"\nMana cost: 30\nHealing: None\nMana recovery: None", 30, 15f+Main.data.getDamage(), 0));
+                spellArray.add(new Ability("Nature's Minne","Commune with the forces of nature to heal your wounds!\nDamage: None\nMana cost: 25\nHealing: "+math.floatFormat.format(5+Main.data.getAttCharisma()/2)+"\nMana recovery: None", 25, 0, 5+Main.data.getAttCharisma()/2));
+                spellArray.add(new Ability("Radiant Finale", "Make your arrow explode with the force of your magick!\nDamage: " + math.floatFormat.format(40 + Main.data.getDamage()) + "\nMana cost: 100\nHealing: None\nMana recovery: None", 100, 40+Main.data.getDamage(), 0));
             break;
             case 3: // Black Mage
-                spellArray.add(new Ability("Xenoglossy", "info", 50, 25f+Main.data.getDamage(), 0));
-                spellArray.add(new Ability("Fire", "info", 20, 10f+Main.data.getDamage(), 0));
-                spellArray.add(new Ability("Ice", "info", 5f-(float)(Main.data.getAttIntelligence()*0.8f), Main.data.getDamage()-15f, 0));
-                spellArray.add(new Ability("Manaward", "info", 15, 0, Main.data.getMaxMana()*0.3f));
+                spellArray.add(new Ability("Xenoglossy", "A powerful blast that will make your foes explode from within!\nDamage: "+math.floatFormat.format(30f+Main.data.getDamage()) +"\nMana cost: 50\nHealing: None\nMana recovery: None", 50, 30f+Main.data.getDamage(), 0));
+                spellArray.add(new Ability("Fire", "Channel the energy of fire to burn your enemy!\nDamage: "+math.floatFormat.format(10f+Main.data.getDamage())+"\nMana cost: 20\nHealing: None\nMana recovery: None", 20, 10f+Main.data.getDamage(), 0));
+                spellArray.add(new Ability("Ice", "Channel the forces of ice to recover your mana!\nDamage: "+math.floatFormat.format(Main.data.getDamage()-10f)+"\nMana cost: 5\nHealing: None\nMana recovery: "+math.floatFormat.format(Main.data.getAttIntelligence()*0.8f), 5f-(float)(Main.data.getAttIntelligence()*0.8f), Main.data.getDamage()-10f, 0));
+                spellArray.add(new Ability("Manaward", "Channel your inner energy to heal your wounds!\nDamage: None\nMana cost: 35\nHealing: "+math.floatFormat.format(Main.data.getMaxMana()*0.3f)+"\nMana recovery: None", 35, 0, Main.data.getMaxMana()*0.3f));
             break;
             case 4: // Astrologian
-                spellArray.add(new Ability("Microcosmos", "info", 25, 0, Main.data.getHp()+(Main.data.getAttCharisma()/2)*3));
-                spellArray.add(new Ability("Macrocosmos", "info", 20, 10f + Main.data.getAttCharisma()*0.8f, 0));
-                spellArray.add(new Ability("Divination", "info", 25, Main.data.getDamage() + (float)(Main.data.getDamage() * 0.2), 0));
-                spellArray.add(new Ability("Exaltation", "info", 15, 10f + (float)(Main.data.getAttCharisma()*0.3), (float)(Main.data.getAttCharisma()*0.3)));
+                spellArray.add(new Ability("Microcosmos", "Channel the power of the stars to heal your wounds!\nDamage: None\nMana cost: 25\nHealing: "+math.floatFormat.format(Main.data.getHp()+(Main.data.getAttCharisma()/2)*3)+"\nMana recovery: None", 25, 0, Main.data.getHp()+(Main.data.getAttCharisma()/2)*3));
+                spellArray.add(new Ability("Macrocosmos", "Channel the energy of the cosmos to crush your foes!\nDamage: "+math.floatFormat.format(10f + Main.data.getAttCharisma()*0.8f)+"\nMana cost: 20\nHealing: None\nMana recovery: None", 20, 10f + Main.data.getAttCharisma()*0.8f, 0));
+                spellArray.add(new Ability("Divination", "Read the stars to learn how to crush your enemy!\nDamage: "+math.floatFormat.format(Main.data.getDamage() + (float)(Main.data.getDamage() * 0.3))+"\nMana cost: 25\nHealing: None\nMana recovery: None", 25, Main.data.getDamage() + (float)(Main.data.getDamage() * 0.3), 0));
+                spellArray.add(new Ability("Exaltation", "Reinvigorate yourself with the essence of your enemy's soul!\nDamage: "+math.floatFormat.format(10f + (float)(Main.data.getAttCharisma()*0.3))+"\nMana cost: 15\nHealing: "+math.floatFormat.format(Main.data.getAttCharisma()*0.3)+"\nMana recovery: None", 15, 10f + (float)(Main.data.getAttCharisma()*0.3), 0+(float)(Main.data.getAttCharisma()*0.3)));
             break;
         }
     }
