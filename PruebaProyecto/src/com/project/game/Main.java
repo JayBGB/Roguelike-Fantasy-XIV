@@ -20,6 +20,7 @@ public class Main {
     public static Gold gold = new Gold();
     public static Potions manaPotions = new Potions(5,-50);
     public static Potions hpPotions = new Potions(5,50);
+    public static CharacterCreation hero = new CharacterCreation();
     public static UI combatui;
     public static UIpointAllocation paUI;
 
@@ -31,18 +32,13 @@ public class Main {
 
         // CHARACTER CREATION
 
-        CharacterCreation hero = new CharacterCreation();
+
         hero.createCharacter();
         hero.selectClass();
         UIpointAllocation.points = 5;
+        UIpointAllocation.maxPoints = 5;
         paUI = new UIpointAllocation();
-        hero.calculateHP();
-        hero.calculateMana();
-        hero.calculateDefense();
-        hero.calculateDamage();
-        enemyData.createEnemy();
-        combat.addToSpellArrayList();
         paUI.setVisible(true);
-        combatui = new UI();
+        enemyData.createEnemy();
     }
 }

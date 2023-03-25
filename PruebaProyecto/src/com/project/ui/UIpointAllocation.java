@@ -14,6 +14,7 @@ public class UIpointAllocation extends javax.swing.JFrame implements ActionListe
 
 
     public static int points = 0;
+    public static int maxPoints = 0;
 
     int tempStr = Main.data.getAttStrength();
     int tempDex = Main.data.getAttDexterity();
@@ -263,8 +264,22 @@ public class UIpointAllocation extends javax.swing.JFrame implements ActionListe
             Main.data.setAttWisdom(tempWis);
             Main.data.setAttIntelligence(tempItl);
             Main.data.setAttCharisma(tempCha);
+            addStrButton.setEnabled(true);
+            addDexButton.setEnabled(true);
+            addConButton.setEnabled(true);
+            addWisButton.setEnabled(true);
+            addItlButton.setEnabled(true);
+            addChaButton.setEnabled(true);
+            points = maxPoints;
             refreshPAUI();
         } else if (e.getSource() == okButton) {
+            maxPoints = 0;
+            Main.hero.calculateHP();
+            Main.hero.calculateMana();
+            Main.hero.calculateDefense();
+            Main.hero.calculateDamage();
+            Main.combat.addToSpellArrayList();
+            Main.combatui = new UI();
             Main.combatui.setVisible(true);
             Main.combatui.refreshCombatUI();
             this.dispose();
