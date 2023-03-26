@@ -2,13 +2,8 @@ package com.project.inventory;
 
 public class Potions {
 
-    public int quantity;
-    public float value;
-
-    public Potions(int quantity, float value) {
-        this.quantity = quantity;
-        this.value = value;
-    }
+    int quantity;
+    String name;
 
     public int getQuantity() {
         return quantity;
@@ -18,11 +13,16 @@ public class Potions {
         this.quantity = quantity;
     }
 
-    public float getValue() {
-        return value;
+    public String getName() {
+        return name;
     }
 
-    public void setValue(float value) {
-        this.value = value;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Potions(int quantity, String name) {
+        this.quantity = quantity;
+        this.name = name;
     }
 }

@@ -1,5 +1,7 @@
 package com.project.characters;
 
+import com.project.game.Main;
+
 /**
  * @author Jay & Billy
  */

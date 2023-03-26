@@ -48,7 +48,7 @@ public class EnemyData {
     }
 
     public void createEnemy() {
-        switch (math.randomNumber(10, 1)) {//Change the left number so it matches the number of enemies
+        switch ((int) math.randomNumber(10, 1)) {//Change the left number so it matches the number of enemies
             case 1:
                 enemyImgUrl="PruebaProyecto/src/com/project/images/Enemy/enemyFatDodo.png";
                 Main.enemyData.seteName("Fat Dodo");//Enemy name

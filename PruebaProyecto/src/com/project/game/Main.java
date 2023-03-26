@@ -1,13 +1,17 @@
 package com.project.game;
 
 import com.project.characters.CharData;
-import com.project.combat.Ability;
 import com.project.combat.Combat;
 import com.project.characters.EnemyData;
-import com.project.inventory.Gold;
+import com.project.inventory.Inventory;
+import com.project.inventory.Item;
 import com.project.inventory.Potions;
+import com.project.ui.CharacterCreationUI;
 import com.project.ui.UI;
+import com.project.ui.UIMenu;
 import com.project.ui.UIpointAllocation;
+
+import java.io.File;
 
 /**
  * @author Jay & Billy
@@ -17,12 +21,16 @@ public class Main {
     public static CharData data = new CharData();
     public static EnemyData enemyData = new EnemyData();
     public static Combat combat = new Combat();
-    public static Gold gold = new Gold();
-    public static Potions manaPotions = new Potions(5,-50);
-    public static Potions hpPotions = new Potions(5,50);
-    public static CharacterCreation hero = new CharacterCreation();
+    static File inventory = new File("PruebaProyecto/inventory.txt");
+    public static Inventory inv = new Inventory(inventory,Inventory.GOLD);
+    public static Potions manaPotion = new Potions(5,"Mana Potion");
+    public static Potions hpPotion = new Potions(5,"HP Potion");
+    public static Item gold = new Item("gold",0);
+    public static CharacterCreation charCreation = new CharacterCreation();
+    public static CharacterCreationUI charCreationUI;
     public static UI combatui;
     public static UIpointAllocation paUI;
+    public static UIMenu menuUI;
 
     /**
      *
@@ -31,14 +39,7 @@ public class Main {
     public static void main(String[] args) {
 
         // CHARACTER CREATION
-
-
-        hero.createCharacter();
-        hero.selectClass();
-        UIpointAllocation.points = 5;
-        UIpointAllocation.maxPoints = 5;
-        paUI = new UIpointAllocation();
-        paUI.setVisible(true);
-        enemyData.createEnemy();
+        charCreationUI = new CharacterCreationUI();
+        charCreationUI.setVisible(true);
     }
 }

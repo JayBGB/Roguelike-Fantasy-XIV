@@ -8,7 +8,10 @@ import com.project.game.CharacterCreation;
 import com.project.game.Main;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
 
 import com.project.combat.Combat;
 
@@ -22,15 +25,21 @@ public class UI extends javax.swing.JFrame implements ActionListener {
     boolean enemyDead = false;
     boolean notEnhoughManaCase = false;
     int enemyCount = 0;
+    int tempGold = 0;
+    String bgUrl;
 
     public UI(){
         initComponents();
     }
 
+    /**
+     * Create CombatUI components
+     */
     private void initComponents() {
 
         float spellDmg;
         jPanel1 = new JPanel();
+        backGround = new JLabel();
         pjPanel = new JPanel();
         pjImgPanel = new JPanel();
         pj2Separator = new javax.swing.JSeparator();
@@ -38,7 +47,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
         fightStats = new JPanel();
         hpText = new JLabel();
         manaText = new JLabel();
-        degenseText = new JLabel();
+        defText = new JLabel();
         dmgText = new JLabel();
         hpStat = new JLabel();
         defStat = new JLabel();
@@ -69,7 +78,6 @@ public class UI extends javax.swing.JFrame implements ActionListener {
         defense = new JButton();
         spellScroll = new JScrollPane();
         spellList = new javax.swing.JList<>();
-        spellTextScroll = new JScrollPane();
         spellTextArea = new JTextArea();
         enemyPanel = new JPanel();
         eImgLabel = new JLabel();
@@ -85,11 +93,31 @@ public class UI extends javax.swing.JFrame implements ActionListener {
         eventPanel = new JPanel();
         eventScrollPane = new JScrollPane();
         eventTextArea = new JTextArea();
+        spellTextScroll = new JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        this.setResizable(false);
+        this.setSize(new java.awt.Dimension(1280, 720));
+
+        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+
+        int posX = (pantalla.width - this.getWidth()) / 2;
+        int posY = (pantalla.height - this.getHeight()) / 2;
+
+        this.setLocation(posX, posY);
 
         jPanel1.setBackground(new java.awt.Color(70, 160, 200));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        int backgroundCheck = (int) math.randomNumber(4, 1);
+        switch (backgroundCheck) {
+            case 1 -> bgUrl = "PruebaProyecto/src/com/project/images/backgrounds/ishgardBG.jpeg";
+            case 2 -> bgUrl = "PruebaProyecto/src/com/project/images/backgrounds/gridaniaBG.jpeg";
+            case 3 -> bgUrl = "PruebaProyecto/src/com/project/images/backgrounds/limsaBG.jpeg";
+            case 4 -> bgUrl = "PruebaProyecto/src/com/project/images/backgrounds/uldahBG.jpeg";
+        }
+
+        backGround.setIcon(new javax.swing.ImageIcon(bgUrl));
 
         pjPanel.setBackground(new java.awt.Color(150, 70, 200));
         pjPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.white, java.awt.Color.lightGray));
@@ -123,7 +151,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
         manaText.setText("Mana :");
 
-        degenseText.setText("Defense :");
+        defText.setText("Defense :");
 
         dmgText.setText("Damage :");
 
@@ -147,7 +175,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
                                         .addGroup(fightStatsLayout.createSequentialGroup()
                                                 .addGap(20, 20, 20)
                                                 .addGroup(fightStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(degenseText)
+                                                        .addComponent(defText)
                                                         .addComponent(dmgText)
                                                         .addComponent(manaText)
                                                         .addComponent(hpText))
@@ -174,7 +202,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
                                         .addComponent(manaStat))
                                 .addGap(18, 18, 18)
                                 .addGroup(fightStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(degenseText)
+                                        .addComponent(defText)
                                         .addComponent(defStat))
                                 .addGap(18, 18, 18)
                                 .addGroup(fightStatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -338,8 +366,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
         jPanel1.add(pjPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1013, 2, 250, 700));
 
-        fightingPanel.setBackground(new java.awt.Color(114, 78, 233));
-        fightingPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.white, java.awt.Color.lightGray));
+        fightingPanel.setOpaque(false);
 
         abilities.setBackground(new java.awt.Color(22, 5, 80));
         abilities.setText("Use Spell");
@@ -435,11 +462,20 @@ public class UI extends javax.swing.JFrame implements ActionListener {
         jPanel1.add(fightingPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 1000, 150));
 
         eHPText.setText(Main.enemyData.geteName() + ":");
+        eHPText.setFont(new Font("Trebuchet MS", Font.BOLD,12));
+        eHPText.setForeground(Color.darkGray);
+        eHPText.setOpaque(true);
+        eHPText.setBackground(new Color(204, 204, 255));
 
+        eHPStat.setFont(new Font("Trebuchet MS",Font.BOLD,12));
         eHPStat.setText(Main.enemyData.geteHp() + "/" + Main.enemyData.geteMaxHp());
+        eHPStat.setForeground(Color.darkGray);
+        eHPStat.setOpaque(true);
+        eHPStat.setBackground(new Color(204, 204, 255));
 
         javax.swing.GroupLayout enemyPanelLayout = new javax.swing.GroupLayout(enemyPanel);
         enemyPanel.setLayout(enemyPanelLayout);
+        enemyPanel.setOpaque(false);
         enemyPanelLayout.setHorizontalGroup(
                 enemyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(eImgLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -464,17 +500,17 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
         jPanel1.add(enemyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 240, 250));
 
-        useHPPotion.setText("jButton1");
         useHPPotion.setMaximumSize(new java.awt.Dimension(65, 65));
         useHPPotion.setMinimumSize(new java.awt.Dimension(65, 65));
         useHPPotion.setPreferredSize(new java.awt.Dimension(65, 65));
         useHPPotion.addActionListener(this);
+        useHPPotion.setIcon(new ImageIcon("PruebaProyecto/src/com/project/images/items/hpPotion.png"));
 
-        useManaPotion.setText("jButton1");
         useManaPotion.setMaximumSize(new java.awt.Dimension(65, 65));
         useManaPotion.setMinimumSize(new java.awt.Dimension(65, 65));
         useManaPotion.setPreferredSize(new java.awt.Dimension(65, 65));
         useManaPotion.addActionListener(this);
+        useManaPotion.setIcon(new ImageIcon("PruebaProyecto/src/com/project/images/items/manaPotion.png"));
 
         hpPotionShowText.setText("HP");
 
@@ -527,12 +563,13 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
         jPanel1.add(potionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 240, 160));
 
+        potionPanel.setOpaque(false);
+
         eventTextArea.setColumns(20);
         eventTextArea.setRows(5);
         eventTextArea.setEditable(false);
         eventTextArea.setLineWrap(true);
         eventTextArea.setWrapStyleWord(true);
-        eventTextArea.setText("You encounter a " + Main.enemyData.geteName());
         eventScrollPane.setViewportView(eventTextArea);
 
         javax.swing.GroupLayout eventPanelLayout = new javax.swing.GroupLayout(eventPanel);
@@ -547,6 +584,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
         );
 
         jPanel1.add(eventPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 620, 440));
+        eventPanel.setOpaque(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -559,9 +597,62 @@ public class UI extends javax.swing.JFrame implements ActionListener {
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
-    }// </editor-fold>
+        jPanel1.add(backGround, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
+        eventTextArea.setBackground(new java.awt.Color(204, 204, 255));
+        eventScrollPane.setBackground(new java.awt.Color(204, 204, 255));
+        spellTextArea.setBackground(new java.awt.Color(204, 204, 255));
+        spellList.setBackground(new java.awt.Color(204, 204, 255));
+
+        try {
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("PruebaProyecto/src/com/project/images/font/AdventureRequest-j8W9.ttf"));
+
+            GraphicsEnvironment graphic = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            graphic.registerFont(customFont);
+
+            String fontName = customFont.getFamily();
+
+            nameShowText.setFont(new Font(fontName, Font.PLAIN,12));
+            jobText.setFont(new Font(fontName, Font.PLAIN,12));
+            conText.setFont(new Font(fontName, Font.PLAIN,10));
+            conStat.setFont(new Font(fontName, Font.PLAIN,10));
+            strStat.setFont(new Font(fontName, Font.PLAIN,10));
+            strText.setFont(new Font(fontName, Font.PLAIN,10));
+            itlStat.setFont(new Font(fontName, Font.PLAIN,10));
+            itlText.setFont(new Font(fontName, Font.PLAIN,10));
+            wisStat.setFont(new Font(fontName, Font.PLAIN,10));
+            wisText.setFont(new Font(fontName, Font.PLAIN,10));
+            chaText.setFont(new Font(fontName, Font.PLAIN,10));
+            chaStat.setFont(new Font(fontName, Font.PLAIN,10));
+            hpStat.setFont(new Font(fontName, Font.PLAIN,12));
+            hpText.setFont(new Font(fontName, Font.PLAIN,12));
+            manaStat.setFont(new Font(fontName, Font.PLAIN,12));
+            manaText.setFont(new Font(fontName, Font.PLAIN,12));
+            defStat.setFont(new Font(fontName, Font.PLAIN,12));
+            defText.setFont(new Font(fontName, Font.PLAIN,12));
+            dmgStat.setFont(new Font(fontName, Font.PLAIN,12));
+            dmgText.setFont(new Font(fontName, Font.PLAIN,12));
+            dexStat.setFont(new Font(fontName, Font.PLAIN,10));
+            dexText.setFont(new Font(fontName, Font.PLAIN,10));
+            attack.setFont(new Font(fontName, Font.PLAIN,12));
+            defense.setFont(new Font(fontName, Font.PLAIN,12));
+            run.setFont(new Font(fontName, Font.PLAIN,12));
+            abilities.setFont(new Font(fontName, Font.PLAIN,12));
+            spellList.setFont(new Font(fontName, Font.PLAIN,12));
+            spellTextArea.setFont(new Font(fontName, Font.PLAIN,12));
+            eventTextArea.setFont(new Font(fontName, Font.PLAIN,12));
+            eHPText.setFont(new Font(fontName, Font.PLAIN,12));
+            eHPStat.setFont(new Font(fontName, Font.PLAIN,12));
+            manaPotionStat.setFont(new Font(fontName, Font.PLAIN,12));
+            hpPotionStat.setFont(new Font(fontName, Font.PLAIN,12));
+            manaPotionShowText.setFont(new Font(fontName, Font.PLAIN,12));
+            hpPotionShowText.setFont(new Font(fontName, Font.PLAIN,12));
+        } catch (IOException | FontFormatException e) {
+            e.printStackTrace();
+        }
+
+        pack();
+    }
 
     // Variables declaration - do not modify
     private JButton abilities;
@@ -571,12 +662,12 @@ public class UI extends javax.swing.JFrame implements ActionListener {
     private JLabel conText;
     private JLabel defStat;
     private JButton defense;
-    private JLabel degenseText;
+    private JLabel defText;
     private JLabel dexText;
     private JLabel dmgStat;
     private JLabel dmgText;
-    private JLabel eHPStat;
-    private JLabel eHPText;
+    private JLabel eHPStat;//Color
+    private JLabel eHPText;//Color
     private JLabel eImgLabel;
     private JPanel enemyPanel;
     private JPanel eventPanel;
@@ -584,8 +675,8 @@ public class UI extends javax.swing.JFrame implements ActionListener {
     private JTextArea eventTextArea;
     private JPanel fightStats;
     private JPanel fightingPanel;
-    private JLabel hpPotionShowText;
-    private JLabel hpPotionStat;
+    private JLabel hpPotionShowText;//Color
+    private JLabel hpPotionStat;//Color
     private JLabel hpStat;
     private JLabel hpText;
     private JLabel itlText;
@@ -597,8 +688,8 @@ public class UI extends javax.swing.JFrame implements ActionListener {
     private JLabel chaStat;
     private JPanel jPanel1;
     private JLabel jobText;
-    private JLabel manaPotionShowText;
-    private JLabel manaPotionStat;
+    private JLabel manaPotionShowText;//Color
+    private JLabel manaPotionStat;//Color
     private JLabel manaStat;
     private JLabel manaText;
     private JPanel namePanel;
@@ -619,16 +710,77 @@ public class UI extends javax.swing.JFrame implements ActionListener {
     private JButton useHPPotion;
     private JButton useManaPotion;
     private JLabel wisText;
+    private JLabel backGround;
 
-    public void combatUIRefresh(){
-
+    /**
+     * Starts the combat process
+     */
+    public void startCombat(){
+        Main.enemyData.createEnemy();
+        eImgLabel.setIcon(new ImageIcon(EnemyData.enemyImgUrl));
+        Main.combat.setEnemyIsAlive(true);
+        refreshCombatUI();
+        eventTextArea.append("\nYou encounter " + Main.enemyData.geteName() + ".\n");
     }
 
+    /**
+     * Checks if the fight has been won,lost, or is still going on
+     */
+    public void checkWinLose(){
+        try {
+            if (Main.combat.checkStateCombat() == 2) {
+                enemyCount ++;
+                enemyDead = true;
+                if(enemyCount == 9){
+                    int addGold = (int) (math.randomNumber(30,15));
+                    eventTextArea.setText("\n You won the fight and got " + addGold + ".\n");
+                    Main.inv.load();
+                    Main.gold.setQuantity(Main.gold.getQuantity() + addGold);
+                    Main.inv.save();
+                    Main.enemyData.createBoss();
+                    eImgLabel.setIcon(new ImageIcon(EnemyData.enemyImgUrl));
+                }else if (enemyCount == 10){
+                    int addGold = (int) (math.randomNumber(250,150));
+                    eventTextArea.setText("\n You won the fight and got " + addGold + ".\n");
+                    Main.inv.load();
+                    Main.gold.setQuantity(Main.gold.getQuantity() + addGold);
+                    Main.inv.save();
+                    UIpointAllocation.points = UIpointAllocation.points + 1;
+                    Main.enemyData.createEnemy();
+                    eImgLabel.setIcon(new ImageIcon(EnemyData.enemyImgUrl));
+                    enemyCount = 0;
+                }else{
+                    int addGold = (int) (math.randomNumber(30,15));
+                    eventTextArea.setText("\n You won the fight and got " + addGold + ".\n");
+                    Main.inv.load();
+                    Main.gold.setQuantity(Main.gold.getQuantity() + addGold);
+                    Main.inv.save();
+                    Main.enemyData.createEnemy();
+                    eImgLabel.setIcon(new ImageIcon(EnemyData.enemyImgUrl));
+                }
+                Main.combat.setEnemyIsAlive(true);
+                refreshCombatUI();
+                eventTextArea.append("\nYou encounter " + Main.enemyData.geteName() + ".\n");
+            } else if (Main.combat.checkStateCombat() == 1) {
+                eventTextArea.append("\n You lost the fight, going back to lobby \n");
+                Main.inv.save();
+                Main.menuUI.setVisible(true);
+                Main.menuUI.refreshMenuUI();
+                this.dispose();
+            }
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    /**
+     * Refresh the Combat UI
+     */
     public void refreshCombatUI(){
         eHPStat.setText(String.valueOf(math.floatFormat.format(Main.enemyData.geteHp())));
         eHPText.setText(String.valueOf(Main.enemyData.geteName()));
-        hpPotionStat.setText(String.valueOf(Main.hpPotions.getQuantity()));
-        manaPotionStat.setText(String.valueOf(Main.manaPotions.getQuantity()));
+        hpPotionStat.setText(String.valueOf(Main.hpPotion.getQuantity()));
+        manaPotionStat.setText(String.valueOf(Main.manaPotion.getQuantity()));
         hpStat.setText(math.floatFormat.format(Main.data.getHp())+"/"+ math.floatFormat.format(Main.data.getMaxHp()));
         defStat.setText(String.valueOf(Main.data.getDefense()));
         manaStat.setText( math.floatFormat.format(Main.data.getMana())+"/"+ math.floatFormat.format(Main.data.getMaxMana()));
@@ -638,16 +790,21 @@ public class UI extends javax.swing.JFrame implements ActionListener {
         conStat.setText(String.valueOf(Main.data.getAttConstitution()));
         wisStat.setText(String.valueOf(Main.data.getAttWisdom()));
         chaStat.setText(String.valueOf(Main.data.getAttCharisma()));
-
     }
 
+    /**
+     * Executes all the button actions
+     * @param e the event to be processed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == abilities){
             boolean checkSpell;
             checkSpell = Main.combat.useSpell(spellList.getSelectedIndex(),Combat.spellArray);
             if (checkSpell) {
-                eventTextArea.append("\nYou use the spell " + spellList.getSelectedValue() + " on " + Main.enemyData.geteName() + "\n");
+                eventTextArea.append("\nYou use the spell " + spellList.getSelectedValue() + "\n");
+                checkWinLose();
+                refreshCombatUI();
             }else if(!checkSpell) {
                 notEnhoughManaCase = true;
                 eventTextArea.append("\nYou don't have enough mana\n");
@@ -657,21 +814,29 @@ public class UI extends javax.swing.JFrame implements ActionListener {
                Main.combat.doDamage(Main.data.getDamage());
                eventTextArea.append("\nYou damage " + Main.enemyData.geteName() + " for " + math.floatFormat.format(Main.data.getDamage()) + " damage.\n");
                refreshCombatUI();
+               checkWinLose();
         }if(e.getSource() == defense){
                 Main.combat.defense(Main.enemyData.geteDmg(),Main.data.getDefensePercentage());
                 defenseCase = true;
+                checkWinLose();
                 refreshCombatUI();
         }if (e.getSource() == run){
-
+                int runProb = (int) (Main.data.getAttCharisma() + math.randomNumber(100,0));
+                if (runProb >= 50){
+                    Main.menuUI.setVisible(true);
+                    this.dispose();
+                }else{
+                    eventTextArea.append("You tried to run, but failed");
+                }
         }if (e.getSource() == useHPPotion){
-            if (Main.hpPotions.getQuantity() - 1 <= 0) {
-                Main.hpPotions.setQuantity(0);
+            if (Main.hpPotion.getQuantity() - 1 <= 0) {
+                Main.hpPotion.setQuantity(0);
                 eventTextArea.append("\nYou don't have HP potions left\n");
                 noPotionsCase = true;
             }else {
-                Main.hpPotions.setQuantity(Main.hpPotions.getQuantity() - 1);
-                Main.combat.doHeal(Main.hpPotions.getValue());
-                eventTextArea.append("\nYou use an HP potion and restore " + math.floatFormat.format(Main.hpPotions.getValue()) + " health.\n");
+                Main.hpPotion.setQuantity(Main.hpPotion.getQuantity() - 1);
+                Main.combat.doHeal(50);
+                eventTextArea.append("\nYou use an HP potion and restore " + 50 + " health.\n");
             }
             refreshCombatUI();
         }if (e.getSource() == useManaPotion) {
@@ -685,37 +850,17 @@ public class UI extends javax.swing.JFrame implements ActionListener {
                 eventTextArea.append("\nYou use a Mana potion and restore " + math.floatFormat.format(-Main.manaPotions.getValue()) + " mana.\n");
             }
             refreshCombatUI();
-        }
-        try {
-            if (Main.combat.checkStateCombat() == 2) {
-                eventTextArea.setText("\n You won the fight and got " + Main.gold.addGold() + ".\n");
-                enemyCount ++;
-                enemyDead = true;
-                if (enemyCount == 9){
-                    Main.enemyData.createBoss();
-                    eImgLabel.setIcon(new ImageIcon(EnemyData.enemyImgUrl));
-                    enemyCount = 0;
-                }else {
-                    Main.enemyData.createEnemy();
-                    eImgLabel.setIcon(new ImageIcon(EnemyData.enemyImgUrl));
-                }
-                Main.combat.setEnemyIsAlive(true);
-                refreshCombatUI();
-                eventTextArea.setText("\nYou encounter a " + Main.enemyData.geteName() + ".\n");
-            } else if (Main.combat.checkStateCombat() == 1) {
-                eventTextArea.append("\n You lost the fight, going back to lobby \n");
-            }
-        }catch (Exception ex){
-            System.out.println(ex.getMessage());
-        }
-        if (!defenseCase && !noPotionsCase && !enemyDead) {
+        }if (!defenseCase && !noPotionsCase && !enemyDead) {
             Main.combat.enemyTurn();
+            eventTextArea.append("\n" + Main.enemyData.geteName() + " attacked, you receive " + math.floatFormat.format(Main.enemyData.geteDmg()) + "\n");
+            checkWinLose();
             refreshCombatUI();
         }else {
             defenseCase = false;
             noPotionsCase = false;
             enemyDead = false;
             notEnhoughManaCase = false;
+            refreshCombatUI();
         }
     }
 }

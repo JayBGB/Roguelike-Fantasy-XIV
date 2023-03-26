@@ -24,112 +24,104 @@ public class CharacterCreation{
     private final int AST = 3;
 
     // Attributes
-    private final int STRENGTH=0;
-    private final int DEXTERITY=1;
-    private final int CONSTITUTION=2;
-    private final int INTELLIGENCE=3;
-    private final int WISDOM=4;
-    private final int CHARISMA=5;
+    public static int tempStr;
+    public static int tempDex;
+    public static int tempCon;
+    public static int tempItl;
+    public static int tempWis;
+    public static int tempCha;
 
     public static String heroImgUrl;
+    public static String raceUrl;
     public static String raceName;
 
 
-    public void createCharacter() {
-
-        String inputName = JOptionPane.showInputDialog(null, "Welcome to the character creation.\nWhat is your hero's name:\n", "Character's Name", JOptionPane.PLAIN_MESSAGE);
-        Main.data.setName(inputName);
-
-        String inputSurname = JOptionPane.showInputDialog(null, "What is your hero's surname?", "Character's Surname", JOptionPane.PLAIN_MESSAGE);
-        Main.data.setSurname(inputSurname);
-
+    /**
+     * Method that sets the player's selected race.
+     */
+    public void setRace() {
         Race races = new Race();
         try {
-            do {
-                String[] raceArray = new String[]{"Hyur", "Elezen", "Miqo'te", "Roegadyn", "Lalafell", "Au Ra", "Viera", "Hrothgar"};
-                int inputRace = JOptionPane.showOptionDialog(null, "What is your hero's race?", "Character's Race", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, raceArray, raceArray[0]);
-
-                switch (inputRace) {
-                    case 0:
-                        Main.data.setRace(HYUR);
-                        races.hyur();
-                        heroImgUrl = "PruebaProyecto/src/com/project/images/Hyur/";
-                        raceName = "Hyur";
-                        break;
-                    case 1:
-                        Main.data.setRace(ELEZEN);
-                        races.elezen();
-                        heroImgUrl = "PruebaProyecto/src/com/project/images/Elezen/";
-                        raceName = "Elezen";
-                        break;
-                    case 2:
-                        Main.data.setRace(MIQOTE);
-                        races.miqote();
-                        heroImgUrl = "PruebaProyecto/src/com/project/images/Miqote/";
-                        raceName = "Miqote";
-                        break;
-                    case 3:
-                        Main.data.setRace(ROEGADYN);
-                        races.roegadyn();
-                        heroImgUrl = "PruebaProyecto/src/com/project/images/Roegadyn/";
-                        raceName = "Roegadyn";
-                        break;
-                    case 4:
-                        Main.data.setRace(LALAFELL);
-                        races.lalafell();
-                        heroImgUrl = "PruebaProyecto/src/com/project/images/Lalafell/";
-                        raceName = "Lalafell";
-                        break;
-                    case 5:
-                        Main.data.setRace(AURA);
-                        races.aura();
-                        heroImgUrl = "PruebaProyecto/src/com/project/images/Aura/";
-                        raceName = "Aura";
-                        break;
-                    case 6:
-                        Main.data.setRace(VIERA);
-                        races.viera();
-                        heroImgUrl = "PruebaProyecto/src/com/project/images/Viera/";
-                        raceName = "Viera";
-                        break;
-                    case 7:
-                        Main.data.setRace(HROTHGAR);
-                        races.hrothgar();
-                        heroImgUrl = "PruebaProyecto/src/com/project/images/Hrothgar/";
-                        raceName = "Hrothgar";
-                        break;
-                    default:
-                        JOptionPane.showMessageDialog(null, "ERROR: RACE SELECTION");
-                        break;
-                }
-            } while (Main.data.getRace() < 0 && Main.data.getRace() > 7);
+            switch (Main.data.getRace()) {
+                case 0:
+                    races.hyur();
+                    raceUrl = "PruebaProyecto/src/com/project/images/Hyur/";
+                    raceName = "Hyur";
+                    raceDescription = "The hyur have a fairly average physique both in height and in their figure. They are recognized for their peculiarly short and rounded ears.\n+1 to all Attributes";
+                    break;
+                case 1:
+                    races.elezen();
+                    raceUrl = "PruebaProyecto/src/com/project/images/Elezen/";
+                    raceName = "Elezen";
+                    raceDescription = "Recognized for their tall stature, long limbs, and slender bodies. In addition, they enjoy a generally longer lifespan than that of the Hyur.\nCHA +2\nINT +2\nDEX + 2";
+                    break;
+                case 2:
+                    races.miqote();
+                    raceUrl = "PruebaProyecto/src/com/project/images/Miqote/";
+                    raceName = "Miqote";
+                    raceDescription = "Easily distinguished by their large ears and twitching, feline tails. Instinctive territoriality causes many among them to live solitary lives.\nWIS +2\nDEX +2\nCHA +1\nSTR +1";
+                    break;
+                case 3:
+                    races.roegadyn();
+                    raceUrl = "PruebaProyecto/src/com/project/images/Roegadyn/";
+                    raceName = "Roegadyn";
+                    raceDescription = "Easily identified by their massive, muscular figures. They are also known for their compassion and unwavering loyalty.\nSTR +3\nCON +3";
+                    break;
+                case 4:
+                    races.lalafell();
+                    raceUrl = "PruebaProyecto/src/com/project/images/Lalafell/";
+                    raceName = "Lalafell";
+                    raceDescription = "People who are tiny compared to other races and have a childlike appearance, making it difficult to guess the exact age of a Lalafell individual.\nCHA +3\nDEX +3";
+                    break;
+                case 5:
+                    races.aura();
+                    raceUrl = "PruebaProyecto/src/com/project/images/Aura/";
+                    raceName = "Au Ra";
+                    raceDescription = "People with dragon-like ancestry who still bear horns and scales on their skin. They usually live in nomadic tribes.\nSTR +2\nDEX +2\nCON +2";
+                    break;
+                case 6:
+                    races.viera();
+                    raceUrl = "PruebaProyecto/src/com/project/images/Viera/";
+                    raceName = "Viera";
+                    raceDescription = "People with rabbit-like features who live secluded in the depths of the jungle. They do not know their gender until they reach adulthood.\nDEX +2\nINT +2\nWIS +2";
+                    break;
+                case 7:
+                    races.hrothgar();
+                    raceUrl = "PruebaProyecto/src/com/project/images/Hrothgar/";
+                    raceName = "Hrothgar";
+                    raceDescription = "People with feline features that look much more like beasts than the Miqo'te. Despite this, they are calm and wise people.\nWIS +3\nSTR +2\nCON +1";
+                    break;
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
-    public void selectClass(){
-        try {
-            String[] jobArray = new String[]{"Warrior","Bard","Black Mage","Astrologian"};
-            int inputJob = JOptionPane.showOptionDialog(null, "What is your hero's job?", "Character's job", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, jobArray, jobArray[0]);
 
-            switch (inputJob){
+    /**
+     * Method that sets the player's selected class.
+     */
+    public void setClass(){
+        try {
+            tempStr = 0;
+            tempDex = 0;
+            tempCon = 0;
+            tempItl = 0;
+            tempWis = 0;
+            tempCha = 0;
+            switch (Main.data.getJob()){
                 case WAR:
-                    Main.data.setJob(1);
                     Main.data.setJobName("Warrior");
                     heroImgUrl = heroImgUrl + "war" + raceName;
                     break;
                 case BRD:
-                    Main.data.setJob(2);
                     Main.data.setJobName("Bard");
                     heroImgUrl = heroImgUrl + "brd" + raceName;
                     break;
                 case BLM:
-                    Main.data.setJob(3);
                     Main.data.setJobName("Black Mage");
                     heroImgUrl = heroImgUrl + "blm" + raceName;
                     break;
                 case AST:
-                    Main.data.setJob(4);
                     Main.data.setJobName("Astrologian");
                     heroImgUrl = heroImgUrl + "ast" + raceName;
                     break;

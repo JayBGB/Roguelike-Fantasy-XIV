@@ -3,6 +3,10 @@ package com.project.ui;
 
 import com.project.game.Main;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -32,36 +36,44 @@ public class UIpointAllocation extends javax.swing.JFrame implements ActionListe
 
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        titleLabel = new javax.swing.JLabel();
-        classLabel = new javax.swing.JLabel();
-        pointsLeftLabel = new javax.swing.JLabel();
-        nameLabel = new javax.swing.JLabel();
-        reassignButton = new javax.swing.JButton();
-        okButton = new javax.swing.JButton();
-        chaTextLabel = new javax.swing.JLabel();
-        strTextLabel = new javax.swing.JLabel();
-        dexTextLabel = new javax.swing.JLabel();
-        conTextLabel = new javax.swing.JLabel();
-        wisTextLabel = new javax.swing.JLabel();
-        itlTextLabel = new javax.swing.JLabel();
-        chaStatLabel = new javax.swing.JLabel();
-        strStatLabel = new javax.swing.JLabel();
-        dexStatLabel = new javax.swing.JLabel();
-        conStatLabel = new javax.swing.JLabel();
-        wisStatLabel = new javax.swing.JLabel();
-        itlStatLabel = new javax.swing.JLabel();
-        addChaButton = new javax.swing.JButton();
-        addStrButton = new javax.swing.JButton();
-        addDexButton = new javax.swing.JButton();
-        addConButton = new javax.swing.JButton();
-        addWisButton = new javax.swing.JButton();
-        addItlButton = new javax.swing.JButton();
-
-        jButton2.setText("jButton2");
+        jButton2 = new JButton();
+        jPanel1 = new JPanel();
+        titleLabel = new JLabel();
+        classLabel = new JLabel();
+        pointsLeftLabel = new JLabel();
+        nameLabel = new JLabel();
+        reassignButton = new JButton();
+        okButton = new JButton();
+        chaTextLabel = new JLabel();
+        strTextLabel = new JLabel();
+        dexTextLabel = new JLabel();
+        conTextLabel = new JLabel();
+        wisTextLabel = new JLabel();
+        itlTextLabel = new JLabel();
+        chaStatLabel = new JLabel();
+        strStatLabel = new JLabel();
+        dexStatLabel = new JLabel();
+        conStatLabel = new JLabel();
+        wisStatLabel = new JLabel();
+        itlStatLabel = new JLabel();
+        addChaButton = new JButton();
+        addStrButton = new JButton();
+        addDexButton = new JButton();
+        addConButton = new JButton();
+        addWisButton = new JButton();
+        addItlButton = new JButton();
+        backGround = new JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        this.setResizable(false);
+        this.setSize(new java.awt.Dimension(1280, 720));
+
+        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+
+        int posX = (pantalla.width - this.getWidth()) / 2;
+        int posY = (pantalla.height - this.getHeight()) / 2;
+
+        this.setLocation(posX, posY);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -70,15 +82,15 @@ public class UIpointAllocation extends javax.swing.JFrame implements ActionListe
         jPanel1.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, 30));
 
         classLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        classLabel.setText("Bard");
+        classLabel.setText(Main.data.getJobName());
         jPanel1.add(classLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 130, -1));
 
         pointsLeftLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        pointsLeftLabel.setText("Points Left :  10");
+        pointsLeftLabel.setText("Points Left : " + points);
         jPanel1.add(pointsLeftLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, -1, 20));
 
         nameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nameLabel.setText("Bibillyro Zazallyro");
+        nameLabel.setText(Main.data.getName() + " " + Main.data.getSurname());
         jPanel1.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 130, -1));
 
         reassignButton.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
@@ -207,32 +219,33 @@ public class UIpointAllocation extends javax.swing.JFrame implements ActionListe
     }
 
     // Variables declaration - do not modify
-    private javax.swing.JButton addChaButton;
-    private javax.swing.JButton addConButton;
-    private javax.swing.JButton addDexButton;
-    private javax.swing.JButton addItlButton;
-    private javax.swing.JButton addStrButton;
-    private javax.swing.JButton addWisButton;
-    private javax.swing.JLabel chaStatLabel;
-    private javax.swing.JLabel chaTextLabel;
-    private javax.swing.JLabel classLabel;
-    private javax.swing.JLabel conStatLabel;
-    private javax.swing.JLabel conTextLabel;
-    private javax.swing.JLabel dexStatLabel;
-    private javax.swing.JLabel dexTextLabel;
-    private javax.swing.JLabel itlStatLabel;
-    private javax.swing.JLabel itlTextLabel;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel nameLabel;
-    private javax.swing.JButton okButton;
-    private javax.swing.JLabel pointsLeftLabel;
-    private javax.swing.JButton reassignButton;
-    private javax.swing.JLabel strStatLabel;
-    private javax.swing.JLabel strTextLabel;
-    private javax.swing.JLabel titleLabel;
-    private javax.swing.JLabel wisStatLabel;
-    private javax.swing.JLabel wisTextLabel;
+    private JButton addChaButton;
+    private JButton addConButton;
+    private JButton addDexButton;
+    private JButton addItlButton;
+    private JButton addStrButton;
+    private JButton addWisButton;
+    private JLabel chaStatLabel;
+    private JLabel chaTextLabel;
+    private JLabel classLabel;
+    private JLabel conStatLabel;
+    private JLabel conTextLabel;
+    private JLabel dexStatLabel;
+    private JLabel dexTextLabel;
+    private JLabel itlStatLabel;
+    private JLabel itlTextLabel;
+    private JButton jButton2;
+    private JPanel jPanel1;
+    private JLabel nameLabel;
+    private JButton okButton;
+    private JLabel pointsLeftLabel;
+    private JButton reassignButton;
+    private JLabel strStatLabel;
+    private JLabel strTextLabel;
+    private JLabel titleLabel;
+    private JLabel wisStatLabel;
+    private JLabel wisTextLabel;
+    private JLabel backGround;
 
     public void refreshPAUI(){
         strStatLabel.setText(String.valueOf(Main.data.getAttStrength()));
@@ -241,6 +254,7 @@ public class UIpointAllocation extends javax.swing.JFrame implements ActionListe
         wisStatLabel.setText(String.valueOf(Main.data.getAttWisdom()));
         itlStatLabel.setText(String.valueOf(Main.data.getAttIntelligence()));
         chaStatLabel.setText(String.valueOf(Main.data.getAttCharisma()));
+        pointsLeftLabel.setText("Points Left :" + points);
     }
 
     @Override
@@ -273,15 +287,13 @@ public class UIpointAllocation extends javax.swing.JFrame implements ActionListe
             points = maxPoints;
             refreshPAUI();
         } else if (e.getSource() == okButton) {
-            maxPoints = 0;
-            Main.hero.calculateHP();
-            Main.hero.calculateMana();
-            Main.hero.calculateDefense();
-            Main.hero.calculateDamage();
-            Main.combat.addToSpellArrayList();
-            Main.combatui = new UI();
-            Main.combatui.setVisible(true);
-            Main.combatui.refreshCombatUI();
+            maxPoints = points;
+            Main.charCreation.calculateHP();
+            Main.charCreation.calculateDamage();
+            Main.charCreation.calculateDefense();
+            Main.charCreation.calculateMana();
+            Main.menuUI = new UIMenu();
+            Main.menuUI.setVisible(true);
             this.dispose();
         }
     }

@@ -20,14 +20,13 @@ public class Race  {
     }
 
     public void hyur (){
+        defaultAtt.setDefaultAttributes();
         str=1;
         dex=1;
         con=1;
         wis=1;
         itl=1;
         cha=1;
-
-
         Main.data.setAttStrength(Main.data.getAttStrength() + str);
         Main.data.setAttDexterity(Main.data.getAttDexterity() + dex);
         Main.data.setAttConstitution(Main.data.getAttConstitution() + con);
