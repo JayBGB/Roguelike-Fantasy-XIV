@@ -103,6 +103,10 @@ public class UIpointAllocation extends javax.swing.JFrame implements ActionListe
 
         okButton.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         okButton.setText("OK");
+        if (points > 0){
+            okButton.setEnabled(false);
+        }else
+            okButton.setEnabled(true);
         okButton.addActionListener(this);
 
         jPanel1.add(okButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 100, 40));
@@ -293,6 +297,10 @@ public class UIpointAllocation extends javax.swing.JFrame implements ActionListe
         itlStatLabel.setText(String.valueOf(Main.data.getAttIntelligence()));
         chaStatLabel.setText(String.valueOf(Main.data.getAttCharisma()));
         pointsLeftLabel.setText("Points Left :" + points);
+        if (points > 0){
+            okButton.setEnabled(false);
+        }else
+            okButton.setEnabled(true);
     }
 
     @Override
@@ -325,6 +333,7 @@ public class UIpointAllocation extends javax.swing.JFrame implements ActionListe
             points = maxPoints;
             refreshPAUI();
         } else if (e.getSource() == okButton) {
+            refreshPAUI();
             maxPoints = points;
             Main.charCreation.calculateHP();
             Main.charCreation.calculateDamage();

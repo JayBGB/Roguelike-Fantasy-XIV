@@ -773,6 +773,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
             } else if (Main.combat.checkStateCombat() == 1) {
                 eventTextArea.append("\n You lost the fight, going back to lobby \n");
                 Main.inv.save();
+                Main.menuUI = new UIMenu();
                 Main.menuUI.setVisible(true);
                 Main.menuUI.refreshMenuUI();
                 this.dispose();
@@ -832,10 +833,11 @@ public class UI extends javax.swing.JFrame implements ActionListener {
         }if (e.getSource() == run){
                 int runProb = (int) (Main.data.getAttCharisma() + math.randomNumber(100,0));
                 if (runProb >= 50){
+                    Main.menuUI = new UIMenu();
                     Main.menuUI.setVisible(true);
                     this.dispose();
                 }else{
-                    eventTextArea.append("You tried to run, but failed");
+                    eventTextArea.append("\nYou tried to run, but failed\n");
                 }
         }if (e.getSource() == useHPPotion){
             if (Main.hpPotion.getQuantity() - 1 <= 0) {
@@ -859,7 +861,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
                 eventTextArea.append("\nYou use a Mana potion and restore " + 50 + " mana.\n");
             }
             refreshCombatUI();
-        }if (!defenseCase && !noPotionsCase && !enemyDead) {
+        }if (!defenseCase && !noPotionsCase && !enemyDead && !notEnhoughManaCase) {
             Main.combat.enemyTurn();
             eventTextArea.append("\n" + Main.enemyData.geteName() + " attacked, you receive " + math.floatFormat.format(Main.enemyData.geteDmg()) + "\n");
             checkWinLose();

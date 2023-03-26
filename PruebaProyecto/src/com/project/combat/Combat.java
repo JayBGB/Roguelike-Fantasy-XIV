@@ -22,6 +22,7 @@ public class Combat {
      */
     public void addToSpellArrayList () {
         int job = Main.data.getJob();
+        spellArray.clear();
         switch (job) {
             case 0: // Warrior
                 spellArray.add(new Ability("Inner Release", "Unleash your rage and crush your enemy!\nDamage: "+ math.floatFormat.format((float) (Main.data.getDamage() + (Main.data.getDamage() * 0.2)))+"\nMana cost: 15\nHealing: None\nMana recovery: None", 15,  0+(float) (Main.data.getDamage() + (Main.data.getDamage() * 0.2)), 0));

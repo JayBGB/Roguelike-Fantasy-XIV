@@ -153,6 +153,7 @@ public class UIMenu extends javax.swing.JFrame implements ActionListener {
         jPanel1.add(menuManaPotButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 340, 80, 80));
 
         menuHpPotButton.setIcon(new ImageIcon("PruebaProyecto/src/com/project/images/items/hpPotion.png"));
+        menuHpPotButton.addActionListener(this);
         jPanel1.add(menuHpPotButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 340, 80, 80));
 
         menuManaPotAmmount.setFont(new java.awt.Font("Adventure ReQuest", 0, 12)); // NOI18N
@@ -281,8 +282,8 @@ public class UIMenu extends javax.swing.JFrame implements ActionListener {
     public void refreshMenuUI(){
         Main.inv.load();
         menuGoldAmmount.setText(String.valueOf(Main.gold.getQuantity()));
-        menuHpPotAmmount.setText(String.valueOf(Main.hpPotion.getQuantity()));
-        menuManaPotAmmount.setText(String.valueOf(Main.manaPotion.getQuantity()));
+        menuManaPotAmmount.setText("Ammount: " + Main.manaPotion.getQuantity());
+        menuHpPotAmmount.setText("Ammount: " + Main.hpPotion.getQuantity());
         if (UIpointAllocation.points < 1){
             menuAllocationButton.setEnabled(false);
         }else
@@ -295,24 +296,27 @@ public class UIMenu extends javax.swing.JFrame implements ActionListener {
             Main.charCreation.calculateMana();
             Main.charCreation.calculateDefense();
             Main.charCreation.calculateDamage();
-            Main.combat.addToSpellArrayList();
             Main.combat.setHeroIsAlive(true);
+            Main.combat.addToSpellArrayList();
             Main.combatui = new UI();
             Main.combatui.setVisible(true);
             Main.combatui.startCombat();
             Main.combatui.refreshCombatUI();
             this.dispose();
         }else if (e.getSource() == menuAllocationButton){
-            UIpointAllocation.points = 50;
-            UIpointAllocation.maxPoints = 50;
+            UIpointAllocation.points = 25;
+            UIpointAllocation.maxPoints = 25;
             Main.paUI = new UIpointAllocation();
             Main.paUI.setVisible(true);
             this.dispose();
         }else if (e.getSource() == menuHpPotButton){
-            Main.hpPotion.setQuantity(Main.hpPotion.getQuantity() + 1);
-            Main.inv.load();
-            Main.gold.setQuantity(Main.gold.getQuantity() - 100);
-            Main.inv.save();
+            if (Main.gold.getQuantity() >= 100) {
+                Main.hpPotion.setQuantity(Main.hpPotion.getQuantity() + 1);
+                Main.inv.load();
+                Main.gold.setQuantity(Main.gold.getQuantity() - 100);
+                Main.inv.save();
+                refreshMenuUI();
+            }
         }else if (e.getSource() == menuManaPotButton){
             if (Main.gold.getQuantity() >= 100) {
                 Main.manaPotion.setQuantity(Main.manaPotion.getQuantity() + 1);
