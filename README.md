@@ -2,7 +2,7 @@
 Para hacer el programa que nos saque de la mugre cuando lo vendamos a la NASA.
 
 # WARNING
-## THIS GAME DOES NOT HAVE DIFFICULTY SETTINGS AS THAT DOES NOT CONCUR WITH THE AUTHORS' VIEW. IF YOU WANT EASY MODE, GO PLAY MY LITTLE PONY.
+## THIS GAME DOES NOT HAVE DIFFICULTY SETTINGS AS THAT DOES NOT CONCUR WITH THE AUTHORS' VIEW.
 
 # To-do-list:
 ## Races:
@@ -18,32 +18,32 @@ Para hacer el programa que nos saque de la mugre cuando lo vendamos a la NASA.
 ## Items
 ## Damage and Combat System
 - Player's defense -> Done.
-- Player's attack -> WIP
+- Player's attack -> Done.
 ## HP & Mana
 - HP -> Done.
 - MANA -> Done.
-- MANA COST -> WIP
+- MANA COST -> Done.
 ## Inventory
 ## Stat Block selection
 - Attribute selection -> Done.
 ## Jobs skills
 ### COOLDOWN SYSTEM SHOULD BE A PRIORITY
 - AST - Done.
-- BRD - WIP
+- BRD - Done.
 - BLM - Done.
-- DNC - WIP
-- DRK - WIP
-- DRG - WIP
-- GNB - WIP
-- MCH - WIP
-- MNK - WIP
-- NIN - WIP
-- PLD - WIP
-- RPR - WIP
-- RDM - WIP
-- SGE - WIP
-- SAM - WIP
-- SCH - WIP
-- SMN - WIP
-- WAR - Only cooldowns left.
-- WHM
+- DNC - Done.
+- DRK - Done.
+- DRG - Done.
+- GNB - Done.
+- MCH - Done.
+- MNK - Done.
+- NIN - Done.
+- PLD - Done.
+- RPR - Done.
+- RDM - Done.
+- SGE - Done.
+- SAM - Done.
+- SCH - Done.
+- SMN - Done.
+- WAR - Done.
+- WHM - Done.
