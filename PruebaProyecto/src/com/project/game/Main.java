@@ -15,9 +15,12 @@ import java.io.File;
 
 /**
  * @author Jay & Billy
+ * @version 1.0
  */
 
 public class Main {
+
+    //Static objects
     public static CharData data = new CharData();
     public static EnemyData enemyData = new EnemyData();
     public static Combat combat = new Combat();
@@ -33,7 +36,7 @@ public class Main {
     public static UIMenu menuUI;
 
     /**
-     *
+     * Main method.
      * @param args
      */
     public static void main(String[] args) {

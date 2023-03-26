@@ -3,7 +3,14 @@ package com.project.characters;
 import com.project.game.Main;
 import com.projectLibrary.mathematics.math;
 
+/**
+ * @author Jay & Billy
+ * @version 1.0
+ */
+
 public class EnemyData {
+
+    //VARIABLES
 
     public String eName;
     public float eHp;
@@ -11,42 +18,73 @@ public class EnemyData {
     public float eDmg;
     public static String enemyImgUrl;
 
+    /**
+     *
+     * @return Returns enemy's current HP.
+     */
     public float geteHp() {
         return eHp;
     }
 
+    /**
+     *
+     * @param eHp Sets enemy's current HP.
+     */
     public void seteHp(float eHp) {
         this.eHp = eHp;
     }
 
+    /**
+     *
+     * @return Returns enemy's damage.
+     */
     public float geteDmg() {
         return eDmg;
     }
 
+    /**
+     *
+     * @param eDmg Sets enemy's damage.
+     */
     public void seteDmg(float eDmg) {
         this.eDmg = eDmg;
     }
 
+    /**
+     *
+     * @return Returns enemy's HP.
+     */
     public float geteMaxHp() {
         return eMaxHp;
     }
 
+    /**
+     *
+     * @param eMaxHp Sets enemy's HP.
+     */
     public void seteMaxHp(float eMaxHp) {
         this.eMaxHp = eMaxHp;
     }
 
+    /**
+     *
+     * @return Returns enemy's name.
+     */
     public String geteName() {
         return eName;
     }
 
+    /**
+     *
+     * @param eName Sets enemy's name.
+     */
     public void seteName(String eName) {
         this.eName = eName;
     }
 
-    public void getEnemy() {
-
-    }
-
+    /**
+     * Method that creates an enemy entity.
+     */
     public void createEnemy() {
         switch ((int) math.randomNumber(10, 1)) {//Change the left number so it matches the number of enemies
             case 1:
@@ -87,7 +125,7 @@ public class EnemyData {
             case 6:
                 enemyImgUrl="PruebaProyecto/src/com/project/images/Enemy/enemyFunguar.png";
                 Main.enemyData.seteName("Funguar");//Enemy name
-                Main.enemyData.seteMaxHp(math.randomNumber(15, 5));//Max HP
+                Main.enemyData.seteMaxHp(math.randomNumber(20, 15));//Max HP
                 Main.enemyData.seteHp(Main.enemyData.geteMaxHp());//Enemy HP
                 Main.enemyData.seteDmg(math.randomNumber(5, 2));//Enemy Damage
                 break;
@@ -122,8 +160,11 @@ public class EnemyData {
         }
     }
 
+    /**
+     * Method that creates a boss entity.
+     */
     public void createBoss() {
-        switch (math.randomNumber(6, 1)) {
+        switch ((int)math.randomNumber(6, 1)) {
 
             case 1:
                 enemyImgUrl="PruebaProyecto/src/com/project/images/Bosses/bossIfrit.png";

@@ -1,15 +1,27 @@
 package com.project.combat;
 
-import com.project.game.Main;
+/**
+ * @author Jay & Billy
+ * @version 1.0
+ */
 
 public class Ability {
 
+    //VARIABLES
     String name;
     String spellInfo;
     float manaCost;
     float spellDmg;
     float spellHealing;
 
+    /**
+     *
+     * @param name Spell name.
+     * @param spellInfo Spell info.
+     * @param manaCost Spell's mana cost.
+     * @param spellDmg Spell's damage.
+     * @param spellHealing Spell's healing.
+     */
     public Ability(String name, String spellInfo, float manaCost,float spellDmg, float spellHealing) {
         this.name = name;
         this.spellInfo = spellInfo;
@@ -18,45 +30,22 @@ public class Ability {
         this.spellHealing = spellHealing;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    /**
+     *
+     * @return Returns spell info.
+     */
     public String getSpellInfo() {
         return spellInfo;
     }
 
-    public void setSpellInfo(String spellInfo) {
-        this.spellInfo = spellInfo;
-    }
-
+    /**
+     *
+     * @return Returns spells mana cost.
+     */
     public float getManaCost() {
         return manaCost;
     }
 
-    public void setManaCost(float manaCost) {
-        this.manaCost = manaCost;
-    }
-
-    public float getSpellDmg() {
-        return spellDmg;
-    }
-
-    public void setSpellDmg(float spellDmg) {
-        this.spellDmg = spellDmg;
-    }
-
-    public float getSpellHealing() {
-        return spellHealing;
-    }
-
-    public void setSpellHealing(float spellHealing) {
-        this.spellHealing = spellHealing;
-    }
 }
 
 

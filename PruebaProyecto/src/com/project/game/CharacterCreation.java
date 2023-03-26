@@ -1,21 +1,13 @@
-package com.project.game; /**
- * @author Jay & Billy
- */
+package com.project.game;
 
 import com.project.characters.Race;
-import javax.swing.*;
+
+/**
+ * @author Jay & Billy
+ * @version 1.0
+ */
 
 public class CharacterCreation{
-
-    // Races
-    private final int HYUR = 0;
-    private final int ELEZEN = 1;
-    private final int MIQOTE = 2;
-    private final int ROEGADYN = 3;
-    private final int LALAFELL = 4;
-    private final int AURA = 5;
-    private final int VIERA = 6;
-    private final int HROTHGAR = 7;
 
     // Jobs
     private final int WAR = 0;
@@ -34,6 +26,8 @@ public class CharacterCreation{
     public static String heroImgUrl;
     public static String raceUrl;
     public static String raceName;
+    public static String raceDescription;
+    public static String jobDescription;
 
 
     /**
@@ -111,113 +105,76 @@ public class CharacterCreation{
             switch (Main.data.getJob()){
                 case WAR:
                     Main.data.setJobName("Warrior");
-                    heroImgUrl = heroImgUrl + "war" + raceName;
+                    heroImgUrl = raceUrl + "war" + raceName;
+                    jobDescription="Wielding greataxes and heavy armors, warriors learn to harness their inner-beasts and translate that power to unbridled savagery on the battlefield.\nSTR +2\nDEX -1\nCON +1\nCHA -2";
+                    tempCon = 1;
+                    tempStr = 2;
+                    tempCha = -2;
+                    tempDex = -1;
                     break;
                 case BRD:
                     Main.data.setJobName("Bard");
-                    heroImgUrl = heroImgUrl + "brd" + raceName;
+                    heroImgUrl = raceUrl + "brd" + raceName;
+                    jobDescription="Bards trace their origins back to the bowmen of eld, who sang in the heat of battle to fortify the spirits of their companions.\nSTR -1\nDEX +2\nCON -2\nCHA +1";
+                    tempCha = 1;
+                    tempDex = 2;
+                    tempCon = -2;
+                    tempStr = -1;
                     break;
                 case BLM:
                     Main.data.setJobName("Black Mage");
-                    heroImgUrl = heroImgUrl + "blm" + raceName;
+                    heroImgUrl = raceUrl + "blm" + raceName;
+                    jobDescription="In days long past, there existed an occult and arcane art known as black magic. Those who learned to wield it came to be called black mages.\nCON -3\nINT +3";
+                    tempItl = 3;
+                    tempCon = -3;
                     break;
                 case AST:
                     Main.data.setJobName("Astrologian");
-                    heroImgUrl = heroImgUrl + "ast" + raceName;
+                    heroImgUrl = raceUrl + "ast" + raceName;
+                    jobDescription="By attuning their aetherial energies to that of constellations, Astrologians learned to wield magicks which grants its users power over fate.\nSTR -2\nCON -1\nINT +1\nCHA +2";
+                    tempItl = 1;
+                    tempCha = 2;
+                    tempCon = -1;
+                    tempStr = -2;
                     break;
             }
         } catch (Exception e) {
             System.out.println("Job selection error: " + e.getMessage());
         }
     }
-    public void pointAllocation(int levels){
 
-        try{
-
-            int limit;
-            int inputYesNo;
-            int tempStr = Main.data.getAttStrength();
-            int tempDex = Main.data.getAttDexterity();
-            int tempCon = Main.data.getAttConstitution();
-            int tempInt= Main.data.getAttIntelligence();
-            int tempWis= Main.data.getAttWisdom();
-            int tempCha= Main.data.getAttCharisma();
-
-            do {
-                limit = 0;
-                do {
-                    limit++;
-                    String[] attArray = new String[]{"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"};
-                    int inputPoints = JOptionPane.showOptionDialog(null, "Choose which attributes you wish to put points into.\n" + Main.data.getName() + " " + Main.data.getSurname() + "'s attributes\nStrength: " + Main.data.getAttStrength() + "\nDexterity: " + Main.data.getAttDexterity() + "\nConstitution: " + Main.data.getAttConstitution() + "\nIntelligence: " + Main.data.getAttIntelligence() + "\nWisdom: " + Main.data.getAttWisdom() + "\nCharisma: " + Main.data.getAttCharisma(), "Character's Attributes", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, attArray, attArray[0]);
-
-                    switch (inputPoints) {
-                        case STRENGTH:
-                            Main.data.setAttStrength(Main.data.getAttStrength() + 1);
-                            break;
-
-                        case DEXTERITY:
-                            Main.data.setAttDexterity(Main.data.getAttDexterity() + 1);
-                            break;
-
-                        case CONSTITUTION:
-                            Main.data.setAttConstitution(Main.data.getAttConstitution() + 1);
-                            break;
-
-                        case INTELLIGENCE:
-                            Main.data.setAttIntelligence(Main.data.getAttIntelligence() + 1);
-                            break;
-
-                        case WISDOM:
-                            Main.data.setAttWisdom(Main.data.getAttIntelligence() + 1);
-                            break;
-
-                        case CHARISMA:
-                            Main.data.setAttCharisma(Main.data.getAttCharisma() + 1);
-                            break;
-                    }
-                } while (limit < levels);
-
-                String[] ysArray = new String[]{"Yes","No"};
-                inputYesNo = JOptionPane.showOptionDialog(null, "Are you sure you want to continue with these attributes?\n" + Main.data.getName() + " " + Main.data.getSurname() + "'s attributes\nStrength: " + Main.data.getAttStrength() + "\nDexterity: " + Main.data.getAttDexterity() + "\nConstitution: " + Main.data.getAttConstitution() + "\nIntelligence: " + Main.data.getAttIntelligence() + "\nWisdom: " + Main.data.getAttWisdom() + "\nCharisma: " + Main.data.getAttCharisma(), "Character's Attributes", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, ysArray, ysArray[0]);
-                if(inputYesNo == 1){
-                    Main.data.setAttStrength(tempStr);
-                    Main.data.setAttDexterity(tempDex);
-                    Main.data.setAttConstitution(tempCon);
-                    Main.data.setAttIntelligence(tempInt);
-                    Main.data.setAttWisdom(tempWis);
-                    Main.data.setAttCharisma(tempCha);
-                    }
-                }while(inputYesNo == 1);
-
-        }catch(Exception pointException){
-            System.out.println("Point allocation error: "+pointException.getMessage());
-        }
-    }
-
+    /**
+     * Method that calculates maximum HP.
+     */
     public void calculateHP() {
         float hp = Main.data.getAttConstitution() * 10;
         Main.data.setMaxHp(hp);
         Main.data.setHp(hp);
-        System.out.println("Player's HP: "+hp); // HAY QUE QUITARLO A POSTERIORI, SOLO PARA TESTING
     }
 
+    /**
+     * Method that calculates maximum mana.
+     */
     public void calculateMana(){
         float mana = Main.data.getAttIntelligence() * 10;
         Main.data.setMaxMana(mana);
         Main.data.setMana(mana);
-        System.out.println("Player's Mana: "+mana); // HAY QUE QUITARLO A POSTERIORI, SOLO PARA TESTING
-
     }
 
+    /**
+     * Method that calculates base defense.
+     */
     public void calculateDefense(){
 
         float defense = 10f+Main.data.getAttConstitution()+Main.data.getAttDexterity();
         Main.data.setDefense(defense);
         float defensePercentage= (defense/2)/100;
         Main.data.setDefensePercentage(defensePercentage);
-        System.out.println("Player's Defense: "+defense+"\nDefense Percentage: "+defensePercentage); // HAY QUE QUITARLO A POSTERIORI, SOLO PARA TESTING
     }
 
+    /**
+     * Method that calculates base damage.
+     */
     public void calculateDamage(){
         int job = Main.data.getJob();
         switch (job) {

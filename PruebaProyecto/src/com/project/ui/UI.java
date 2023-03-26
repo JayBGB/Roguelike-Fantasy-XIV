@@ -15,6 +15,7 @@ import java.io.IOException;
 
 import com.project.combat.Combat;
 
+import com.project.inventory.Inventory;
 import com.projectLibrary.mathematics.math;
 
 
@@ -119,13 +120,13 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
         backGround.setIcon(new javax.swing.ImageIcon(bgUrl));
 
-        pjPanel.setBackground(new java.awt.Color(150, 70, 200));
+        pjPanel.setBackground(new java.awt.Color(204, 204, 255));
         pjPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.white, java.awt.Color.lightGray));
 
         pjImgPanel.setOpaque(false);
         pjImgPanel.setPreferredSize(new java.awt.Dimension(0, 250));
 
-        pj2Separator.setForeground(new java.awt.Color(255, 255, 255));
+        pj2Separator.setForeground(new java.awt.Color(204, 204, 255));
 
         javax.swing.GroupLayout pjImgPanelLayout = new javax.swing.GroupLayout(pjImgPanel);
         pjImgPanel.setLayout(pjImgPanelLayout);
@@ -143,7 +144,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
         );
         pjImgLabel.setIcon(new ImageIcon(CharacterCreation.heroImgUrl + ".png"));
 
-        fightStats.setBackground(new java.awt.Color(102, 0, 102));
+        fightStats.setBackground(new java.awt.Color(204, 204, 255));
         fightStats.setAutoscrolls(true);
         fightStats.setOpaque(false);
 
@@ -213,7 +214,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
         charStats.setOpaque(false);
 
-        pj3Separator.setForeground(new java.awt.Color(255, 255, 255));
+        pj3Separator.setForeground(new java.awt.Color(204, 204, 255));
 
         strText.setText("Strength :");
 
@@ -310,7 +311,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
         namePanel.setOpaque(false);
 
-        pj1Separator.setForeground(new java.awt.Color(255, 255, 255));
+        pj1Separator.setForeground(new java.awt.Color(204, 204, 255));
 
         jobText.setText(Main.data.getJobName());
 
@@ -368,19 +369,19 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
         fightingPanel.setOpaque(false);
 
-        abilities.setBackground(new java.awt.Color(22, 5, 80));
+        abilities.setBackground(new java.awt.Color(204, 204, 255));
         abilities.setText("Use Spell");
         abilities.addActionListener(this);
 
-        attack.setBackground(new java.awt.Color(22, 5, 80));
+        attack.setBackground(new java.awt.Color(204, 204, 255));
         attack.setText("Attack");
         attack.addActionListener(this);
 
-        run.setBackground(new java.awt.Color(22, 5, 80));
+        run.setBackground(new java.awt.Color(204, 204, 255));
         run.setText("Run");
         run.addActionListener(this);
 
-        defense.setBackground(new java.awt.Color(22, 5, 80));
+        defense.setBackground(new java.awt.Color(204, 204, 255));
         defense.setText("Defense");
         defense.addActionListener(this);
 
@@ -513,12 +514,20 @@ public class UI extends javax.swing.JFrame implements ActionListener {
         useManaPotion.setIcon(new ImageIcon("PruebaProyecto/src/com/project/images/items/manaPotion.png"));
 
         hpPotionShowText.setText("HP");
+        hpPotionShowText.setOpaque(true);
+        hpPotionShowText.setBackground(new Color(204, 204, 255));
 
         manaPotionShowText.setText("MANA");
+        manaPotionShowText.setOpaque(true);
+        manaPotionShowText.setBackground(new Color(204, 204, 255));
 
         hpPotionStat.setText("10");
+        hpPotionStat.setOpaque(true);
+        hpPotionStat.setBackground(new Color(204, 204, 255));
 
         manaPotionStat.setText("10");
+        manaPotionStat.setOpaque(true);
+        manaPotionStat.setBackground(new Color(204, 204, 255));
 
         javax.swing.GroupLayout potionPanelLayout = new javax.swing.GroupLayout(potionPanel);
         potionPanel.setLayout(potionPanelLayout);
@@ -840,14 +849,14 @@ public class UI extends javax.swing.JFrame implements ActionListener {
             }
             refreshCombatUI();
         }if (e.getSource() == useManaPotion) {
-            if (Main.manaPotions.getQuantity() - 1 <= 0) {
-                Main.manaPotions.setQuantity(0);
+            if (Main.manaPotion.getQuantity() - 1 <= 0) {
+                Main.manaPotion.setQuantity(0);
                 eventTextArea.append("\nYou don't have mana potions left\n");
                 noPotionsCase = true;
             } else {
-                Main.manaPotions.setQuantity(Main.manaPotions.getQuantity() - 1);
-                Main.combat.doMana(Main.manaPotions.getValue());
-                eventTextArea.append("\nYou use a Mana potion and restore " + math.floatFormat.format(-Main.manaPotions.getValue()) + " mana.\n");
+                Main.manaPotion.setQuantity(Main.manaPotion.getQuantity() - 1);
+                Main.combat.doMana(-50);
+                eventTextArea.append("\nYou use a Mana potion and restore " + 50 + " mana.\n");
             }
             refreshCombatUI();
         }if (!defenseCase && !noPotionsCase && !enemyDead) {

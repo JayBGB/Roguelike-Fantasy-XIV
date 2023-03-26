@@ -4,6 +4,7 @@ import com.project.game.Main;
 
 /**
  * @author Jay & Billy
+ * @version 1.0
  */
 
 public class CharData{
@@ -28,48 +29,7 @@ public class CharData{
     private float defensePercentage;
     private float damage;
 
-
-
-
     public CharData(){}
-
-    /**
-     *
-     /**
-     *
-     * @param surname Hero's surname.
-     * @param race Hero's race.
-     * @param attStrength Hero's base STR attribute.
-     * @param attDexterity Hero's base DEX attribute.
-     * @param attConstitution Hero's base CON attribute.
-     * @param attWisdom Hero's base WIS attribute.
-     * @param attIntelligence Hero's base INT attribute.
-     * @param attCharisma Hero's base CHA attribute.
-     * @param maxMana Hero's mana.
-     * @param name
-     * @param maxHp
-     * @param hp
-     * @param defense
-     * @param defensePercentage
-     * @param damage
-     */
-    public CharData(String surname, int race, int attStrength, int attDexterity, int attConstitution, int attWisdom, int attIntelligence, int attCharisma, float maxMana, String name, float maxHp, float hp, float defense, float defensePercentage, float damage) {
-        this.surname = surname;
-        this.race = race;
-        this.attStrength = attStrength;
-        this.attDexterity = attDexterity;
-        this.attConstitution = attConstitution;
-        this.attWisdom = attWisdom;
-        this.attIntelligence = attIntelligence;
-        this.attCharisma = attCharisma;
-        this.maxMana = maxMana;
-        this.name = name;
-        this.maxHp = maxHp;
-        this.hp = hp;
-        this.defense = defense;
-        this.defensePercentage = defensePercentage;
-        this.damage = damage;
-    }
 
     // GETTERS & SETTERS
 
@@ -355,8 +315,24 @@ public class CharData{
         return jobName;
     }
 
+    /**
+     *
+     * @param jobName
+     */
     public void setJobName(String jobName) {
         this.jobName = jobName;
+    }
+
+    /**
+     * Method that sets the PC's attributes to their default values.
+     */
+    public void setDefaultAttributes(){
+        Main.data.setAttStrength(10);
+        Main.data.setAttDexterity(10);
+        Main.data.setAttConstitution(10);
+        Main.data.setAttIntelligence(10);
+        Main.data.setAttWisdom(10);
+        Main.data.setAttCharisma(10);
     }
 }
 

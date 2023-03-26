@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 /**
  *
@@ -214,6 +216,42 @@ public class UIpointAllocation extends javax.swing.JFrame implements ActionListe
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+
+        try {
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("PruebaProyecto/src/com/project/images/font/AdventureRequest-j8W9.ttf"));
+
+            GraphicsEnvironment graphic = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            graphic.registerFont(customFont);
+
+            String fontName = customFont.getFamily();
+
+            titleLabel.setFont(new Font(fontName, Font.PLAIN,24));
+            classLabel.setFont(new Font(fontName, Font.PLAIN,14));
+            nameLabel.setFont(new Font(fontName, Font.PLAIN,14));
+            pointsLeftLabel.setFont(new Font(fontName, Font.PLAIN,18));
+            reassignButton.setFont(new Font(fontName, Font.PLAIN,14));
+            okButton.setFont(new Font(fontName, Font.PLAIN,18));
+            strStatLabel.setFont(new Font(fontName, Font.PLAIN,16));
+            strTextLabel.setFont(new Font(fontName, Font.PLAIN,16));
+            dexStatLabel.setFont(new Font(fontName, Font.PLAIN,16));
+            dexTextLabel.setFont(new Font(fontName, Font.PLAIN,16));
+            conStatLabel.setFont(new Font(fontName, Font.PLAIN,16));
+            conTextLabel.setFont(new Font(fontName, Font.PLAIN,16));
+            itlStatLabel.setFont(new Font(fontName, Font.PLAIN,16));
+            itlTextLabel.setFont(new Font(fontName, Font.PLAIN,16));
+            wisStatLabel.setFont(new Font(fontName, Font.PLAIN,16));
+            wisTextLabel.setFont(new Font(fontName, Font.PLAIN,16));
+            chaStatLabel.setFont(new Font(fontName, Font.PLAIN,16));
+            chaTextLabel.setFont(new Font(fontName, Font.PLAIN,16));
+
+
+        } catch (IOException | FontFormatException e) {
+            e.printStackTrace();
+        }
+
+        backGround.setIcon(new javax.swing.ImageIcon("PruebaProyecto/src/com/project/images/backgrounds/backgroundCC.png"));
+        jPanel1.add(backGround, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 510));
 
         pack();
     }
