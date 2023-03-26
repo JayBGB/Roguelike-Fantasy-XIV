@@ -293,8 +293,7 @@ public class UIMenu extends javax.swing.JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == menuFightButton){
             Main.charCreation.calculateHP();
-            Main.charCreation.calculateMana();
-            Main.charCreation.calculateDefense();
+            Main.charCreation.calculateMana();Main.charCreation.calculateDefense();
             Main.charCreation.calculateDamage();
             Main.combat.setHeroIsAlive(true);
             Main.combat.addToSpellArrayList();

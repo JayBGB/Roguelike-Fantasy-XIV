@@ -4,11 +4,23 @@ import com.project.game.Main;
 
 import java.io.*;
 
+/**
+ * @author Jay & Billy
+ * @version 1.0
+ */
+
 public class Inventory {
 
+    //Objects and Array
     private Item[] items;
     private File file;
     public static final int GOLD = 0;
+
+    /**
+     * Creates the inventory
+     * @param file File that's to be stored.
+     * @param size Inventory size.
+     */
 
     public Inventory(File file, int size) {
         this.file = file;
@@ -16,20 +28,9 @@ public class Inventory {
         save();
     }
 
-    public void addItem(Item item, int slot) {
-        items[slot] = item;
-        save();
-    }
-
-    public void removeItem(int slot) {
-        items[slot] = null;
-        save();
-    }
-
-    public Item getItem(int slot) {
-        return items[slot];
-    }
-
+    /**
+     * Method to save items in your inventory.
+     */
     public void save() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("PruebaProyecto/inventory.txt"))) {
             writer.write(Main.gold.getName() + "," + Main.gold.getQuantity());
@@ -41,6 +42,9 @@ public class Inventory {
         }
     }
 
+    /**
+     * Method to load items from your inventory.
+     */
     public void load() {
         try (BufferedReader reader = new BufferedReader(new FileReader("PruebaProyecto/inventory.txt"))) {
             String[] values;
