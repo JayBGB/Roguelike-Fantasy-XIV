@@ -2,7 +2,6 @@ package com.project.ui;
 
 import com.project.game.CharacterCreation;
 import com.project.game.Main;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

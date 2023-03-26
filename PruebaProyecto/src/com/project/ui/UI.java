@@ -6,16 +6,12 @@ package com.project.ui;
 import com.project.characters.EnemyData;
 import com.project.game.CharacterCreation;
 import com.project.game.Main;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
-
 import com.project.combat.Combat;
-
-import com.project.inventory.Inventory;
 import com.projectLibrary.mathematics.math;
 
 
@@ -26,7 +22,6 @@ public class UI extends javax.swing.JFrame implements ActionListener {
     boolean enemyDead = false;
     boolean notEnhoughManaCase = false;
     int enemyCount = 0;
-    int tempGold = 0;
     String bgUrl;
 
     public UI(){
@@ -38,7 +33,6 @@ public class UI extends javax.swing.JFrame implements ActionListener {
      */
     private void initComponents() {
 
-        float spellDmg;
         jPanel1 = new JPanel();
         backGround = new JLabel();
         pjPanel = new JPanel();

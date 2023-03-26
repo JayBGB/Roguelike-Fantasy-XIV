@@ -2,7 +2,6 @@ package com.project.ui;
 
 
 import com.project.game.Main;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
