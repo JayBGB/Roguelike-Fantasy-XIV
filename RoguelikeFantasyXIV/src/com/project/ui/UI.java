@@ -106,10 +106,10 @@ public class UI extends javax.swing.JFrame implements ActionListener {
 
         int backgroundCheck = (int) math.randomNumber(4, 1);
         switch (backgroundCheck) {
-            case 1 -> bgUrl = "PruebaProyecto/src/com/project/images/backgrounds/ishgardBG.jpeg";
-            case 2 -> bgUrl = "PruebaProyecto/src/com/project/images/backgrounds/gridaniaBG.jpeg";
-            case 3 -> bgUrl = "PruebaProyecto/src/com/project/images/backgrounds/limsaBG.jpeg";
-            case 4 -> bgUrl = "PruebaProyecto/src/com/project/images/backgrounds/uldahBG.jpeg";
+            case 1 -> bgUrl = "RoguelikeFantasyXIV/src/com/project/images/backgrounds/ishgardBG.jpeg";
+            case 2 -> bgUrl = "RoguelikeFantasyXIV/src/com/project/images/backgrounds/gridaniaBG.jpeg";
+            case 3 -> bgUrl = "RoguelikeFantasyXIV/src/com/project/images/backgrounds/limsaBG.jpeg";
+            case 4 -> bgUrl = "RoguelikeFantasyXIV/src/com/project/images/backgrounds/uldahBG.jpeg";
         }
 
         backGround.setIcon(new javax.swing.ImageIcon(bgUrl));
@@ -499,13 +499,13 @@ public class UI extends javax.swing.JFrame implements ActionListener {
         useHPPotion.setMinimumSize(new java.awt.Dimension(65, 65));
         useHPPotion.setPreferredSize(new java.awt.Dimension(65, 65));
         useHPPotion.addActionListener(this);
-        useHPPotion.setIcon(new ImageIcon("PruebaProyecto/src/com/project/images/items/hpPotion.png"));
+        useHPPotion.setIcon(new ImageIcon("RoguelikeFantasyXIV/src/com/project/images/items/hpPotion.png"));
 
         useManaPotion.setMaximumSize(new java.awt.Dimension(65, 65));
         useManaPotion.setMinimumSize(new java.awt.Dimension(65, 65));
         useManaPotion.setPreferredSize(new java.awt.Dimension(65, 65));
         useManaPotion.addActionListener(this);
-        useManaPotion.setIcon(new ImageIcon("PruebaProyecto/src/com/project/images/items/manaPotion.png"));
+        useManaPotion.setIcon(new ImageIcon("RoguelikeFantasyXIV/src/com/project/images/items/manaPotion.png"));
 
         hpPotionShowText.setText("HP");
         hpPotionShowText.setOpaque(true);
@@ -608,7 +608,7 @@ public class UI extends javax.swing.JFrame implements ActionListener {
         spellList.setBackground(new java.awt.Color(204, 204, 255));
 
         try {
-            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("PruebaProyecto/src/com/project/images/font/AdventureRequest-j8W9.ttf"));
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("RoguelikeFantasyXIV/src/com/project/images/font/AdventureRequest-j8W9.ttf"));
 
             GraphicsEnvironment graphic = GraphicsEnvironment.getLocalGraphicsEnvironment();
             graphic.registerFont(customFont);

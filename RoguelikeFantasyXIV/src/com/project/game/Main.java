@@ -24,7 +24,7 @@ public class Main {
     public static CharData data = new CharData();
     public static EnemyData enemyData = new EnemyData();
     public static Combat combat = new Combat();
-    static File inventory = new File("PruebaProyecto/inventory.txt");
+    static File inventory = new File("RoguelikeFantasyXIV/inventory.txt");
     public static Inventory inv = new Inventory(inventory,Inventory.GOLD);
     public static Potions manaPotion = new Potions(5,"Mana Potion");
     public static Potions hpPotion = new Potions(5,"HP Potion");

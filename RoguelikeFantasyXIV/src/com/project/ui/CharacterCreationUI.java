@@ -131,7 +131,7 @@ public class CharacterCreationUI extends javax.swing.JFrame implements ActionLis
         creationContinueButton.addActionListener(this);
         jPanel1.add(creationContinueButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 240, 70));
 
-        creationBackground.setIcon(new javax.swing.ImageIcon("PruebaProyecto/src/com/project/images/backgrounds/backgroundCC.png")); // NOI18N
+        creationBackground.setIcon(new javax.swing.ImageIcon("RoguelikeFantasyXIV/src/com/project/images/backgrounds/backgroundCC.png")); // NOI18N
         jPanel1.add(creationBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

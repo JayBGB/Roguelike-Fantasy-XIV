@@ -147,11 +147,11 @@ public class UIMenu extends javax.swing.JFrame implements ActionListener {
         menuFightButton.addActionListener(this);
         jPanel1.add(menuFightButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 630, 230, 70));
 
-        menuManaPotButton.setIcon(new ImageIcon("PruebaProyecto/src/com/project/images/items/manaPotion.png"));
+        menuManaPotButton.setIcon(new ImageIcon("RoguelikeFantasyXIV/src/com/project/images/items/manaPotion.png"));
         menuManaPotButton.addActionListener(this);
         jPanel1.add(menuManaPotButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 340, 80, 80));
 
-        menuHpPotButton.setIcon(new ImageIcon("PruebaProyecto/src/com/project/images/items/hpPotion.png"));
+        menuHpPotButton.setIcon(new ImageIcon("RoguelikeFantasyXIV/src/com/project/images/items/hpPotion.png"));
         menuHpPotButton.addActionListener(this);
         jPanel1.add(menuHpPotButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 340, 80, 80));
 
@@ -229,7 +229,7 @@ public class UIMenu extends javax.swing.JFrame implements ActionListener {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 730, 80));
 
         menuBackgroundLabel.setFont(new java.awt.Font("Adventure ReQuest", 0, 12)); // NOI18N
-        menuBackgroundLabel.setIcon(new javax.swing.ImageIcon("PruebaProyecto/src/com/project/images/backgrounds/menuBG.jpeg")); // NOI18N
+        menuBackgroundLabel.setIcon(new javax.swing.ImageIcon("RoguelikeFantasyXIV/src/com/project/images/backgrounds/menuBG.jpeg")); // NOI18N
         jPanel1.add(menuBackgroundLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 730));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

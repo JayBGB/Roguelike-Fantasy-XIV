@@ -32,7 +32,7 @@ public class Inventory {
      * Method to save items in your inventory.
      */
     public void save() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("PruebaProyecto/inventory.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("RoguelikeFantasyXIV/inventory.txt"))) {
             writer.write(Main.gold.getName() + "," + Main.gold.getQuantity());
             writer.newLine();
         } catch (IOException e) {
@@ -46,7 +46,7 @@ public class Inventory {
      * Method to load items from your inventory.
      */
     public void load() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("PruebaProyecto/inventory.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("RoguelikeFantasyXIV/inventory.txt"))) {
             String[] values;
             values = reader.readLine().split(",");
             Main.gold.setName(values[0]);

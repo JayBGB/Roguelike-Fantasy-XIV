@@ -39,49 +39,49 @@ public class CharacterCreation{
             switch (Main.data.getRace()) {
                 case 0:
                     races.hyur();
-                    raceUrl = "PruebaProyecto/src/com/project/images/Hyur/";
+                    raceUrl = "RoguelikeFantasyXIV/src/com/project/images/Hyur/";
                     raceName = "Hyur";
                     raceDescription = "The hyur have a fairly average physique both in height and in their figure. They are recognized for their peculiarly short and rounded ears.\n+1 to all Attributes";
                     break;
                 case 1:
                     races.elezen();
-                    raceUrl = "PruebaProyecto/src/com/project/images/Elezen/";
+                    raceUrl = "RoguelikeFantasyXIV/src/com/project/images/Elezen/";
                     raceName = "Elezen";
                     raceDescription = "Recognized for their tall stature, long limbs, and slender bodies. In addition, they enjoy a generally longer lifespan than that of the Hyur.\nCHA +2\nINT +2\nDEX + 2";
                     break;
                 case 2:
                     races.miqote();
-                    raceUrl = "PruebaProyecto/src/com/project/images/Miqote/";
+                    raceUrl = "RoguelikeFantasyXIV/src/com/project/images/Miqote/";
                     raceName = "Miqote";
                     raceDescription = "Easily distinguished by their large ears and twitching, feline tails. Instinctive territoriality causes many among them to live solitary lives.\nWIS +2\nDEX +2\nCHA +1\nSTR +1";
                     break;
                 case 3:
                     races.roegadyn();
-                    raceUrl = "PruebaProyecto/src/com/project/images/Roegadyn/";
+                    raceUrl = "RoguelikeFantasyXIV/src/com/project/images/Roegadyn/";
                     raceName = "Roegadyn";
                     raceDescription = "Easily identified by their massive, muscular figures. They are also known for their compassion and unwavering loyalty.\nSTR +3\nCON +3";
                     break;
                 case 4:
                     races.lalafell();
-                    raceUrl = "PruebaProyecto/src/com/project/images/Lalafell/";
+                    raceUrl = "RoguelikeFantasyXIV/src/com/project/images/Lalafell/";
                     raceName = "Lalafell";
                     raceDescription = "People who are tiny compared to other races and have a childlike appearance, making it difficult to guess the exact age of a Lalafell individual.\nCHA +3\nDEX +3";
                     break;
                 case 5:
                     races.aura();
-                    raceUrl = "PruebaProyecto/src/com/project/images/Aura/";
+                    raceUrl = "RoguelikeFantasyXIV/src/com/project/images/Aura/";
                     raceName = "Au Ra";
                     raceDescription = "People with dragon-like ancestry who still bear horns and scales on their skin. They usually live in nomadic tribes.\nSTR +2\nDEX +2\nCON +2";
                     break;
                 case 6:
                     races.viera();
-                    raceUrl = "PruebaProyecto/src/com/project/images/Viera/";
+                    raceUrl = "RoguelikeFantasyXIV/src/com/project/images/Viera/";
                     raceName = "Viera";
                     raceDescription = "People with rabbit-like features who live secluded in the depths of the jungle. They do not know their gender until they reach adulthood.\nDEX +2\nINT +2\nWIS +2";
                     break;
                 case 7:
                     races.hrothgar();
-                    raceUrl = "PruebaProyecto/src/com/project/images/Hrothgar/";
+                    raceUrl = "RoguelikeFantasyXIV/src/com/project/images/Hrothgar/";
                     raceName = "Hrothgar";
                     raceDescription = "People with feline features that look much more like beasts than the Miqo'te. Despite this, they are calm and wise people.\nWIS +3\nSTR +2\nCON +1";
                     break;

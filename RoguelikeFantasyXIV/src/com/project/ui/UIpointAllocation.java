@@ -222,7 +222,7 @@ public class UIpointAllocation extends javax.swing.JFrame implements ActionListe
 
 
         try {
-            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("PruebaProyecto/src/com/project/images/font/AdventureRequest-j8W9.ttf"));
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("RoguelikeFantasyXIV/src/com/project/images/font/AdventureRequest-j8W9.ttf"));
 
             GraphicsEnvironment graphic = GraphicsEnvironment.getLocalGraphicsEnvironment();
             graphic.registerFont(customFont);
@@ -253,7 +253,7 @@ public class UIpointAllocation extends javax.swing.JFrame implements ActionListe
             e.printStackTrace();
         }
 
-        backGround.setIcon(new javax.swing.ImageIcon("PruebaProyecto/src/com/project/images/backgrounds/backgroundCC.png"));
+        backGround.setIcon(new javax.swing.ImageIcon("RoguelikeFantasyXIV/src/com/project/images/backgrounds/backgroundCC.png"));
         jPanel1.add(backGround, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 510));
 
         pack();
